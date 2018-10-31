@@ -55,7 +55,7 @@ function Player(){
     var time = utils.getTime(); // определяется текущий момент времени
     if(keyLogger.keyStatus.fire &&
       time - this.lastShootTime >= this.stats.shootDelayMs){  // определяется была ли нажата клавиша fire и прошло ли время задержки выстрела
-      bullets.bang({ // добавляем в объект bullets пулю
+      bullets.pushObj({ // добавляем в объект bullets пулю
         x:this.x,  // задаем начальное положение пули - координаты положения игрока по оси X
         y:this.y,  // задаем начальное положение пули - координаты положения игрока по оси Y
         angle:this.angle,  // задаем направление движения пули - угол, куда направлен игрок
@@ -76,6 +76,20 @@ function Player(){
     if(this.y + this.stats.size > height) {
       this.y = height - this.stats.size;
     }
+  };
+
+  this.getMinInfo = function(o){ //рассчет столкновения игрока и цели
+    var dist = 99999; //расстояние, предполагаемо большее суммы двух радиусов
+
+    var d = Math.sqrt(
+      (o.x - this.x)*(o.x - this.x)+
+      (o.y - this.y)*(o.y - this.y)
+    );
+    if(d < dist){
+      dist = d;
+      }
+
+    return {dist:dist};
   };
 
   this.render = function(ctx){   // отрисовываем игрока

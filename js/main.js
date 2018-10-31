@@ -23,14 +23,14 @@ player.y = height/2;
 }
 function updateGame(dt){
   bullets.update(dt);
-//  targets.update(dt);
+  targets.update(dt);
   player.update(dt);
 }
 function renderGame(){
   renderBackground();
   player.render(ctx);
   bullets.render(ctx);
-//  targets.render(ctx);
+  targets.render(ctx);
 }
 function renderBackground(){
   ctx.fillStyle = "#c6c6c6";

@@ -7,7 +7,7 @@ function Bullets(){
     bullet.vx = bullet.v * Math.cos(bullet.angle);
     bullet.vy = bullet.v * Math.sin(bullet.angle);
   }
-  this.bang = function(bullet){ // функция, куда передаются значения {x = player.x, y = player.y, angle = player.angle, v = 200}
+  this.pushObj = function(bullet){ // функция, куда передаются значения {x = player.x, y = player.y, angle = player.angle, v = 200}
     console.log('gangbang!!!');
     this.init(bullet);
 
@@ -18,8 +18,8 @@ function Bullets(){
     if(id > this.maxID) {   //увеличиваем значение для максимального количество ячеек, чтобы циклы в this.render() и this.update охватывали все элементы
       this.maxID = id;
     }
-    console.log(this.maxID);
-    console.log(bullets.objects);
+    //console.log(this.maxID);
+    //console.log(bullets.objects);
   };
 
   this.update = function(dt){  // обновляем местоположение каждой пули в координатной плосксти
@@ -52,21 +52,21 @@ function Bullets(){
     }
   };
 
- // this.getMinInfo = function(o){ //рассчет столкновения пули и цели
- //   var dist = 99999; //расстояние, предполагаемо большее суммы двух радиусов
- //   var obj;
- //   for(var i = 0;i <= this.maxID;i++){
- //     if(this.objects[i] == undefined) continue;
- //     var d = Math.sqrt(
- //       (o.x - this.objects[i].x)*(o.x - this.objects[i].x)+
- //       (o.y - this.objects[i].y)*(o.y - this.objects[i].y)
- //     );
- //     if(d < dist){
- //       dist = d;
- //       obj = this.objects[i];
- //     }
- //   }
- //   return {dist:dist,object:obj};
- // };
+  this.getMinInfo = function(o){ //рассчет столкновения пули и цели
+    var dist = 99999; //расстояние, предполагаемо большее суммы двух радиусов
+    var obj;
+    for(var i = 0;i <= this.maxID;i++){
+      if(this.objects[i] == undefined) continue;
+      var d = Math.sqrt(
+        (o.x - this.objects[i].x)*(o.x - this.objects[i].x)+
+        (o.y - this.objects[i].y)*(o.y - this.objects[i].y)
+      );
+      if(d < dist){
+        dist = d;
+        obj = this.objects[i];
+      }
+    }
+    return {dist:dist,object:obj};
+  };
 
 }
