@@ -47,7 +47,7 @@ function Bullets(){
 
       var obj = this.objects[i];
       ctx.beginPath();
-      ctx.arc(obj.x,obj.y,3,0,6.28);
+      ctx.arc(obj.x,obj.y,3,0,Math.PI * 2);
       ctx.fill();
     }
   };

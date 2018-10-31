@@ -12,12 +12,12 @@ function Player(){
 
 
   this.stats = {
+    size: 10,
     maxV:100,   //максимальная скорость игрока
     dAngle:0.03,  //угол поворота за один цикл
     acceleration:10,  //значение для ускорения и торможения игрока
-    shootDelayMs:1000   //время задержки между выстрелами
+    shootDelayMs:100   //время задержки между выстрелами
   };
-
 
   this.update = function(dt){  // изменение координат положения игрока
     if(keyLogger.keyStatus.up){
@@ -64,21 +64,24 @@ function Player(){
       this.lastShootTime = time;  // устанавливаем время последнего выстрела
     }
 
-    //  if(player.x - player.size < 0 || player.x + player.size > width)
-    //  {
-    //    player.vx = 0;
-    //  }
-    //  if(player.y - player.size < 0 || player.y + player.size > height)
-    //  {
-    //    player.vy = 0;
-    //  }
-
+    if(this.x - this.stats.size < 0) {  // устанавливаем ограничение передвижения игрока в пределах игрового поля
+      this.x = this.stats.size;
+    }
+    if(this.x + this.stats.size > width) {
+      this.x = width - this.stats.size;
+    }
+    if(this.y - this.stats.size < 0) {
+      this.y = this.stats.size;
+    }
+    if(this.y + this.stats.size > height) {
+      this.y = height - this.stats.size;
+    }
   };
 
   this.render = function(ctx){   // отрисовываем игрока
     ctx.fillStyle="#FF0000";
     ctx.beginPath();
-    ctx.arc(this.x,this.y,10,0,6.28);
+    ctx.arc(this.x,this.y,this.stats.size,0,Math.PI * 2);
     ctx.fill();
 
     ctx.strokeStyle="#FF0000";
