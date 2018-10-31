@@ -25,12 +25,14 @@ function updateGame(dt){
   bullets.update(dt);
   targets.update(dt);
   player.update(dt);
+  //score.update(dt);
 }
 function renderGame(){
   renderBackground();
   player.render(ctx);
   bullets.render(ctx);
   targets.render(ctx);
+  score.render(ctx);
 }
 function renderBackground(){
   ctx.fillStyle = "#c6c6c6";

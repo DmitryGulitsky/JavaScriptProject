@@ -9,6 +9,10 @@ function Bullets(){
   }
   this.pushObj = function(bullet){ // функция, куда передаются значения {x = player.x, y = player.y, angle = player.angle, v = 200}
     console.log('gangbang!!!');
+
+    score.countMinus();    // уменьшение счета преред исчезанием цели
+    console.log(score.currentScore);
+
     this.init(bullet);
 
     var id = -1; // задается начальное значение -1, чтобы далее через преинкремент обращаться к нулевому элементу массива this.objects[] и не запускать циклы в this.render() и this.update()
@@ -33,7 +37,8 @@ function Bullets(){
 
       if(   // удаляем элемент объекта this.objects, если вылетает за пределы игрового поля
         obj.x < 0 || obj.y < 0 ||
-        obj.x > width || obj.y > height) {
+        obj.x > width || obj.y > height ||
+        obj.remove) {
         delete this.objects[i];
       }
 

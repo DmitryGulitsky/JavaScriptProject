@@ -40,7 +40,7 @@ function Targets(){
       obj.y += obj.vy * dt;
 
       // console.log(this.objects[0].currentAlpha); //
-      if(obj.currentAlpha != obj.maxAlpha){   // задаем плавность
+      if(obj.currentAlpha != obj.maxAlpha){   // задаем плавность изменения непрозраности цели
         obj.currentAlpha += (obj.maxAlpha - obj.currentAlpha) / 100;
       }
 
@@ -50,11 +50,16 @@ function Targets(){
           infoBullets.object.remove = true;    // убираем пулю
           if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
             obj.hitAnimClock = 0;
+            score.countPlus();    // увеличивание счета преред исчезанием цели
           }
         }
-        var infoPlayer = player.getMinInfo(obj);
-        if(infoPlayer.dist <= obj.size){
-          console.log('Stolknulis!!!!');
+        var infoPlayer = player.getMinInfo(obj);    // возвращает объект {dist:dist} с расстоянием от игрока до цели
+        if(infoPlayer.dist <= obj.size * obj.scale){
+
+          if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
+            obj.hitAnimClock = 0;
+            score.countMegaMinus();    // увеличивание счета преред исчезанием цели
+          }
         }
 
       }
