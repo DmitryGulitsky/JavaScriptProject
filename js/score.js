@@ -21,13 +21,16 @@ function Score(){
   }
 
   this.render = function(ctx){
+    var scoreX = width * 0.9;
+    var scoreY = height * 0.1;
+    var scoreMaxY = height * 0.15;
     ctx.beginPath();
     ctx.fillStyle = 'white';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = 'normal 27px Arial';
-    ctx.fillText('Score:' + this.currentScore, 900, 25);
-    ctx.fillText('Max:  ' + this.maxScore, 900, 75);
+    ctx.fillText('Score:' + this.currentScore, scoreX, scoreY);
+    ctx.fillText('Max:  ' + this.maxScore, scoreX, scoreMaxY);
     ctx.stroke();
     }
 }

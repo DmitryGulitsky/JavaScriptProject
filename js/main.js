@@ -2,11 +2,17 @@ var canvas,
   ctx,
   width,
   height;
+
 function init(){
 
-  canvas = document.getElementById("canvas");
-  width = canvas.width;
-  height = canvas.height;
+  console.log('start init');
+
+  canvas = document.getElementById('canvas');
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width;
+  canvas.height = height;
   ctx = canvas.getContext('2d');
 
   window.onkeydown = keyLogger.keyDownListener;
@@ -35,6 +41,10 @@ function renderGame(){
   score.render(ctx);
 }
 function renderBackground(){
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
   ctx.fillStyle = "#c6c6c6";
   ctx.fillRect(0,0,width,height);
 }
