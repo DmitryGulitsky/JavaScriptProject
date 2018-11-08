@@ -33,9 +33,43 @@ var container = document.getElementById('menuContainer');
           event.target.style.cursor = 'default';
         });
 
+
+
         if (i === 0) {
           menuOptions[i].addEventListener('mousedown', function(){
             init();
+            musicSound.play();  // запускаем музыку в игре
+
+            rulesPage.hide();
+            scorePage.hide();
+            optionsPage.hide();
+          });
+        }
+
+        if (i === 1) {
+          menuOptions[i].addEventListener('mousedown', function(){
+            musicSound.stop();
+            scorePage.show();
+            rulesPage.hide();
+            optionsPage.hide();
+          });
+        }
+
+        if (i === 2) {
+          menuOptions[i].addEventListener('mousedown', function(){
+            musicSound.stop();
+            rulesPage.show();
+            scorePage.hide();
+            optionsPage.hide();
+          });
+        }
+
+        if (i === 3) {
+          menuOptions[i].addEventListener('mousedown', function(){
+            musicSound.stop();
+            optionsPage.show();
+            rulesPage.hide();
+            scorePage.hide();
           });
         }
       }
@@ -46,4 +80,7 @@ var container = document.getElementById('menuContainer');
   }
 
 mainMenu.render();
-mainMenu.control();
+
+scorePage.render(); // создание страниц в фоне
+rulesPage.render(); // создание страниц в фоне
+optionsPage.render(); // создание страниц в фоне

@@ -1,5 +1,5 @@
 var targets = new Targets();
-var targetsNumber = 10;
+var targetsNumber = 1;
 
 function Targets(){
 
@@ -48,6 +48,7 @@ function Targets(){
         var infoBullets = bullets.getMinInfo(obj);   // возвращает объект {dist:dist,object:obj} с сылкой на пулю и ее расстоянием до цели
         if(infoBullets.dist <= obj.size * obj.scale){  // условие, если пуля попадает в радиус цели
           infoBullets.object.remove = true;    // убираем пулю
+          bangSound.play();   // звук исчезновения цели
           if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
             obj.hitAnimClock = 0;
             score.countPlus();    // увеличивание счета преред исчезанием цели
@@ -57,6 +58,7 @@ function Targets(){
         if(infoPlayer.dist <= obj.size * obj.scale){
 
           if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
+
             obj.hitAnimClock = 0;
             score.countMegaMinus();    // увеличивание счета преред исчезанием цели
           }

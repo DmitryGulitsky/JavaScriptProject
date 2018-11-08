@@ -22,11 +22,16 @@ player.x = width/2;   // размещение игрока в центре по�
 player.y = height/2;
 
   setInterval(function(){
-    updateGame(0.01);
+    updateGame(24/1000);
     renderGame();
   },10);
 
 }
+
+function stopGame() {
+
+}
+
 function updateGame(dt){
   bullets.update(dt);
   targets.update(dt);
