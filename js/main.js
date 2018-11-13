@@ -61,6 +61,4 @@ function renderBackground(){
   height = window.innerHeight;
   canvas.width = width;
   canvas.height = height;
-  ctx.fillStyle = "#c6c6c6";
-  ctx.fillRect(0,0,width,height);
 }

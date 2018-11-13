@@ -4,12 +4,22 @@ function renderNewState() {
   let state = decodeURIComponent(hash.substr(1));
 
   if (state === '') {
-    state = {page: 'scores'};
+    state = {page: 'start'};
   } else {
     state = JSON.parse(state);
   }
 
   switch (state.page) {
+
+    case 'start':
+      startPage.render();
+      mainMenu.hide();
+      scorePage.hide();
+      rulesPage.hide();
+      optionsPage.hide();
+      //menuMusicSound.play(); // звук музыки в меню
+      break;
+
     case 'play':
       init();
       musicSound.play();  // запускаем музыку в игре
@@ -46,6 +56,9 @@ function renderNewState() {
 }
 function switchToState(state) {
   location.hash = encodeURIComponent(JSON.stringify(state));
+}
+var switchToStart = function switchToStart() {
+  switchToState({page: 'start'});
 }
 var switchToPlay = function switchToPlay() {
   switchToState({page: 'play'});

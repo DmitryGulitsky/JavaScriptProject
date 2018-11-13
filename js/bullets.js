@@ -48,7 +48,7 @@ function Bullets(){
   }
 
   this.render = function(ctx){  // отрисовка каждой пули
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#ff7974";
     for(var i = 0;i < this.maxID;i++){
       if(this.objects[i] == undefined) continue;
 
