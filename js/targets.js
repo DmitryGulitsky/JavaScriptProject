@@ -1,8 +1,8 @@
 var targets = new Targets();
-var targetsNumber = 100;
 
 function Targets(){
-
+  this.targetsNumber = 10;
+  this.targetV = 20;
   this.objects = [];    // объект для хранения параметров цели на игровом поле
   this.maxID = 0;   // начальное значение количества элементов в this.objects, которое будет использоваться для подсчета количества циклов в this.render() и this.update()
 
@@ -52,6 +52,9 @@ function Targets(){
           if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
             obj.hitAnimClock = 0;
             score.countPlus();    // увеличивание счета преред исчезанием цели
+
+            level.killedTargets++;  // контроль статистики на уровне
+
           }
         }
         var infoPlayer = player.getMinInfo(obj);    // возвращает объект {dist:dist} с расстоянием от игрока до цели
@@ -83,11 +86,11 @@ function Targets(){
       }
     }
 
-    if(this.getSize() < targetsNumber){  // отрисовка новой цели
+    if(this.getSize() < this.targetsNumber){  // отрисовка новой цели
       this.pushObj({
         x:Math.random()*width,
         y:15,
-        v:100,
+        v:this.targetV,
         angle:Math.random()*2*Math.PI,
         size:15,
         color:{

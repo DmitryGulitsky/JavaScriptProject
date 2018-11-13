@@ -27,6 +27,7 @@ function renderNewState() {
       rulesPage.hide();
       scorePage.hide();
       aboutPage.hide();
+      level.hideMessage();
       break;
 
     case 'scores':

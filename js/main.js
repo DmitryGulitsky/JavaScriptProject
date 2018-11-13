@@ -8,10 +8,13 @@ function init(){
 
   console.log('start init');
 
+
+
+  var canvasContainer = document.getElementById('canvasContainer');
+  canvas = document.getElementById('canvas');
+
   canvasContainer.style.display = 'block';
 
-  canvasContainer = document.getElementById('canvasContainer');
-  canvas = document.getElementById('canvas');
   width = window.innerWidth;
   height = window.innerHeight;
 
@@ -44,6 +47,9 @@ function stopGame() {
 }
 
 function updateGame(dt){
+
+  level.statControl();  // контроль игры
+
   bullets.update(dt);
   targets.update(dt);
   player.update(dt);
@@ -55,6 +61,7 @@ function renderGame(){
   bullets.render(ctx);
   targets.render(ctx);
   score.render(ctx);
+
 }
 function renderBackground(){
   width = window.innerWidth;
