@@ -17,7 +17,7 @@ function ScorePage(){
     scoreContainer.style.left = '5%';
     scoreContainer.style.top = '15%';
     scoreContainer.style.padding = '5%';
-
+    scoreContainer.style.fontFamily = '\'Cabin Sketch\', cursive';
     scoreContainer.style.font = '30px solid black';
     scoreContainer.style.backgroundColor = 'blue';
     scoreContainer.style.border = '2px solid black';

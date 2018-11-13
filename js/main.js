@@ -1,27 +1,36 @@
 var canvas,
   ctx,
   width,
-  height;
+  height,
+  playingIntervalID;
 
 function init(){
 
   console.log('start init');
 
+  canvasContainer.style.display = 'block';
+
+  canvasContainer = document.getElementById('canvasContainer');
   canvas = document.getElementById('canvas');
   width = window.innerWidth;
   height = window.innerHeight;
 
+  ctx = canvas.getContext('2d');
+  //ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   canvas.width = width;
   canvas.height = height;
-  ctx = canvas.getContext('2d');
+
+
+
 
   window.onkeydown = keyLogger.keyDownListener;
   window.onkeyup = keyLogger.keyUpListener;
 
-player.x = width/2;   // размещение игрока в центре поля
-player.y = height/2;
+player.x = width / 2;   // размещение игрока в центре поля
+player.y = height / 2;
 
-  setInterval(function(){
+  playingIntervalID = setInterval(function(){
     updateGame(24/1000);
     renderGame();
   },10);
@@ -29,7 +38,9 @@ player.y = height/2;
 }
 
 function stopGame() {
-
+  clearInterval(playingIntervalID);
+  canvasContainer.style.display = 'none';
+  musicSound.stop();
 }
 
 function updateGame(dt){

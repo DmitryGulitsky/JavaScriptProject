@@ -16,7 +16,7 @@ function OptionsPage(){
     optionsContainer.style.left = '5%';
     optionsContainer.style.top = '15%';
     optionsContainer.style.padding = '5%';
-
+    optionsContainer.style.fontFamily = '\'Cabin Sketch\', cursive';
     optionsContainer.style.font = '30px solid black';
     optionsContainer.style.backgroundColor = 'blue';
     optionsContainer.style.border = '2px solid black';

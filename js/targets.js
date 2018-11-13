@@ -1,5 +1,5 @@
 var targets = new Targets();
-var targetsNumber = 1;
+var targetsNumber = 100;
 
 function Targets(){
 

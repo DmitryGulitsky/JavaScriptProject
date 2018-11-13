@@ -14,10 +14,10 @@ function RulesPage(){
     rulesContainer.style.textAlign = 'center';
     rulesContainer.style.width = 80 + '%';
     rulesContainer.style.position = 'absolute';
-        rulesContainer.style.left = '5%';
+    rulesContainer.style.left = '5%';
     rulesContainer.style.top = '15%';
     rulesContainer.style.padding = '5%';
-
+    rulesContainer.style.fontFamily = '\'Cabin Sketch\', cursive';
     rulesContainer.style.font = '30px solid black';
     rulesContainer.style.backgroundColor = 'blue';
     rulesContainer.style.border = '2px solid black';

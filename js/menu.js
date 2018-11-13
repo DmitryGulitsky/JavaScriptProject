@@ -18,7 +18,8 @@ var container = document.getElementById('menuContainer');
         menuOptions[i].style.position = 'absolute';
         menuOptions[i].style.left = 100 / menuItems.length * i + '%';
         menuOptions[i].style.padding = '0.5% 0';
-        menuOptions[i].style.font = '30px solid black';
+        menuOptions[i].style.fontFamily = '\'Cabin Sketch\', cursive';
+        menuOptions[i].style.font = '30px solid black ';
         menuOptions[i].style.backgroundColor = 'blue';
         menuOptions[i].style.border = '2px solid black';
         menuOptions[i].style.borderRadius = '50px';
@@ -34,43 +35,20 @@ var container = document.getElementById('menuContainer');
         });
 
 
-
         if (i === 0) {
-          menuOptions[i].addEventListener('mousedown', function(){
-            init();
-            musicSound.play();  // запускаем музыку в игре
-
-            rulesPage.hide();
-            scorePage.hide();
-            optionsPage.hide();
-          });
+          menuOptions[i].addEventListener('mousedown', switchToPlay);
         }
 
         if (i === 1) {
-          menuOptions[i].addEventListener('mousedown', function(){
-            musicSound.stop();
-            scorePage.show();
-            rulesPage.hide();
-            optionsPage.hide();
-          });
+          menuOptions[i].addEventListener('mousedown', switchToScores);
         }
 
         if (i === 2) {
-          menuOptions[i].addEventListener('mousedown', function(){
-            musicSound.stop();
-            rulesPage.show();
-            scorePage.hide();
-            optionsPage.hide();
-          });
+          menuOptions[i].addEventListener('mousedown', switchToRules);
         }
 
         if (i === 3) {
-          menuOptions[i].addEventListener('mousedown', function(){
-            musicSound.stop();
-            optionsPage.show();
-            rulesPage.hide();
-            scorePage.hide();
-          });
+          menuOptions[i].addEventListener('mousedown', switchToOptions);
         }
       }
     }
