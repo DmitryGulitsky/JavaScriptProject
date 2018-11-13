@@ -16,7 +16,7 @@ function renderNewState() {
       mainMenu.hide();
       scorePage.hide();
       rulesPage.hide();
-      optionsPage.hide();
+      aboutPage.hide();
       //menuMusicSound.play(); // звук музыки в меню
       break;
 
@@ -26,14 +26,14 @@ function renderNewState() {
       menuMusicSound.stop(); // звук музыки в меню
       rulesPage.hide();
       scorePage.hide();
-      optionsPage.hide();
+      aboutPage.hide();
       break;
 
     case 'scores':
       stopGame();
       scorePage.show();
       rulesPage.hide();
-      optionsPage.hide();
+      aboutPage.hide();
       menuMusicSound.play(); // звук музыки в меню
       break;
 
@@ -41,13 +41,13 @@ function renderNewState() {
       stopGame();
       rulesPage.show();
       scorePage.hide();
-      optionsPage.hide();
+      aboutPage.hide();
       menuMusicSound.play(); // звук музыки в меню
       break;
 
-    case 'options':
+    case 'about':
       stopGame();
-      optionsPage.show();
+      aboutPage.show();
       rulesPage.hide();
       scorePage.hide();
       menuMusicSound.play(); // звук музыки в меню
@@ -69,8 +69,8 @@ var switchToScores = function switchToScores() {
 var switchToRules = function switchToRules() {
   switchToState({page: 'rules'});
 }
-var switchToOptions = function switchToOptions() {
-  switchToState({page: 'options'});
+var switchToAbout = function switchToAbout() {
+  switchToState({page: 'about'});
 }
 
 renderNewState();

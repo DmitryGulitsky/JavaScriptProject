@@ -3,7 +3,7 @@ var container = document.getElementById('menuContainer');
 
 function MainMenu() {
   this.render = function () {
-    var menuItems = ['Play', 'Scores', 'Rules', 'Options']; // хранилище пунктов меню с названиями страниц
+    var menuItems = ['Play', 'Scores', 'Rules', 'About']; // хранилище пунктов меню с названиями страниц
     var menuOptions = [];
 
     for (var i = 0; i < menuItems.length; i++) {
@@ -50,7 +50,7 @@ function MainMenu() {
       }
 
       if (i === 3) {
-        menuOptions[i].addEventListener('mousedown', switchToOptions);
+        menuOptions[i].addEventListener('mousedown', switchToAbout);
       }
     }
   }
@@ -75,4 +75,4 @@ mainMenu.render();
 
 scorePage.render(); // создание страниц в фоне
 rulesPage.render(); // создание страниц в фоне
-optionsPage.render(); // создание страниц в фоне
+aboutPage.render(); // создание страниц в фоне
