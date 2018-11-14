@@ -1,13 +1,20 @@
 var scorePage = new ScorePage();
 
+var scoreContainer = document.createElement('div');
+
 function ScorePage(){
+
+
+
+
   this.render = function(){
 
-    scoreContainer = document.createElement('div');
+    scoreContainer.id = 'scoreContainer';
+
 
     container.appendChild(scoreContainer);
 
-    scoreContainer.innerHTML = 'Its score page';
+    //scoreContainer.innerHTML = 'Its score page';
 
     scoreContainer.style.display = 'none';
     scoreContainer.style.textAlign = 'center';
@@ -22,10 +29,16 @@ function ScorePage(){
     scoreContainer.style.border = '2px solid black';
     scoreContainer.style.borderRadius = '50px';
   }
-  this.show = function() {
+
+
+  this.show = function(){
+
     scoreContainer.style.display = 'block';
   }
-  this.hide = function() {
-    scoreContainer.style.display = 'none';
+  this.hide = function(){
+      scoreContainer.style.display = 'none';
+    while (scoreContainer.firstChild) {   // очищаем список результатов
+      scoreContainer.removeChild(scoreContainer.firstChild);
+    }
   }
 }

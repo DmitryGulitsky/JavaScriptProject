@@ -1,6 +1,9 @@
 var startPage = new StartPage();
 
 function StartPage(){
+
+  this.submitPlayerName;
+
   this.render = function(){
 
     var startPageContainer = document.getElementById('startPageContainer');
@@ -35,13 +38,15 @@ function StartPage(){
     startContainer.appendChild(loginSubmit);
     loginSubmit.setAttribute('type', 'submit');
     loginSubmit.setAttribute('value', 'PRESS to START');
-    loginSubmit.addEventListener('mousedown', hide);
+    loginSubmit.addEventListener('click', function() {
+      this.submitPlayerName = loginText.value;
+      score.playerName = loginText.value;
 
-    function hide() {
       startPageContainer.remove();
+
       switchToRules();
       mainMenu.show();
-    }
+    });
   }
 }
 

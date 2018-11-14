@@ -31,6 +31,9 @@ function Level(){
     }
 
     if (this.livesNumbers === 0) {    // контроль лимита жизней игрока
+
+      createPlayerScore(); // отправляем новые данные на сервер
+
       switchToScores();
     }
 

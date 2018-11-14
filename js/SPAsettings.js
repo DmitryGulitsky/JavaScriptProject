@@ -13,9 +13,7 @@ function renderNewState() {
 
     case 'start':
       startPage.render();
-      scorePage.hide();
-      rulesPage.hide();
-      aboutPage.hide();
+
       //menuMusicSound.play(); // звук музыки в меню
       break;
 
@@ -32,6 +30,7 @@ function renderNewState() {
     case 'scores':
       stopGame();
       scorePage.show();
+      showAllScores();  // загружаем AJAX данные с сервера
       rulesPage.hide();
       aboutPage.hide();
       menuMusicSound.play(); // звук музыки в меню

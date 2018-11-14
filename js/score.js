@@ -1,11 +1,21 @@
 var score = new Score();
 
+
+
+
 function Score(){
+
+
+
+  this.playerName;
   this.currentScore = 0;    // стартовое значение игрового счета игрока
   this.maxScore = 0;    // переменная для хранения максимального значения игрового счета
 
   //this.levelTargetLimit = 10;
 
+  this.finalResult = function() {
+
+  }
 
   this.countPlus = function(){    // увеличение игрового счета
     this.currentScore += 100;
