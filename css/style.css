@@ -2,3 +2,71 @@
   margin: 0;
   padding: 0;
 }
+
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Fjalla One', sans-serif;
+  background: linear-gradient(to bottom, #405166 0%, #656f6f 100%);
+}
+
+#logo-container {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 30%;
+  display: block;
+  position: absolute;
+  max-width: 360px;
+}
+
+.button {
+  position: absolute;
+  left: 50%;
+  background: url("/img/ball/ball.png") no-repeat cover;
+  cursor: pointer;
+}
+
+.button img{
+  width: 100%;
+}
+
+h1 {
+  position: absolute;
+  left: 20%;
+  width:33%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 75px;
+  margin: 0;
+  line-height: 200%;
+  letter-spacing: 2px;
+}
+
+.title {
+  transform: translateX(-50%) rotate(-10deg);
+  display: block;
+  float: left;
+  position: relative;
+}
+.title span {
+  transform: skew(-10deg);
+  display: block;
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+  min-width: 10px;
+  min-height: 10px;
+  position: relative;
+}
+
+.title:nth-child(1) {
+  color: #e55643;
+}
+.title:nth-child(2) {
+  color: #2b9f5e;
+}
+.title:nth-child(3) {
+  color: #f1c83c;
+}

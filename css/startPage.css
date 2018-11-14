@@ -82,6 +82,7 @@ body {
 }
 
 #slick-login {
+  z-index: 100;
   width: 220px;
   height: 155px;
   position: absolute;

@@ -9,6 +9,21 @@ function StartPage(){
     startPageContainer.appendChild(startContainer);
     startContainer.id = 'slick-login';
 
+    var logoTextContainer = document.createElement('h1');
+    startPageContainer.appendChild(logoTextContainer);
+    var line1 = document.createElement('span');
+    line1.className = 'title';
+    line1.innerHTML = 'crazy';
+    var line2 = document.createElement('span');
+    line2.className = 'title';
+    line2.innerHTML = 'balls';
+    var line3 = document.createElement('span');
+    line3.className = 'title';
+    line3.innerHTML = 'in space';
+    logoTextContainer.appendChild(line1);
+    logoTextContainer.appendChild(line2);
+    logoTextContainer.appendChild(line3);
+
     var loginText = document.createElement('input');
     startContainer.appendChild(loginText);
     loginText.setAttribute('type', 'text');
@@ -22,10 +37,12 @@ function StartPage(){
     loginSubmit.setAttribute('value', 'PRESS to START');
     loginSubmit.addEventListener('mousedown', hide);
 
+
     function hide() {
-      startContainer.style.display = 'none';
+      startPageContainer.style.display = 'none';
       switchToRules();
       mainMenu.show();
     }
   }
 }
+
