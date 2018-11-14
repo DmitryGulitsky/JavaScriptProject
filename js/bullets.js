@@ -8,12 +8,10 @@ function Bullets(){
     bullet.vy = bullet.v * Math.sin(bullet.angle);
   }
   this.pushObj = function(bullet){ // функция, куда передаются значения {x = player.x, y = player.y, angle = player.angle, v = 200}
-    console.log('gangbang!!!');
 
     shotSound.play();  // звук выстрела при появлении пули
 
     score.countMinus();    // уменьшение счета преред исчезанием цели
-    console.log(score.currentScore);
 
     this.init(bullet);
 

@@ -37,9 +37,8 @@ function StartPage(){
     loginSubmit.setAttribute('value', 'PRESS to START');
     loginSubmit.addEventListener('mousedown', hide);
 
-
     function hide() {
-      startPageContainer.style.display = 'none';
+      startPageContainer.remove();
       switchToRules();
       mainMenu.show();
     }

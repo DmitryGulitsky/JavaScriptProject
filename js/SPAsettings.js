@@ -13,7 +13,6 @@ function renderNewState() {
 
     case 'start':
       startPage.render();
-      mainMenu.hide();
       scorePage.hide();
       rulesPage.hide();
       aboutPage.hide();
@@ -53,6 +52,16 @@ function renderNewState() {
       scorePage.hide();
       menuMusicSound.play(); // звук музыки в меню
       break;
+
+    case 'levelInfo':
+      level.renderMessage();
+      stopGame();
+      aboutPage.hide();
+      rulesPage.hide();
+      scorePage.hide();
+      menuMusicSound.play(); // звук музыки в меню
+
+      break;
   }
 }
 function switchToState(state) {
@@ -72,6 +81,9 @@ var switchToRules = function switchToRules() {
 }
 var switchToAbout = function switchToAbout() {
   switchToState({page: 'about'});
+}
+var switchToLevelInfo = function switchToLevelInfo() {
+  switchToState({page: 'levelInfo'});
 }
 
 renderNewState();

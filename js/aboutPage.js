@@ -15,12 +15,12 @@ function AboutPage(){
     aboutContainer.style.textAlign = 'center';
     aboutContainer.style.width = 80 + '%';
     aboutContainer.style.position = 'absolute';
-    aboutContainer.style.left = '5%';
+    aboutContainer.style.left = '10%';
     aboutContainer.style.top = '15%';
     aboutContainer.style.padding = '5%';
     aboutContainer.style.fontFamily = '\'Cabin Sketch\', cursive';
     aboutContainer.style.font = '30px solid black';
-    aboutContainer.style.backgroundColor = 'blue';
+    aboutContainer.style.backgroundColor = '#3C5ABC';
     aboutContainer.style.border = '2px solid black';
     aboutContainer.style.borderRadius = '50px';
   }

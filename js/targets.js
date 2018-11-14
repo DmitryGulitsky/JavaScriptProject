@@ -2,7 +2,6 @@ var targets = new Targets();
 
 function Targets(){
   this.targetsNumber = 10;
-  this.targetV = 20;
   this.objects = [];    // объект для хранения параметров цели на игровом поле
   this.maxID = 0;   // начальное значение количества элементов в this.objects, которое будет использоваться для подсчета количества циклов в this.render() и this.update()
 
@@ -90,7 +89,7 @@ function Targets(){
       this.pushObj({
         x:Math.random()*width,
         y:15,
-        v:this.targetV,
+        v:50,
         angle:Math.random()*2*Math.PI,
         size:15,
         color:{
