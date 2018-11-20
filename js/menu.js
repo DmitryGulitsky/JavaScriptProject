@@ -1,19 +1,20 @@
-var mainMenu = new MainMenu();
-var container = document.getElementById('menuContainer');
+let container = document.getElementById('menuContainer');
 
-function MainMenu() {
-  this.render = function () {
-    var menuItems = ['Play', 'Scores', 'Rules', 'About']; // хранилище пунктов меню с названиями страниц
-    var menuOptions = [];
+class MainMenu {
+  constructor() {
+  }
 
-    for (var i = 0; i < menuItems.length; i++) {
+  render() {
+    let menuItems = ['Play', 'Scores', 'Rules', 'About']; // хранилище пунктов меню с названиями страниц
+    let menuOptions = [];
+
+    for (let i = 0; i < menuItems.length; i++) {
       container.style.display = 'none';
       menuOptions[i] = document.createElement('div');
 
       container.appendChild(menuOptions[i]);
       menuOptions[i].id = menuItems[i];
       menuOptions[i].innerHTML = menuItems[i];
-
 
       menuOptions[i].style.textAlign = 'center';
       menuOptions[i].style.width = 100 / menuItems.length + '%';
@@ -54,22 +55,18 @@ function MainMenu() {
       }
     }
   }
-  this.show = function () {
+  show() {
     container.style.display = 'block';
 
   }
 
-  this.hide = function () {
+  hide() {
     container.style.display = 'none';
   }
 
 }
 
-
-
-  //this.control = function() {
-  //
-  //}
+let mainMenu = new MainMenu();
 
 mainMenu.render();
 

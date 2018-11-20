@@ -1,20 +1,18 @@
-var level = new Level();
+class Level {
+  constructor() {
+    this.livesNumbers = 3;
+    this.currentLevel = 0;
+    this.killedTargets = 0;
+    this.levelLimitKilledTargets = 3;
+  }
 
-function Level(){
-  this.livesNumbers = 3;
-  this.currentLevel = 1;
-
-  this.killedTargets = 0;
-  this.levelLimitKilledTargets = 3;
-
-  this.statControl = function() {
+  statControl() {
     if (this.killedTargets === this.levelLimitKilledTargets) {  // контроль лимита уничтоженных целей на текущем уровне
       console.log('previous level ' + this.currentLevel);
       console.log('lives numbers ' + this.livesNumbers);
       console.log('killed targets ' + this.killedTargets);
       console.log('level limit killed targetsv' + this.levelLimitKilledTargets);
       console.log('target number on screen' + targets.targetsNumber);
-
 
       console.log('------------------');
       switchToLevelInfo();
@@ -39,7 +37,7 @@ function Level(){
 
   }
 
-  this.nextLevelDifficulty = function(){
+  nextLevelDifficulty(){
     this.currentLevel += 1;
     targets.targetsNumber += 10;
 
@@ -48,10 +46,11 @@ function Level(){
     this.livesNumbers++;
   }
 
-  this.renderMessage = function(){
+  renderMessage(){
 
-    levelContainer = document.getElementById('levelMessageContainer');
-    currentLevelMessage = document.createElement('div');
+    let levelContainer = document.getElementById('levelMessageContainer');
+    let currentLevelMessage = document.createElement('div');
+    currentLevelMessage.id = 'currentLevelMessage';
 
     levelContainer.appendChild(currentLevelMessage);
 
@@ -71,11 +70,13 @@ function Level(){
     currentLevelMessage.style.padding = '30px';
   }
 
-  this.showMessage = function() {
-    currentLevelMessage.style.display = 'block';
+  showMessage() {
+    document.getElementById('currentLevelMessage').style.display = 'block';
   }
 
-  this.hideMessage = function() {
-    currentLevelMessage.remove();
+  hideMessage() {
+    document.getElementById('currentLevelMessage').remove();
   }
 }
+
+var level = new Level();

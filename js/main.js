@@ -1,4 +1,4 @@
-var canvas,
+let canvas,
   ctx,
   width,
   height,
@@ -8,9 +8,7 @@ function init(){
 
   console.log('start init');
 
-
-
-  var canvasContainer = document.getElementById('canvasContainer');
+  let canvasContainer = document.getElementById('canvasContainer');
   canvas = document.getElementById('canvas');
 
   canvasContainer.style.display = 'block';
@@ -23,9 +21,6 @@ function init(){
 
   canvas.width = width;
   canvas.height = height;
-
-
-
 
   window.onkeydown = keyLogger.keyDownListener;
   window.onkeyup = keyLogger.keyUpListener;
@@ -42,7 +37,7 @@ player.y = height / 2;
 
 function stopGame() {
   clearInterval(playingIntervalID);
-  canvasContainer.style.display = 'none';
+  document.getElementById('canvasContainer').style.display = 'none';
   musicSound.stop();
 }
 
