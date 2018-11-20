@@ -1,10 +1,10 @@
-var aboutPage = new AboutPage();
+class AboutPage {
+  constructor() {
 
-function AboutPage(){
-  this.render = function(){
-
-    aboutContainer = document.createElement('div');
-
+  }
+  render() {
+    let aboutContainer = document.createElement('div');
+    aboutContainer.id = 'aboutContainer';
     container.appendChild(aboutContainer);
 
     aboutContainer.innerHTML = 'This game was created as a final project following' +
@@ -24,12 +24,12 @@ function AboutPage(){
     aboutContainer.style.border = '2px solid black';
     aboutContainer.style.borderRadius = '50px';
   }
-
-  this.show = function() {
-    aboutContainer.style.display = 'block';
+  show() {
+    document.getElementById('aboutContainer').style.display = 'block';
   }
-
-  this.hide = function() {
-    aboutContainer.style.display = 'none';
+  hide() {
+    document.getElementById('aboutContainer').style.display = 'none';
   }
 }
+
+let aboutPage = new AboutPage();
