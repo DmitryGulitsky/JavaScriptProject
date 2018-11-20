@@ -10,6 +10,10 @@ class StartPage {
     startContainer.id = 'slick-login';
     startPageContainer.appendChild(startContainer);
 
+    startContainer.style.display = 'none';
+
+    $('#slick-login').slideDown(2000);
+
     let logoTextContainer = document.createElement('h1');
     startPageContainer.appendChild(logoTextContainer);
     let line1 = document.createElement('span');
@@ -45,6 +49,17 @@ class StartPage {
       switchToRules();
       mainMenu.show();
     });
+
+    let startPageBallImageContainer = document.createElement('div');
+    startPageBallImageContainer.className = 'button';
+    startPageContainer.appendChild(startPageBallImageContainer);
+
+    let startPageBallImage = document.createElement('img');
+    startPageBallImage.id = 'startPageBallImage';
+    startPageBallImageContainer.appendChild(startPageBallImage);
+
+    startPageBallImage.setAttribute(src, 'img/ball/ball.png');
+
   }
 }
 

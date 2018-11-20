@@ -37,7 +37,8 @@ function init(){
 
 function stopGame() {
   clearInterval(playingIntervalID);
-  $('#canvasContainer').show('slow');
+  document.getElementById('canvasContainer').style.display = 'none';
+  $('#canvasContainer').show();
   musicSound.stop();
 }
 
