@@ -1,4 +1,4 @@
-function sound(src) {
+function Sound(src) {
   this.sound = document.createElement('audio');
   this.sound.src = src;
   this.sound.setAttribute('preload', 'auto');
@@ -13,11 +13,45 @@ function sound(src) {
   }
 }
 
-let shotSound = new sound('./sounds/shot.mp3');
-let bangSound = new sound('./sounds/bang.mp3');
+let shotSound = new Sound('./sounds/shot.mp3');
+let bangSound = new Sound('./sounds/bang.mp3');
+let startPageSound = new Sound('./sounds/startPageSound.mp3');
+let excellentSound = new Sound('./sounds/ExcellentSoundEffect.mp3');
+let fightSound = new Sound('./sounds/FightSoundEffect.mp3');
 
-let musicSound = new sound('./sounds/gameplay-music.mp3');
+let musicSound = new Sound('./sounds/gameplay-music.mp3');
 musicSound.sound.setAttribute('loop', 'loop');
 
-menuMusicSound = new sound('./sounds/menu-music.mp3');
+let menuMusicSound = new Sound('./sounds/menu-music.mp3');
 menuMusicSound.sound.setAttribute('loop', 'loop');
+
+
+//class Sound {
+//  constructor() {
+//    this.sound = document.createElement('audio');
+//    this.sound.src = src;
+//    this.sound.setAttribute('preload', 'auto');
+//    this.sound.setAttribute('controls', 'none');
+//    this.sound.style.display = 'none';
+//    document.getElementById('menuContainer').appendChild(this.sound);
+//  }
+//
+//  play(){
+//    this.sound.play();
+//  }
+//  stop(){
+//    this.sound.pause();
+//  }
+//}
+//
+//let shotSound = new Sound('./sounds/shot.mp3');
+//let bangSound = new Sound('./sounds/bang.mp3');
+//let startPageSound = new Sound('./sounds/startPageSound.mp3');
+//let excellentSound = new Sound('./sounds/ExcellentSoundEffect.mp3');
+//let fightSound = new Sound('./sounds/FightSoundEffect.mp3');
+//
+//let musicSound = new Sound('./sounds/gameplay-music.mp3');
+//musicSound.sound.setAttribute('loop', 'loop');
+//
+//let menuMusicSound = new Sound('./sounds/menu-music.mp3');
+//menuMusicSound.sound.setAttribute('loop', 'loop');

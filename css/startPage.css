@@ -1,10 +1,10 @@
 * {
   margin: 0;
   padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-/* Main CSS */
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 body {
   background-color: #323B55;
@@ -130,9 +130,4 @@ body {
 
   -webkit-box-shadow: inset 0px 1px 0px #93a9e9;
   box-shadow: inset 0px 1px 0px #93a9e9;
-}
-
-@-webkit-keyframes slideOut{
-  0%{top:-30px; opacity: 0;}
-  100%{top:0px; opacity: 1;}
 }

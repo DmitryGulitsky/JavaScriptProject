@@ -58,8 +58,14 @@ class StartPage {
     startPageBallImage.id = 'startPageBallImage';
     startPageBallImageContainer.appendChild(startPageBallImage);
 
-    startPageBallImage.setAttribute(src, 'img/ball/ball.png');
+    startPageBallImage.setAttribute('src', 'img/ball/ball.png');
 
+    function Test1() {
+      $('#startPageBallImage').animate
+      ({'width': `100%`}, 6000);
+    }
+    Test1();
+    //startPageSound.sound.play();
   }
 }
 

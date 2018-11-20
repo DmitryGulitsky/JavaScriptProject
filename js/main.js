@@ -8,6 +8,8 @@ function init(){
 
   console.log('start init');
 
+  fightSound.sound.play();
+
   let canvasContainer = document.getElementById('canvasContainer');
   canvas = document.getElementById('canvas');
 
@@ -40,6 +42,7 @@ function stopGame() {
   document.getElementById('canvasContainer').style.display = 'none';
   $('#canvasContainer').show();
   musicSound.stop();
+  excellentSound.sound.play();
 }
 
 function updateGame(dt){
