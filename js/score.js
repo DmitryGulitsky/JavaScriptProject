@@ -1,4 +1,4 @@
-var score = new Score();
+let score = new Score();
 
 
 
@@ -37,10 +37,10 @@ function Score(){
 
 
   this.render = function(ctx){
-    var scoreX = width * 0.9;
-    var scoreY = height * 0.1;
-    var scoreMaxY = height * 0.2;
-    var scoreLivesY = height * 0.3;
+    let scoreX = width * 0.9;
+    let scoreY = height * 0.1;
+    let scoreMaxY = height * 0.2;
+    let scoreLivesY = height * 0.3;
     ctx.beginPath();
     ctx.fillStyle = 'white';
     ctx.textAlign = 'center';

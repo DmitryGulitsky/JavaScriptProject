@@ -1,4 +1,4 @@
-var utils = new Utils();
+let utils = new Utils();
 
 function Utils(){  // полезные утилиты
 

@@ -66,22 +66,22 @@ function renderNewState() {
 function switchToState(state) {
   location.hash = encodeURIComponent(JSON.stringify(state));
 }
-var switchToStart = function switchToStart() {
+let switchToStart = function switchToStart() {
   switchToState({page: 'start'});
 }
-var switchToPlay = function switchToPlay() {
+let switchToPlay = function switchToPlay() {
   switchToState({page: 'play'});
 }
-var switchToScores = function switchToScores() {
+let switchToScores = function switchToScores() {
   switchToState({page: 'scores'});
 }
-var switchToRules = function switchToRules() {
+let switchToRules = function switchToRules() {
   switchToState({page: 'rules'});
 }
-var switchToAbout = function switchToAbout() {
+let switchToAbout = function switchToAbout() {
   switchToState({page: 'about'});
 }
-var switchToLevelInfo = function switchToLevelInfo() {
+let switchToLevelInfo = function switchToLevelInfo() {
   switchToState({page: 'levelInfo'});
 }
 

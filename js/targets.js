@@ -1,4 +1,4 @@
-var targets = new Targets();
+let targets = new Targets();
 
 function Targets(){
   this.targetsNumber = 10;
@@ -16,14 +16,14 @@ function Targets(){
 
   this.pushObj = function(target){
     this.init(target);
-    var i = -1;
+    let i = -1;
     while(this.objects[++i] != undefined);
     this.objects[i] = target;
     if(this.maxID < i) this.maxID = i;
   };
   this.getSize = function(){    // функция для нахождения empty элемента массива
-    var size = 0;
-    for(var i = 0;i < this.maxID;i++){
+    let size = 0;
+    for(let i = 0;i < this.maxID;i++){
       if(this.objects[i] == undefined) continue;
       size++;
     }
@@ -31,9 +31,9 @@ function Targets(){
   };
 
   this.update = function(dt){
-    for(var i = 0;i < this.maxID;i++){    // обновляем местоположение каждой цели в координатной плосксти
+    for(let i = 0;i < this.maxID;i++){    // обновляем местоположение каждой цели в координатной плосксти
       if(this.objects[i] == undefined) continue;
-      var obj = this.objects[i];
+      let obj = this.objects[i];
 
       obj.x += obj.vx * dt;
       obj.y += obj.vy * dt;
@@ -44,7 +44,7 @@ function Targets(){
       }
 
       if(obj.currentAlpha > 0.5){  // исчезание цели при попадании
-        var infoBullets = bullets.getMinInfo(obj);   // возвращает объект {dist:dist,object:obj} с сылкой на пулю и ее расстоянием до цели
+        let infoBullets = bullets.getMinInfo(obj);   // возвращает объект {dist:dist,object:obj} с сылкой на пулю и ее расстоянием до цели
         if(infoBullets.dist <= obj.size * obj.scale){  // условие, если пуля попадает в радиус цели
           infoBullets.object.remove = true;    // убираем пулю
           bangSound.play();   // звук исчезновения цели
@@ -56,7 +56,7 @@ function Targets(){
 
           }
         }
-        var infoPlayer = player.getMinInfo(obj);    // возвращает объект {dist:dist} с расстоянием от игрока до цели
+        let infoPlayer = player.getMinInfo(obj);    // возвращает объект {dist:dist} с расстоянием от игрока до цели
         if(infoPlayer.dist <= obj.size * obj.scale){
 
           if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
@@ -103,9 +103,9 @@ function Targets(){
 
   };
   this.render = function(ctx){
-    for(var i = 0;i < this.maxID;i++){
+    for(let i = 0;i < this.maxID;i++){
       if(this.objects[i] == undefined) continue;
-      var obj = this. objects[i];
+      let obj = this. objects[i];
 
       obj.scale = 1;
       if(obj.hitAnimClock != -1){

@@ -1,6 +1,6 @@
-var scorePage = new ScorePage();
+let scorePage = new ScorePage();
 
-var scoreContainer = document.createElement('div');
+let scoreContainer = document.createElement('div');
 
 function ScorePage(){
 
