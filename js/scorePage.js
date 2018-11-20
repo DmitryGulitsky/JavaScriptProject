@@ -24,10 +24,10 @@ class ScorePage {
     scoreContainer.style.borderRadius = '50px';
   }
   show(){
-    document.getElementById('scoreContainer').style.display = 'block';
+      $('#scoreContainer').show('slow');
   }
   hide(){
-    document.getElementById('scoreContainer').style.display = 'none';
+    $('#scoreContainer').hide('slow');
     while (document.getElementById('scoreContainer').firstChild) {   // очищаем список результатов
       document.getElementById('scoreContainer').removeChild(document.getElementById('scoreContainer').firstChild);
     }

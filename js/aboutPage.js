@@ -25,10 +25,10 @@ class AboutPage {
     aboutContainer.style.borderRadius = '50px';
   }
   show() {
-    document.getElementById('aboutContainer').style.display = 'block';
+    $('#aboutContainer').show('slow');
   }
   hide() {
-    document.getElementById('aboutContainer').style.display = 'none';
+    $('#aboutContainer').hide('slow');
   }
 }
 

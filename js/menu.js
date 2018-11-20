@@ -13,7 +13,8 @@ class MainMenu {
       menuOptions[i] = document.createElement('div');
 
       container.appendChild(menuOptions[i]);
-      menuOptions[i].id = menuItems[i];
+      menuOptions[i].id = `menu${menuItems[i]}`;
+
       menuOptions[i].innerHTML = menuItems[i];
 
       menuOptions[i].style.textAlign = 'center';
@@ -26,7 +27,6 @@ class MainMenu {
       menuOptions[i].style.backgroundColor = '#3C5ABC';
       menuOptions[i].style.border = '2px solid black';
       menuOptions[i].style.borderRadius = '50px';
-
 
       menuOptions[i].addEventListener('mouseover', function (event) {
         event.target.style.opacity = 0.5;
@@ -56,12 +56,11 @@ class MainMenu {
     }
   }
   show() {
-    container.style.display = 'block';
-
+    $('#menuContainer').show('slow');
   }
 
   hide() {
-    container.style.display = 'none';
+    $('#menuContainer').hide('slow');
   }
 
 }

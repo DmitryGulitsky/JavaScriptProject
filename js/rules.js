@@ -20,10 +20,10 @@ class RulesPage {
     rulesContainer.style.borderRadius = '50px';
   }
   show() {
-     document.getElementById('rulesContainer').style.display = 'block';
+    $('#rulesContainer').show('slow');
    }
   hide() {
-     document.getElementById('rulesContainer').style.display = 'none';
+    $('#rulesContainer').hide('slow');
    }
 }
 

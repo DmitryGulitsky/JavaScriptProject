@@ -7,8 +7,8 @@ class StartPage {
     let startPageContainer = document.getElementById('startPageContainer');
 
     let startContainer = document.createElement('form');
-    startPageContainer.appendChild(startContainer);
     startContainer.id = 'slick-login';
+    startPageContainer.appendChild(startContainer);
 
     let logoTextContainer = document.createElement('h1');
     startPageContainer.appendChild(logoTextContainer);

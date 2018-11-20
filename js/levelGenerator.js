@@ -48,12 +48,15 @@ class Level {
 
   renderMessage(){
 
+    this.removeMessage();
+
     let levelContainer = document.getElementById('levelMessageContainer');
     let currentLevelMessage = document.createElement('div');
     currentLevelMessage.id = 'currentLevelMessage';
 
     levelContainer.appendChild(currentLevelMessage);
 
+    currentLevelMessage.style.display = 'none';
     currentLevelMessage.innerHTML = 'LEVEL ' + this.currentLevel + ' completed!' +
       '\npress PLAY to continue';
     currentLevelMessage.style.position = 'absolute';
@@ -68,14 +71,19 @@ class Level {
     currentLevelMessage.style.border = '2px solid black';
     currentLevelMessage.style.borderRadius = '50px';
     currentLevelMessage.style.padding = '30px';
+
+    this.showMessage();
   }
 
   showMessage() {
-    document.getElementById('currentLevelMessage').style.display = 'block';
+    $('#currentLevelMessage').show('slow');
   }
 
   hideMessage() {
-    document.getElementById('currentLevelMessage').remove();
+    $('#currentLevelMessage').hide('slow');
+  }
+  removeMessage() {
+    $('#currentLevelMessage').remove();
   }
 }
 

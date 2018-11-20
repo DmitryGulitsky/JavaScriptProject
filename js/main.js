@@ -25,8 +25,8 @@ function init(){
   window.onkeydown = keyLogger.keyDownListener;
   window.onkeyup = keyLogger.keyUpListener;
 
-player.x = width / 2;   // размещение игрока в центре поля
-player.y = height / 2;
+  player.x = width / 2;   // размещение игрока в центре поля
+  player.y = height / 2;
 
   playingIntervalID = setInterval(function(){
     updateGame(24/1000);
@@ -37,7 +37,7 @@ player.y = height / 2;
 
 function stopGame() {
   clearInterval(playingIntervalID);
-  document.getElementById('canvasContainer').style.display = 'none';
+  $('#canvasContainer').show('slow');
   musicSound.stop();
 }
 
