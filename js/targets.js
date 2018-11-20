@@ -1,11 +1,11 @@
-let targets = new Targets();
+class Targets {
+  constructor() {
+    this.targetsNumber = 10;
+    this.objects = [];    // объект для хранения параметров цели на игровом поле
+    this.maxID = 0;   // начальное значение количества элементов в this.objects, которое будет использоваться для подсчета количества циклов в this.render() и this.update()
+  }
 
-function Targets(){
-  this.targetsNumber = 10;
-  this.objects = [];    // объект для хранения параметров цели на игровом поле
-  this.maxID = 0;   // начальное значение количества элементов в this.objects, которое будет использоваться для подсчета количества циклов в this.render() и this.update()
-
-  this.init = function(target){
+  init(target){
     target.vx = target.v * Math.cos(target.angle);
     target.vy = target.v * Math.sin(target.angle);
     target.hitAnimClock = -1;   // нормальное значение для неотстреленной цели, которое меняется после попадания
@@ -14,14 +14,14 @@ function Targets(){
     target.maxAlpha = 1;  // значение дня ограничения непрозрачности альфа-канала цели
   }
 
-  this.pushObj = function(target){
+  pushObj(target){
     this.init(target);
     let i = -1;
     while(this.objects[++i] != undefined);
     this.objects[i] = target;
     if(this.maxID < i) this.maxID = i;
   };
-  this.getSize = function(){    // функция для нахождения empty элемента массива
+  getSize(){    // функция для нахождения empty элемента массива
     let size = 0;
     for(let i = 0;i < this.maxID;i++){
       if(this.objects[i] == undefined) continue;
@@ -30,7 +30,7 @@ function Targets(){
     return size;
   };
 
-  this.update = function(dt){
+  update(dt){
     for(let i = 0;i < this.maxID;i++){    // обновляем местоположение каждой цели в координатной плосксти
       if(this.objects[i] == undefined) continue;
       let obj = this.objects[i];
@@ -102,7 +102,7 @@ function Targets(){
 
 
   };
-  this.render = function(ctx){
+  render(ctx){
     for(let i = 0;i < this.maxID;i++){
       if(this.objects[i] == undefined) continue;
       let obj = this. objects[i];
@@ -129,4 +129,7 @@ function Targets(){
       ctx.globalAlpha = 1;
     }
   };
+
 }
+
+let targets = new Targets();

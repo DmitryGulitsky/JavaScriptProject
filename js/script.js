@@ -1,12 +1,7 @@
-
 $(document).ready(function() {
   $(".title").lettering();
   $(".button").lettering();
 });
-
-
-
-
 
 $(document).ready(function() {
   animation();
@@ -15,7 +10,6 @@ $(document).ready(function() {
 $('.button').click(function() {
   animation();
 });
-
 
 function animation() {
   var title1 = new TimelineMax();

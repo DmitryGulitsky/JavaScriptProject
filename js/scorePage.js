@@ -1,17 +1,11 @@
-let scorePage = new ScorePage();
+class ScorePage {
+  constructor() {
 
-let scoreContainer = document.createElement('div');
+  }
 
-function ScorePage(){
-
-
-
-
-  this.render = function(){
-
+  render(){
+    let scoreContainer = document.createElement('div');
     scoreContainer.id = 'scoreContainer';
-
-
     container.appendChild(scoreContainer);
 
     //scoreContainer.innerHTML = 'Its score page';
@@ -29,16 +23,15 @@ function ScorePage(){
     scoreContainer.style.border = '2px solid black';
     scoreContainer.style.borderRadius = '50px';
   }
-
-
-  this.show = function(){
-
-    scoreContainer.style.display = 'block';
+  show(){
+    document.getElementById('scoreContainer').style.display = 'block';
   }
-  this.hide = function(){
-      scoreContainer.style.display = 'none';
-    while (scoreContainer.firstChild) {   // очищаем список результатов
-      scoreContainer.removeChild(scoreContainer.firstChild);
+  hide(){
+    document.getElementById('scoreContainer').style.display = 'none';
+    while (document.getElementById('scoreContainer').firstChild) {   // очищаем список результатов
+      document.getElementById('scoreContainer').removeChild(document.getElementById('scoreContainer').firstChild);
     }
   }
 }
+
+let scorePage = new ScorePage();

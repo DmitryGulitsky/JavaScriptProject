@@ -13,11 +13,10 @@ function sound(src) {
   }
 }
 
-shotSound = new sound('./sounds/shot.mp3');
-bangSound = new sound('./sounds/bang.mp3');
+let shotSound = new sound('./sounds/shot.mp3');
+let bangSound = new sound('./sounds/bang.mp3');
 
-
-musicSound = new sound('./sounds/gameplay-music.mp3');
+let musicSound = new sound('./sounds/gameplay-music.mp3');
 musicSound.sound.setAttribute('loop', 'loop');
 
 menuMusicSound = new sound('./sounds/menu-music.mp3');

@@ -1,23 +1,18 @@
-let score = new Score();
+class Score {
+  constructor() {
+    this.playerName;
+    this.currentScore = 0;    // стартовое значение игрового счета игрока
+    this.maxScore = 0;    // переменная для хранения максимального значения игрового счета
 
-
-
-
-function Score(){
-
-
-
-  this.playerName;
-  this.currentScore = 0;    // стартовое значение игрового счета игрока
-  this.maxScore = 0;    // переменная для хранения максимального значения игрового счета
-
-  //this.levelTargetLimit = 10;
-
-  this.finalResult = function() {
+    //this.levelTargetLimit = 10;
 
   }
 
-  this.countPlus = function(){    // увеличение игрового счета
+  finalResult() {
+
+  }
+
+  countPlus(){    // увеличение игрового счета
     this.currentScore += 100;
 
     if (this.currentScore > this.maxScore) {    // сохранение максимально набранных очков за сессию
@@ -25,18 +20,16 @@ function Score(){
     }
   }
 
-  this.countMinus = function(){ // уменьшение игрового счета
+  countMinus(){ // уменьшение игрового счета
     this.currentScore -= 10;
   }
 
-  this.countMegaMinus = function(){ // уменьшение игрового счета
+  countMegaMinus(){ // уменьшение игрового счета
     this.currentScore -= 1000;
     level.livesNumbers--;
   }
 
-
-
-  this.render = function(ctx){
+  render(ctx){
     let scoreX = width * 0.9;
     let scoreY = height * 0.1;
     let scoreMaxY = height * 0.2;
@@ -50,5 +43,7 @@ function Score(){
     ctx.fillText('Max:  ' + this.maxScore, scoreX, scoreMaxY);
     ctx.fillText('Lives:  ' + level.livesNumbers, scoreX, scoreLivesY);
     ctx.stroke();
-    }
+  }
 }
+
+let score = new Score();

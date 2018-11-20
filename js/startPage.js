@@ -1,10 +1,8 @@
-let startPage = new StartPage();
-
-function StartPage(){
-
-  this.submitPlayerName;
-
-  this.render = function(){
+class StartPage {
+  constructor() {
+    this.submitPlayerName;
+  }
+  render(){
 
     let startPageContainer = document.getElementById('startPageContainer');
 
@@ -50,3 +48,4 @@ function StartPage(){
   }
 }
 
+let startPage = new StartPage();
