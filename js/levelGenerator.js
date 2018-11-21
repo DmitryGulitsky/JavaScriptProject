@@ -65,7 +65,9 @@ class Level {
     currentLevelMessage.style.left = '40%';
     currentLevelMessage.style.textAlign = 'center';
     currentLevelMessage.style.fontFamily = '\'Cabin Sketch\', cursive';
-    currentLevelMessage.style.font = '30px solid black ';
+    currentLevelMessage.style.font = '30px solid white';
+    currentLevelMessage.style.color = 'white';
+    currentLevelMessage.style.textShadow = '3px 3px 0 rgba(0,0,0,0.2)';
     currentLevelMessage.style.backgroundColor = 'white';
     currentLevelMessage.style.backgroundColor = '#3C5ABC';
     currentLevelMessage.style.border = '2px solid black';

@@ -14,10 +14,13 @@ class RulesPage {
     rulesContainer.style.top = '15%';
     rulesContainer.style.padding = '5%';
     rulesContainer.style.fontFamily = '\'Cabin Sketch\', cursive';
-    rulesContainer.style.font = '30px solid black';
+    rulesContainer.style.font = '30px solid white';
+    rulesContainer.style.color = 'white';
+    rulesContainer.style.textShadow = '3px 3px 0 rgba(0,0,0,0.2)';
     rulesContainer.style.backgroundColor = '#3C5ABC';
     rulesContainer.style.border = '2px solid black';
     rulesContainer.style.borderRadius = '50px';
+
   }
   show() {
     $('#rulesContainer').show('slow');

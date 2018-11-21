@@ -19,7 +19,9 @@ class AboutPage {
     aboutContainer.style.top = '15%';
     aboutContainer.style.padding = '5%';
     aboutContainer.style.fontFamily = '\'Cabin Sketch\', cursive';
-    aboutContainer.style.font = '30px solid black';
+    aboutContainer.style.font = '30px solid white';
+    aboutContainer.style.color = 'white';
+    aboutContainer.style.textShadow = '3px 3px 0 rgba(0,0,0,0.2)';
     aboutContainer.style.backgroundColor = '#3C5ABC';
     aboutContainer.style.border = '2px solid black';
     aboutContainer.style.borderRadius = '50px';

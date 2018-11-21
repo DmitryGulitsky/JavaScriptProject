@@ -30,7 +30,7 @@ class StartPage {
       .append(line3);
 
     let startContainer = $(
-      `<form id="slick-login" style="display: none" action="javascript: startPage.loginSubmitMousedown();"></form>`
+      `<form id="slick-login" style="display: none" action="javascript: startPage.loginSubmit();"></form>`
     );
     $('#startPageContainer').append(startContainer);
 
@@ -80,7 +80,7 @@ class StartPage {
     );
     $(startPageBallImageContainer).append(startPageBallImage);
 
-    $(startPageBallImage).animate({'width': `100%`}, 6000)
+    $(startPageBallImage).animate({'width': `100%`}, 4000)
       .mouseover(scaleImg)
       .mouseout(scaleOutImg);
 
@@ -95,9 +95,10 @@ class StartPage {
     }
   }
 
-  loginSubmitMousedown() {
+  loginSubmit() {
 
-    score.playerName = $(`loginText`).val();
+    score.playerName = $(`#loginText`).val();
+    //score.playerName = $(`loginText`).val();
 
     $(`#startPageContainer`).remove();
 

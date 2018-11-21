@@ -23,7 +23,9 @@ class MainMenu {
       menuOptions[i].style.left = 100 / menuItems.length * i + '%';
       menuOptions[i].style.padding = '0.5% 0';
       menuOptions[i].style.fontFamily = '\'Cabin Sketch\', cursive';
-      menuOptions[i].style.font = '30px solid black ';
+      menuOptions[i].style.font = '30px solid white';
+      menuOptions[i].style.color = 'white';
+      menuOptions[i].style.textShadow = '3px 3px 0 rgba(0,0,0,0.2)';
       menuOptions[i].style.backgroundColor = '#3C5ABC';
       menuOptions[i].style.border = '2px solid black';
       menuOptions[i].style.borderRadius = '50px';

@@ -81,12 +81,12 @@ h1 {
   margin: 5px;
 }
 
-.jump{
+.jump span{
   position: relative;
   display: inline-block;
   transition: transform 0.1s;
   }
-.jump:hover {
+.jump span:hover {
   transform: translateY(-20px) scale(2) rotate(10deg);
   z-index: 1;
 }
