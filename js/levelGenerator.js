@@ -80,7 +80,8 @@ class Level {
   }
 
   hideMessage() {
-    $('#currentLevelMessage').hide('slow');
+    $('#currentLevelMessage').hide('slow')
+    .queue(this.removeMessage)    // устанавливаем порядок выполнения функция
   }
   removeMessage() {
     $('#currentLevelMessage').remove();

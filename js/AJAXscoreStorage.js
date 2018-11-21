@@ -1,36 +1,36 @@
-var scoreStorage = new AJAXStorage('lsScore');
+let scoreStorage = new AJAXStorage('lsScore');
 
 function createPlayerScore() {
-  var newName = score.playerName;
-  var newScore = score.currentScore;
+  let newName = score.playerName;
+  let newScore = score.currentScore;
 
-  var scoreInfo = {
+  let scoreInfo = {
     name: newName,
     score: newScore
   }
 
-  var lineName = Math.random();
+  let lineName = Math.random();
 
   scoreStorage.addValue(lineName, scoreInfo);
 }
 
 function showAllScores() {
 
-  var allScores = scoreStorage.getValue();
+  let allScores = scoreStorage.getValue();
 
-  var sortArray = [];
+  let sortArray = [];
 
   console.log(allScores);
 
-  for (var key in allScores) {
+  for (let key in allScores) {
     sortArray.push(allScores[key]);
   }
 
   console.log(sortArray);
 
-  var comparsion = 0;
+  let comparsion = 0;
 
-  for (var key in sortArray) {
+  for (let key in sortArray) {
     console.log(comparsion);
     if (parseInt(sortArray[key].score) <= comparsion) {
       scoreContainer.appendChild(document.createElement('p')).innerHTML =  sortArray[key].name + '    -------   ' + sortArray[key].score;
@@ -45,13 +45,13 @@ function showAllScores() {
 }
 
 function AJAXStorage() {
-  var self = this;
+  let self = this;
 
   self.hashStorage = {};
 
 
 
-  var AjaxHandlerScript = 'http://fe.it-academy.by/AjaxStringStorage2.php';
+  let AjaxHandlerScript = 'http://fe.it-academy.by/AjaxStringStorage2.php';
 
   $.ajax(
     {
@@ -100,15 +100,15 @@ function AJAXStorage() {
   }
 
   self.getKeys = function () {
-    var keys = [];
-    for (var key in self.hashStorage) {
+    let keys = [];
+    for (let key in self.hashStorage) {
       keys.push('' + key);
     }
     return keys;
   };
 
   function addValueOnTheServer(hash) {
-    var password = Math.random();
+    let password = Math.random();
 
     $.ajax(
       {

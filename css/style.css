@@ -70,3 +70,23 @@ h1 {
 .title:nth-child(3) {
   color: #f1c83c;
 }
+
+.SErrorText {
+  color: red;
+  background-color: black;
+  border: 2px solid #cacaca;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.jump{
+  position: relative;
+  display: inline-block;
+  transition: transform 0.1s;
+  }
+.jump:hover {
+  transform: translateY(-20px) scale(2) rotate(10deg);
+  z-index: 1;
+}

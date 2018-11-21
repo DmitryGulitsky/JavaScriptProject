@@ -1,71 +1,108 @@
+'use strict';
+
 class StartPage {
   constructor() {
-    this.submitPlayerName;
+
   }
   render(){
 
-    let startPageContainer = document.getElementById('startPageContainer');
+    let startPageContainer = $(
+      `<div  id="startPageContainer"></div>`
+    );
 
-    let startContainer = document.createElement('form');
-    startContainer.id = 'slick-login';
-    startPageContainer.appendChild(startContainer);
+    $(`body`).prepend(startPageContainer);
 
-    startContainer.style.display = 'none';
+    let logoTextContainer = $(
+      `<h1></h1>>`);
+    $('#startPageContainer').append(logoTextContainer);
 
-    $('#slick-login').slideDown(2000);
+    let line1 = $(
+      `<span class="title jump">crazy</span>`);
 
-    let logoTextContainer = document.createElement('h1');
-    startPageContainer.appendChild(logoTextContainer);
-    let line1 = document.createElement('span');
-    line1.className = 'title';
-    line1.innerHTML = 'crazy';
-    let line2 = document.createElement('span');
-    line2.className = 'title';
-    line2.innerHTML = 'balls';
-    let line3 = document.createElement('span');
-    line3.className = 'title';
-    line3.innerHTML = 'in space';
-    logoTextContainer.appendChild(line1);
-    logoTextContainer.appendChild(line2);
-    logoTextContainer.appendChild(line3);
+    let line2 = $(
+      `<span class="title jump">balls</span>`);
 
-    let loginText = document.createElement('input');
-    startContainer.appendChild(loginText);
-    loginText.setAttribute('type', 'text');
-    loginText.setAttribute('name', 'username');
-    loginText.setAttribute('class', 'placeholder');
-    loginText.setAttribute('placeholder', 'ENTER YOUR NAME HERE');
+    let line3 = $(
+      `<span class="title jump">in space</span>`);
 
-    let loginSubmit = document.createElement('input');
-    startContainer.appendChild(loginSubmit);
-    loginSubmit.setAttribute('type', 'submit');
-    loginSubmit.setAttribute('value', 'PRESS to START');
-    loginSubmit.addEventListener('click', function() {
-      this.submitPlayerName = loginText.value;
-      score.playerName = loginText.value;
+    $('h1').append(line1)
+      .append(line2)
+      .append(line3);
 
-      startPageContainer.remove();
+    let startContainer = $(
+      `<form id="slick-login" style="display: none" action="javascript: startPage.loginSubmitMousedown();"></form>`
+    );
+    $('#startPageContainer').append(startContainer);
 
-      switchToRules();
-      mainMenu.show();
+    $('#slick-login').slideDown(2000).validate({
+      rules:
+        {
+          username: {required: true, enter_name: 20},
+        },
+      messages:
+        {
+          username:
+            {
+              required: 'Enter your name!',
+              enter_name: 'Enter your name using less than 20 letters and numbers!'
+            },
+        },
+      errorClass: 'SErrorText',
+      errorElement: 'p',
     });
 
-    let startPageBallImageContainer = document.createElement('div');
-    startPageBallImageContainer.className = 'button';
-    startPageContainer.appendChild(startPageBallImageContainer);
+    let loginText = $(
+      `<input id="loginText" type="text" name="username" autocomplete="on" placeholder="ENTER YOUR NAME HERE">`
+    );
+    $(startContainer).append(loginText);
 
-    let startPageBallImage = document.createElement('img');
-    startPageBallImage.id = 'startPageBallImage';
-    startPageBallImageContainer.appendChild(startPageBallImage);
+    $(`#slick-login`).validate({
+      rules:
+        {
+          loginText: {required: true, maxlength: 10, minlength: 1},
+        },
+      errorElement: 'div',
+      errorClass: 'SErrorText'
+    });
 
-    startPageBallImage.setAttribute('src', 'img/ball/ball.png');
+    let loginSubmit = $(
+      `<input id="loginSubmit" type="submit" value="PRESS to START">`
+    );
+    $(startContainer).append(loginSubmit);
 
-    function Test1() {
-      $('#startPageBallImage').animate
-      ({'width': `100%`}, 6000);
+    let startPageBallImageContainer = $(
+      `<div id="startPageBallImageContainer" class="button"></div>`
+    );
+    $(startPageContainer).append(startPageBallImageContainer);
+
+    let startPageBallImage = $(
+      `<img id="startPageBallImage" src="img/ball/ball.png" alt="Crazy Ball Image">`
+    );
+    $(startPageBallImageContainer).append(startPageBallImage);
+
+    $(startPageBallImage).animate({'width': `100%`}, 6000)
+      .mouseover(scaleImg)
+      .mouseout(scaleOutImg);
+
+    function scaleImg() {
+      $(startPageBallImage).animate
+      ({'width': `80%`}, 1000)
     }
-    Test1();
-    //startPageSound.sound.play();
+
+    function scaleOutImg() {
+      $(startPageBallImage).animate
+      ({'width': `100%`}, 1000)
+    }
+  }
+
+  loginSubmitMousedown() {
+
+    score.playerName = $(`loginText`).val();
+
+    $(`#startPageContainer`).remove();
+
+    switchToRules();
+    mainMenu.show();
   }
 }
 
