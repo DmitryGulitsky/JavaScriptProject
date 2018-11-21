@@ -13,7 +13,10 @@ function renderNewState() {
 
     case 'start':
       startPage.render();
-
+      rulesPage.hide();
+      scorePage.hide();
+      aboutPage.hide();
+      stopGame();
       //menuMusicSound.play(); // звук музыки в меню
       break;
 
