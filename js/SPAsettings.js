@@ -33,7 +33,7 @@ function renderNewState() {
     case 'scores':
       stopGame();
       scorePage.show();
-      showAllScores();  // загружаем AJAX данные с сервера
+      scorePage.showAllScores();  // загружаем AJAX данные с сервера
       rulesPage.hide();
       aboutPage.hide();
       menuMusicSound.play(); // звук музыки в меню

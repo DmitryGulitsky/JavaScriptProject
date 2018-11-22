@@ -2,61 +2,13 @@ let scoreStorage = new AJAXStorage();
 
 function createPlayerScore() {
 
-  let scoreInfo = {
+  const scoreInfo = {     // объект для хранения имени и счета текущего сеанса игры
     name: score.playerName,
     score: score.currentScore
   }
 
-  let lineName = Math.random();
-
+  const lineName = Math.random();     // задаем уникальный ключ для объекта с данными текущей сессии
   scoreStorage.addValue(lineName, scoreInfo);
-}
-
-function showAllScores() {    // функция ждя вывода таблицы на страницу
-
-  let allScores = scoreStorage.getValue();
-
-  let sortArray = [];
-
-  console.log(allScores);
-
-  for (let key in allScores) {
-    sortArray.push(allScores[key]);
-  }
-
-  console.log(sortArray);
-
-  //for (let scoreObjectPlayerName in allScores) {
-  //  sortArray.push([scoreObjectPlayerName, allScores[scoreObjectPlayerName]]);
-  //}
-
-  //sortArray.sort(function(a, b) {
-  //  return b[1] - a[1];
-  //});
-
-  function compareScore(personA, personB) {
-    return personB.score - personA.score;
-  }
-
-  sortArray.sort(compareScore);
-
-
-
-  console.log(sortArray);
-
-  function renderScoreTable(n) {
-    if (n.name) {
-      let scoreNewLine = `<p style="border-bottom: 2px solid black; clear: both"><span style="float: left;">${n.name}</span>  <span style="float: right;">${n.score}</span></p>`;
-      $('#scoreContainer').append(scoreNewLine);
-    }
-  }
-
-
-  let scorePageTitle = `<p style="border-bottom: 2px solid black;">Best scores: </p>`;
-  $('#scoreContainer').append(scorePageTitle);
-
-  $.map(sortArray, renderScoreTable);
-
 }
 
 function AJAXStorage() {
@@ -107,7 +59,6 @@ function AJAXStorage() {
     self.hashStorage[key] = value;
 
     addValueOnTheServer(self.hashStorage);
-
   }
 
   self.getValue = function () {
