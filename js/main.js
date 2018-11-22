@@ -37,13 +37,11 @@ function init(){
     updateGame(24/1000);
     renderGame();
   },10);
-
 }
 
 function stopGame() {
   clearInterval(playingIntervalID);
   $(`#canvasContainer`).hide('slow');
-  $('#canvasContainer').show();
   musicSound.stop();
   excellentSound.sound.play();
 }
@@ -55,7 +53,6 @@ function updateGame(dt){
   bullets.update(dt);
   targets.update(dt);
   player.update(dt);
-  //score.update(dt);
 }
 function renderGame(){
   renderBackground();

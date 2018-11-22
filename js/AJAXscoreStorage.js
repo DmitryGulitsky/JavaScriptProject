@@ -1,12 +1,10 @@
-let scoreStorage = new AJAXStorage('lsScore');
+let scoreStorage = new AJAXStorage();
 
 function createPlayerScore() {
-  let newName = score.playerName;
-  let newScore = score.currentScore;
 
   let scoreInfo = {
-    name: newName,
-    score: newScore
+    name: score.playerName,
+    score: score.currentScore
   }
 
   let lineName = Math.random();
@@ -14,7 +12,7 @@ function createPlayerScore() {
   scoreStorage.addValue(lineName, scoreInfo);
 }
 
-function showAllScores() {
+function showAllScores() {    // функция ждя вывода таблицы на страницу
 
   let allScores = scoreStorage.getValue();
 
@@ -28,28 +26,43 @@ function showAllScores() {
 
   console.log(sortArray);
 
-  let comparsion = 0;
+  //for (let scoreObjectPlayerName in allScores) {
+  //  sortArray.push([scoreObjectPlayerName, allScores[scoreObjectPlayerName]]);
+  //}
 
-  for (let key in sortArray) {
-    console.log(comparsion);
-    if (parseInt(sortArray[key].score) <= comparsion) {
-      scoreContainer.appendChild(document.createElement('p')).innerHTML =  sortArray[key].name + '    -------   ' + sortArray[key].score;
-      comparsion = parseInt(sortArray[key].score);
-    } else if (parseInt(sortArray[key].score) >= comparsion) {
+  //sortArray.sort(function(a, b) {
+  //  return b[1] - a[1];
+  //});
 
-      scoreContainer.insertBefore(document.createElement('p'),scoreContainer.firstChild).innerHTML =  sortArray[key].name + '    -------   ' + sortArray[key].score;
-    }
-
+  function compareScore(personA, personB) {
+    return personB.score - personA.score;
   }
+
+  sortArray.sort(compareScore);
+
+
+
+  console.log(sortArray);
+
+  function renderScoreTable(n) {
+    if (n.name) {
+      let scoreNewLine = `<p style="border-bottom: 2px solid black; clear: both"><span style="float: left;">${n.name}</span>  <span style="float: right;">${n.score}</span></p>`;
+      $('#scoreContainer').append(scoreNewLine);
+    }
+  }
+
+
+  let scorePageTitle = `<p style="border-bottom: 2px solid black;">Best scores: </p>`;
+  $('#scoreContainer').append(scorePageTitle);
+
+  $.map(sortArray, renderScoreTable);
 
 }
 
 function AJAXStorage() {
+
   let self = this;
-
   self.hashStorage = {};
-
-
 
   let AjaxHandlerScript = 'http://fe.it-academy.by/AjaxStringStorage2.php';
 
@@ -59,7 +72,7 @@ function AJAXStorage() {
       type: 'POST',
       cache: false,
       dataType: 'json',
-      data: {f: 'READ', n: 'GULITSKY_SPACE_STORAGE'},
+      data: {f: 'READ', n: 'GULITSKY_SPACE_BALL_STORAGE'},
       success: DataLoadedRead,
       error: ErrorHandler
     }
@@ -75,7 +88,10 @@ function AJAXStorage() {
           type: 'POST',
           cache: false,
           dataType: 'json',
-          data: {f: 'INSERT', n: 'GULITSKY_SPACE_STORAGE', v: JSON.stringify(self.hashStorage)},
+          data: {
+            f: 'INSERT',
+            n: 'GULITSKY_SPACE_BALL_STORAGE',
+            v: JSON.stringify(self.hashStorage)},
           success: DataLoadedInsert,
           error: ErrorHandler
         }
@@ -96,7 +112,6 @@ function AJAXStorage() {
 
   self.getValue = function () {
       return self.hashStorage;
-
   }
 
   self.getKeys = function () {
@@ -116,7 +131,7 @@ function AJAXStorage() {
         type: 'POST',
         cache: false,
         dataType: 'json',
-        data: {f: 'LOCKGET', n: 'GULITSKY_SPACE_STORAGE', p: password},
+        data: {f: 'LOCKGET', n: 'GULITSKY_SPACE_BALL_STORAGE', p: password},
         success: DataLoadedLockget,
         error: ErrorHandler
       }
@@ -129,7 +144,12 @@ function AJAXStorage() {
           type: 'POST',
           cache: false,
           dataType: 'json',
-          data: {f: 'UPDATE', n: 'GULITSKY_SPACE_STORAGE', p: password, v: JSON.stringify(hash)},
+          data: {
+            f: 'UPDATE',
+            n: 'GULITSKY_SPACE_BALL_STORAGE',
+            p: password,
+            v: JSON.stringify(hash)
+          },
           success: DataLoadedUpdate,
           error: ErrorHandler
         }
