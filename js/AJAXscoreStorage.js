@@ -1,6 +1,6 @@
 let scoreStorage = new AJAXStorage();
 
-function createPlayerScore() {
+function createPlayerScore() {    // функция запускается, когда у игрока закончились жизни
 
   const scoreInfo = {     // объект для хранения имени и счета текущего сеанса игры
     name: score.playerName,

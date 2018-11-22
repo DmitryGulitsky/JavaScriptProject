@@ -1,80 +1,46 @@
 class Level {
   constructor() {
-    this.livesNumbers = 3;
-    this.currentLevel = 0;
-    this.killedTargets = 0;
-    this.levelLimitKilledTargets = 3;
+    this.livesNumbers = 3;    // количество жизней у игрока в начале новой игры / переменная значения количества жизней в процессе игры
+    this.currentLevel = 0;    // переменная для значения последнего пройденного уровня
+    this.killedTargets = 0;   // количество уничтоженных целей игроком, как условие для перехода на следующий уровень
+    this.levelLimitKilledTargets = 3;   //  начальное значение достаточного количества уничтоженных целей для перехода на следующий уровень
   }
 
   statControl() {
-    if (this.killedTargets === this.levelLimitKilledTargets) {  // контроль лимита уничтоженных целей на текущем уровне
-      console.log('previous level ' + this.currentLevel);
-      console.log('lives numbers ' + this.livesNumbers);
-      console.log('killed targets ' + this.killedTargets);
-      console.log('level limit killed targetsv' + this.levelLimitKilledTargets);
-      console.log('target number on screen' + targets.targetsNumber);
+    if (this.killedTargets === this.levelLimitKilledTargets) {  // контроль условия количества уничтоженных целей для перехода на следующий уровень
 
-      console.log('------------------');
-      switchToLevelInfo();
-      this.nextLevelDifficulty();
-      this.showMessage();
-      console.log('next level ' + this.currentLevel);
+      switchToLevelInfo();    // всплытие сообщение о переходе на следующий уровень
+      this.nextLevelDifficulty();   //  вызов функции установки параметров для следующего уровня
 
-      console.log('lives numbers ' + this.livesNumbers);
-      console.log('killed targets ' + this.killedTargets);
-      console.log('level limit killed targetsv' + this.levelLimitKilledTargets);
-      console.log('target number on screen' + targets.targetsNumber);
-
-      console.log('------------------');
     }
 
-    if (this.livesNumbers === 0) {    // контроль лимита жизней игрока
-
+    if (this.livesNumbers === 0) {    // контроль лимита жизней игрока, как условие окончания игры
       createPlayerScore(); // отправляем новые данные на сервер
-
-      switchToScores();
+      switchToScores();   // переходим на страницу результатов
     }
-
   }
 
-  nextLevelDifficulty(){
-    this.currentLevel += 1;
-    targets.targetsNumber += 10;
+  nextLevelDifficulty(){    // задаем параметры сложности для очередного уровня
+    this.currentLevel++;   // добавляем значение текущего уровня
 
-    this.levelLimitKilledTargets *= 2;
+    targets.targetsNumber += 10;    // добавляем количество челей на игровом поле
 
-    this.livesNumbers++;
+    this.levelLimitKilledTargets *= 2;    // добавляем условие количества уничтоженных целей для перехода на следующий уровень
+
+    this.livesNumbers++;    // добавляем игроку одну жизнь
   }
 
   renderMessage(){
 
-    this.removeMessage();
+    this.removeMessage();   // удаляем предыдущее сообщение о переходе на новый уровень
 
-    let levelContainer = document.getElementById('levelMessageContainer');
-    let currentLevelMessage = document.createElement('div');
-    currentLevelMessage.id = 'currentLevelMessage';
+    let levelContainer = $(`#levelMessageContainer`);
+    let currentLevelMessage = $(`<div id="currentLevelMessage" class="pages" style="width: 40%; top: 45%; left: 30%; padding: 30px;">LEVEL ${this.currentLevel} completed!
+press PLAY to continue</div>`);
 
-    levelContainer.appendChild(currentLevelMessage);
+    $(levelContainer).append(currentLevelMessage);
 
-    currentLevelMessage.style.display = 'none';
-    currentLevelMessage.innerHTML = 'LEVEL ' + this.currentLevel + ' completed!' +
-      '\npress PLAY to continue';
-    currentLevelMessage.style.position = 'absolute';
-    currentLevelMessage.style.width = '40%';
-    currentLevelMessage.style.top = 45 + '%';
-    currentLevelMessage.style.left = '40%';
-    currentLevelMessage.style.textAlign = 'center';
-    currentLevelMessage.style.fontFamily = '\'Cabin Sketch\', cursive';
-    currentLevelMessage.style.font = '30px solid white';
-    currentLevelMessage.style.color = 'white';
-    currentLevelMessage.style.textShadow = '3px 3px 0 rgba(0,0,0,0.2)';
-    currentLevelMessage.style.backgroundColor = 'white';
-    currentLevelMessage.style.backgroundColor = '#3C5ABC';
-    currentLevelMessage.style.border = '2px solid black';
-    currentLevelMessage.style.borderRadius = '50px';
-    currentLevelMessage.style.padding = '30px';
-
-    this.showMessage();
+    this.showMessage();   // задаем плавное появление сообщения о переходе на новый уровень
   }
 
   showMessage() {

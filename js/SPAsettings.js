@@ -62,7 +62,6 @@ function renderNewState() {
       rulesPage.hide();
       scorePage.hide();
       menuMusicSound.play(); // звук музыки в меню
-
       break;
   }
 }

@@ -1,3 +1,5 @@
+// здесь создаем механику и отрисовку каждой пули
+
 class Bullets {
   constructor() {
     this.objects = [];  // объект для хранения параметров выпущенной пули
@@ -58,12 +60,6 @@ class Bullets {
         x: obj.x, y: obj.y,
         radius: 3,
       });
-
-
-
-//      ctx.beginPath();
-//      ctx.arc(obj.x,obj.y,3,0,Math.PI * 2);
-//      ctx.fill();
     }
   }
 
@@ -82,9 +78,7 @@ class Bullets {
       }
     }
     return {dist:dist,object:obj};
-
   }
-
 }
 
 let bullets = new Bullets();

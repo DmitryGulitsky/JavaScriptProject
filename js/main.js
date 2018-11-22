@@ -20,9 +20,6 @@ function init(){
   width = window.innerWidth;
   height = window.innerHeight;
 
-  //ctx = canvas.getContext('2d');
-  //ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   $(`#canvas`)
     .attr(`width`, width)
     .attr(`height`, height);
