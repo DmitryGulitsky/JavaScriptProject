@@ -28,8 +28,8 @@ function enterNameValidation(value, elem, args) {
 $.validator.addMethod('enter_name', enterNameValidation,
   'Enter your name using letters and numbers');
 
-const heading = document.querySelector('.jump');
-heading.innerHTML = sparanWrap(heading.textContent);
+//const heading = document.querySelector('.jump');
+//heading.innerHTML = sparanWrap(heading.textContent);
 
 function sparanWrap(word) {
   return [...word].map(letter => `<span>${letter}</span>`).join('');

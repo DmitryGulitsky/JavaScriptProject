@@ -4,25 +4,28 @@ let canvas,
   height,
   playingIntervalID;
 
+//let canvasContainer = $(
+//`<div id="canvasContainer"><canvas id="canvas" style="background:#000;"></canvas></div>`
+//);
+//$(`#game`).append(canvasContainer);
+
 function init(){
 
   console.log('start init');
 
   fightSound.sound.play();
 
-  let canvasContainer = document.getElementById('canvasContainer');
-  canvas = document.getElementById('canvas');
-
-  canvasContainer.style.display = 'block';
+  $('#canvasContainer').show('slow');
 
   width = window.innerWidth;
   height = window.innerHeight;
 
-  ctx = canvas.getContext('2d');
+  //ctx = canvas.getContext('2d');
   //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  canvas.width = width;
-  canvas.height = height;
+  $(`#canvas`)
+    .attr(`width`, width)
+    .attr(`height`, height);
 
   window.onkeydown = keyLogger.keyDownListener;
   window.onkeyup = keyLogger.keyUpListener;
@@ -39,7 +42,7 @@ function init(){
 
 function stopGame() {
   clearInterval(playingIntervalID);
-  document.getElementById('canvasContainer').style.display = 'none';
+  $(`#canvasContainer`).hide('slow');
   $('#canvasContainer').show();
   musicSound.stop();
   excellentSound.sound.play();
@@ -65,6 +68,7 @@ function renderGame(){
 function renderBackground(){
   width = window.innerWidth;
   height = window.innerHeight;
-  canvas.width = width;
-  canvas.height = height;
+  $(`#canvas`)
+    .attr(`width`, width)
+    .attr(`height`, height);
 }

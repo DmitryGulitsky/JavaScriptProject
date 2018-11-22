@@ -13,7 +13,7 @@ class StartPage {
     $(`body`).prepend(startPageContainer);
 
     let logoTextContainer = $(
-      `<h1></h1>>`);
+      `<h1></h1>`);
     $('#startPageContainer').append(logoTextContainer);
 
     let line1 = $(

@@ -1,3 +1,8 @@
+let canvasContainer = $(
+  `<div id="canvasContainer"><canvas id="canvas" style="background:#000;"></canvas></div>`
+);
+$(`#game`).append(canvasContainer);
+
 $(document).ready(function() {
   $(".title").lettering();
   $(".button").lettering();

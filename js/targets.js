@@ -17,14 +17,14 @@ class Targets {
   pushObj(target){
     this.init(target);
     let i = -1;
-    while(this.objects[++i] != undefined);
+    while(this.objects[++i] !== undefined);
     this.objects[i] = target;
     if(this.maxID < i) this.maxID = i;
   };
   getSize(){    // функция для нахождения empty элемента массива
     let size = 0;
     for(let i = 0;i < this.maxID;i++){
-      if(this.objects[i] == undefined) continue;
+      if(this.objects[i] === undefined) continue;
       size++;
     }
     return size;
@@ -32,14 +32,14 @@ class Targets {
 
   update(dt){
     for(let i = 0;i < this.maxID;i++){    // обновляем местоположение каждой цели в координатной плосксти
-      if(this.objects[i] == undefined) continue;
+      if(this.objects[i] === undefined) continue;
       let obj = this.objects[i];
 
       obj.x += obj.vx * dt;
       obj.y += obj.vy * dt;
 
       // console.log(this.objects[0].currentAlpha); //
-      if(obj.currentAlpha != obj.maxAlpha){   // задаем плавность изменения непрозраности цели
+      if(obj.currentAlpha !== obj.maxAlpha){   // задаем плавность изменения непрозраности цели
         obj.currentAlpha += (obj.maxAlpha - obj.currentAlpha) / 100;
       }
 
@@ -48,7 +48,7 @@ class Targets {
         if(infoBullets.dist <= obj.size * obj.scale){  // условие, если пуля попадает в радиус цели
           infoBullets.object.remove = true;    // убираем пулю
           bangSound.play();   // звук исчезновения цели
-          if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
+          if(obj.hitAnimClock === -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
             obj.hitAnimClock = 0;
             score.countPlus();    // увеличивание счета преред исчезанием цели
 
@@ -59,7 +59,7 @@ class Targets {
         let infoPlayer = player.getMinInfo(obj);    // возвращает объект {dist:dist} с расстоянием от игрока до цели
         if(infoPlayer.dist <= obj.size * obj.scale){
 
-          if(obj.hitAnimClock == -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
+          if(obj.hitAnimClock === -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
 
             obj.hitAnimClock = 0;
             score.countMegaMinus();    // увеличивание счета преред исчезанием цели
@@ -67,7 +67,7 @@ class Targets {
         }
 
       }
-      if(obj.hitAnimClock != -1){  // исчезание цели с шагом переданного аргумента dt в интервале от 0 до 1
+      if(obj.hitAnimClock !== -1){  // исчезание цели с шагом переданного аргумента dt в интервале от 0 до 1
         obj.hitAnimClock += dt;
         if(obj.hitAnimClock >= 1){
           delete this.objects[i];
@@ -99,34 +99,27 @@ class Targets {
         }
       });
     }
-
-
   };
-  render(ctx){
+  render(){
     for(let i = 0;i < this.maxID;i++){
-      if(this.objects[i] == undefined) continue;
+      if(this.objects[i] === undefined) continue;
       let obj = this. objects[i];
 
       obj.scale = 1;
-      if(obj.hitAnimClock != -1){
-        obj.currentAlpha = 1 - obj.hitAnimClock * 1.5; // изменяем непрозрачность при попадании пули в цель
-        if(obj.currentAlpha < 0) {
-          obj.currentAlpha = 0;
-        }
+      if(obj.hitAnimClock !== -1){
         obj.scale = 1 + 2 * obj.hitAnimClock; // увеличиваем масштаб цели при попадании в нее пули
-        obj.maxAlpha = obj.currentAlpha;
       }
-      ctx.fillStyle = utils.getARGBString(
-        obj.currentAlpha,
-        obj.color.r,
-        obj.color.g,
-        obj.color.b
-      );
-      ctx.globalAlpha = obj.currentAlpha;
-      ctx.beginPath();
-      ctx.arc(obj.x,obj.y,obj.size * obj.scale,0,Math.PI * 2);
-      ctx.fill();
-      ctx.globalAlpha = 1;
+
+      $(`#canvas`).drawArc({
+        fillStyle: utils.getARGBString(
+            obj.currentAlpha,
+            obj.color.r,
+            obj.color.g,
+            obj.color.b
+        ),
+        x: obj.x, y: obj.y,
+        radius: obj.size * obj.scale,
+      });
     }
   };
 

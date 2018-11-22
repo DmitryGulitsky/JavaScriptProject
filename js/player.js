@@ -91,21 +91,37 @@ class Player {
     return {dist:dist};
   }
 
-  render(ctx) {// отрисовываем игрока
-    ctx.fillStyle="#FF0000";
-    ctx.beginPath();
-    ctx.arc(this.x,this.y,this.stats.size,0,Math.PI * 2);
-    ctx.fill();
+  render() {// отрисовываем игрока
 
-    ctx.strokeStyle="#FF0000";
-    ctx.beginPath();
-    ctx.moveTo(this.x,this.y);  // точка в центре игрока
+    $(`#canvas`).drawArc({     // окружность игрока
+      fillStyle: '#FF0000',
+      strokeStyle: '#333',
+      strokeWidth: 4,
+      x: this.x, y:this.y,
+      radius: this.stats.size
+    }).drawLine({
+      strokeStyle: '#FF0000',
+      strokeWidth: 10,
+      rounded: false,
+      closed: true,
+      x1: this.x, y1: this.y,
+      x2: this.x + pointerLength * Math.cos(this.angle), y2: this.y + pointerLength * Math.sin(this.angle),
+    });
 
-    ctx.lineTo(
-      this.x + pointerLength * Math.cos(this.angle),  // точка на конце пушки
-      this.y + pointerLength * Math.sin(this.angle)
-    );
-    ctx.stroke();
+    //ctx.fillStyle="#FF0000";
+    //ctx.beginPath();
+    //ctx.arc(this.x,this.y,this.stats.size,0,Math.PI * 2);
+    //ctx.fill();
+
+    //ctx.strokeStyle="#FF0000";
+    //ctx.beginPath();
+    //ctx.moveTo(this.x,this.y);  // точка в центре игрока
+//
+    //ctx.lineTo(
+    //  this.x + pointerLength * Math.cos(this.angle),  // точка на конце пушки
+    //  this.y + pointerLength * Math.sin(this.angle)
+    //);
+    //ctx.stroke();
   }
 }
 

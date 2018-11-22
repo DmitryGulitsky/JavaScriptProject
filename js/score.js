@@ -29,20 +29,37 @@ class Score {
     level.livesNumbers--;
   }
 
-  render(ctx){
+  render(){
     let scoreX = width * 0.9;
     let scoreY = height * 0.1;
     let scoreMaxY = height * 0.2;
     let scoreLivesY = height * 0.3;
-    ctx.beginPath();
-    ctx.fillStyle = 'white';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.font = 'normal 27px Arial';
-    ctx.fillText('Score:' + this.currentScore, scoreX, scoreY);
-    ctx.fillText('Max:  ' + this.maxScore, scoreX, scoreMaxY);
-    ctx.fillText('Lives:  ' + level.livesNumbers, scoreX, scoreLivesY);
-    ctx.stroke();
+
+    $(`#canvas`).drawText({
+      text: `Score: ${this.currentScore}`,
+      fontFamily: 'cursive',
+      fontSize: 27,
+      x: scoreX, y: scoreY,
+      fillStyle: 'white',
+      strokeStyle: 'blue',
+      strokeWidth: 1
+    }).drawText({
+      text: `Max: ${this.maxScore}`,
+      fontFamily: 'cursive',
+      fontSize: 27,
+      x: scoreX, y: scoreMaxY,
+      fillStyle: 'white',
+      strokeStyle: 'blue',
+      strokeWidth: 1
+    }).drawText({
+      text: `Lives: ${level.livesNumbers}`,
+      fontFamily: 'cursive',
+      fontSize: 27,
+      x: scoreX, y: scoreLivesY,
+      fillStyle: 'white',
+      strokeStyle: 'blue',
+      strokeWidth: 1
+    });
   }
 }
 
