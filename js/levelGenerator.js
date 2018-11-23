@@ -22,6 +22,8 @@ class Level {
     if (this.livesNumbers === 0) {    // контроль лимита жизней игрока, как условие окончания игры
       createPlayerScore(); // отправляем новые данные на сервер
       switchToScores();   // переходим на страницу результатов
+
+      this.clearPlayground();   // обнуляем прогресс в игре
     }
   }
 
@@ -33,6 +35,16 @@ class Level {
     this.levelLimitKilledTargets *= 2;    // добавляем условие количества уничтоженных целей для перехода на следующий уровень
 
     this.livesNumbers++;    // добавляем игроку одну жизнь
+  }
+
+  clearPlayground(){
+    this.livesNumbers = 3;    // количество жизней у игрока в начале новой игры / переменная значения количества жизней в процессе игры
+    this.currentLevel = 0;    // переменная для значения последнего пройденного уровня
+    this.killedTargets = 0;   // количество уничтоженных целей игроком, как условие для перехода на следующий уровень
+    this.levelLimitKilledTargets = 3;
+
+    score.clearScore();
+    targets.clearTargets();
   }
 
   renderMessage(){

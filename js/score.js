@@ -26,6 +26,11 @@ class Score {
     level.livesNumbers--;   // уменьшение количества жизней на 1
   }
 
+  clearScore(){
+    this.currentScore = 0;    // стартовое значение игрового счета игрока
+    this.maxScore = 0;    // переменная для хранения максимального значения игрового счета
+  };
+
   render(){     // отрисовка текущего счета игры и количества жизней
     let scoreX = width * 0.9;
     let scoreY = height * 0.1;

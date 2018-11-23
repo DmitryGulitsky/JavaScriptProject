@@ -34,6 +34,10 @@ class Targets {
     return size;
   };
 
+  clearTargets(){
+
+  }
+
   update(dt){
     for(let i = 0;i < this.maxID;i++){    // обновляем местоположение каждой цели в координатной плосксти
       if(this.objects[i] === undefined) continue;
@@ -42,7 +46,6 @@ class Targets {
       obj.x += obj.vx * dt;
       obj.y += obj.vy * dt;
 
-      // console.log(this.objects[0].currentAlpha); //
       if(obj.currentAlpha !== obj.maxAlpha){   // задаем плавность изменения непрозраности цели
         obj.currentAlpha += (obj.maxAlpha - obj.currentAlpha) / 100;
       }
