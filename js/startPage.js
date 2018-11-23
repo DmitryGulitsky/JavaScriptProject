@@ -1,10 +1,27 @@
 'use strict';
 
+// здесь мы создаем стартовую страницу, делаем валидацию формы, создаем в фоне остальные страницы приложения при успешной валидации
+
 class StartPage {
   constructor() {
 
   }
   render(){
+
+    $(document).ready(function() {    // подключаем lettering к заголовку к классом
+      $(`.title`).lettering();
+    });
+
+    $(document).ready(function() {    // задаем анимацию для букв заголовка
+      titleAnimation();
+    }, 1000);
+
+    function titleAnimation() {
+      var title1 = new TimelineMax();
+      title1.staggerFromTo(".title span", 0.5,
+        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+    }
 
     let startPageContainer = $(
       `<div  id="startPageContainer"></div>`
@@ -101,8 +118,13 @@ class StartPage {
 
     $(`#startPageContainer`).remove();
 
+    mainMenu.render();  // создание меню
+
+    scorePage.render(); // создание страниц в фоне
+    rulesPage.render(); // создание страниц в фоне
+    aboutPage.render(); // создание страниц в фоне
+
     switchToRules();
-    mainMenu.show();
   }
 }
 

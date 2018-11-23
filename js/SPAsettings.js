@@ -16,6 +16,7 @@ function renderNewState() {
       rulesPage.hide();
       scorePage.hide();
       aboutPage.hide();
+      mainMenu.hide();
       stopGame();
       //menuMusicSound.play(); // звук музыки в меню
       break;
@@ -28,6 +29,7 @@ function renderNewState() {
       rulesPage.hide();
       scorePage.hide();
       aboutPage.hide();
+      mainMenu.hide();
       level.hideMessage();
       break;
 
@@ -37,6 +39,7 @@ function renderNewState() {
       scorePage.showAllScores();  // загружаем AJAX данные с сервера
       rulesPage.hide();
       aboutPage.hide();
+      mainMenu.show();
       menuMusicSound.play(); // звук музыки в меню
       break;
 
@@ -45,6 +48,7 @@ function renderNewState() {
       rulesPage.show();
       scorePage.hide();
       aboutPage.hide();
+      mainMenu.show();
       menuMusicSound.play(); // звук музыки в меню
       break;
 
@@ -54,6 +58,7 @@ function renderNewState() {
       rulesPage.hide();
       scorePage.hide();
       menuMusicSound.play(); // звук музыки в меню
+      mainMenu.show();
       break;
 
     case 'levelInfo':
@@ -63,6 +68,7 @@ function renderNewState() {
       aboutPage.hide();
       rulesPage.hide();
       scorePage.hide();
+      mainMenu.show();
       menuMusicSound.play(); // звук музыки в меню
       break;
   }

@@ -10,7 +10,7 @@ class MainMenu {
     let counter = 0;
     function createMenuItems(i) {
 
-      let menuItem = $(`<div id="menu${i}" class="pages" style="display: none; width: ${(100 / menuItemLength)}%; left: ${(100 / menuItemLength * counter)}%; top: 0; padding: 0.5% 0;">${i}</div>`);
+      let menuItem = $(`<div id="menu${i}" class="pages" style="display: block; width: ${(100 / menuItemLength)}%; left: ${(100 / menuItemLength * counter)}%; top: 0; padding: 0.5% 0;">${i}</div>`);
 
       counter++;
 
@@ -23,13 +23,13 @@ class MainMenu {
       function overButton() {
         $(`#menu${i}`)
           .animate({'opacity': `0.5`}, 300)
-          //.animate({'cursor': `pointer`}, 100)
+          .css({'cursor': `pointer`}, 100)
       }
 
       function outButton() {
         $(`#menu${i}`)
           .animate({'opacity': `0.8`}, 300)
-          //.animate({'cursor': `default`}, 100)
+          .css({'cursor': `default`}, 100)
       }
     }
 
@@ -54,9 +54,11 @@ class MainMenu {
     function menuAboutDown() {
       switchToAbout();
     }
+    //this.show();
   }
 
   show() {
+
     $('#menuContainer').show('slow');
   }
 
@@ -66,9 +68,3 @@ class MainMenu {
 }
 
 let mainMenu = new MainMenu();
-
-mainMenu.render();
-
-scorePage.render(); // создание страниц в фоне
-rulesPage.render(); // создание страниц в фоне
-aboutPage.render(); // создание страниц в фоне

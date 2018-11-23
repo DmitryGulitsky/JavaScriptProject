@@ -29,7 +29,7 @@ class Score {
     let scoreMaxY = height * 0.2;
     let scoreLivesY = height * 0.3;
 
-    $(`#canvas`).drawText({
+    $(`#canvas`).drawText({   // рисуем текущий счет
       text: `Score: ${this.currentScore}`,
       fontFamily: 'cursive',
       fontSize: 27,
@@ -37,7 +37,7 @@ class Score {
       fillStyle: 'white',
       strokeStyle: 'blue',
       strokeWidth: 1
-    }).drawText({
+    }).drawText({   // рисуем максимальный счет за сессию
       text: `Max: ${this.maxScore}`,
       fontFamily: 'cursive',
       fontSize: 27,
@@ -45,7 +45,7 @@ class Score {
       fillStyle: 'white',
       strokeStyle: 'blue',
       strokeWidth: 1
-    }).drawText({
+    }).drawText({   // рисуем количество жизней
       text: `Lives: ${level.livesNumbers}`,
       fontFamily: 'cursive',
       fontSize: 27,

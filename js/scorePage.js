@@ -46,9 +46,7 @@ class ScorePage {
   }
   hide(){
     $('#scoreContainer').hide('slow');
-    while (document.getElementById('scoreContainer').firstChild) {   // очищаем список результатов
-      document.getElementById('scoreContainer').removeChild(document.getElementById('scoreContainer').firstChild);
-    }
+    $(`#scoreContainer`).empty();   // удаляем содержимое scoreContainer
   }
 }
 
