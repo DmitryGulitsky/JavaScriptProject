@@ -5,58 +5,57 @@ class MainMenu {
   }
 
   render() {
-    let menuItems = ['Play', 'Scores', 'Rules', 'About']; // хранилище пунктов меню с названиями страниц
-    let menuOptions = [];
+    let menuItemsArray = ['Play', 'Scores', 'Rules', 'About']; // массив названий пунктов меню
+    let menuItemLength = menuItemsArray.length;
+    let counter = 0;
+    function createMenuItems(i) {
 
-    for (let i = 0; i < menuItems.length; i++) {
-      container.style.display = 'none';
-      menuOptions[i] = document.createElement('div');
+      let menuItem = $(`<div id="menu${i}" class="pages" style="display: none; width: ${(100 / menuItemLength)}%; left: ${(100 / menuItemLength * counter)}%; top: 0; padding: 0.5% 0;">${i}</div>`);
 
-      container.appendChild(menuOptions[i]);
-      menuOptions[i].id = `menu${menuItems[i]}`;
+      counter++;
 
-      menuOptions[i].innerHTML = menuItems[i];
+      $(`#menuContainer`).append(menuItem);
 
-      menuOptions[i].style.textAlign = 'center';
-      menuOptions[i].style.width = 100 / menuItems.length + '%';
-      menuOptions[i].style.position = 'absolute';
-      menuOptions[i].style.left = 100 / menuItems.length * i + '%';
-      menuOptions[i].style.padding = '0.5% 0';
-      menuOptions[i].style.fontFamily = '\'Cabin Sketch\', cursive';
-      menuOptions[i].style.font = '30px solid white';
-      menuOptions[i].style.color = 'white';
-      menuOptions[i].style.textShadow = '3px 3px 0 rgba(0,0,0,0.2)';
-      menuOptions[i].style.backgroundColor = '#3C5ABC';
-      menuOptions[i].style.border = '2px solid black';
-      menuOptions[i].style.borderRadius = '50px';
+      $(`#menu${i}`)
+        .mouseover(overButton)
+        .mouseout(outButton)
 
-      menuOptions[i].addEventListener('mouseover', function (event) {
-        event.target.style.opacity = 0.5;
-        event.target.style.cursor = 'pointer';
-      });
-      menuOptions[i].addEventListener('mouseout', function (event) {
-        event.target.style.opacity = 0.8;
-        event.target.style.cursor = 'default';
-      });
-
-
-      if (i === 0) {
-        menuOptions[i].addEventListener('mousedown', switchToPlay);
+      function overButton() {
+        $(`#menu${i}`)
+          .animate({'opacity': `0.5`}, 300)
+          //.animate({'cursor': `pointer`}, 100)
       }
 
-      if (i === 1) {
-        menuOptions[i].addEventListener('mousedown', switchToScores);
-      }
-
-      if (i === 2) {
-        menuOptions[i].addEventListener('mousedown', switchToRules);
-      }
-
-      if (i === 3) {
-        menuOptions[i].addEventListener('mousedown', switchToAbout);
+      function outButton() {
+        $(`#menu${i}`)
+          .animate({'opacity': `0.8`}, 300)
+          //.animate({'cursor': `default`}, 100)
       }
     }
+
+    $.map(menuItemsArray, createMenuItems);
+
+    $(`#menuPlay`).mousedown(menuPlayDown);
+    function menuPlayDown() {
+      switchToPlay();
+    }
+
+    $(`#menuScores`).mousedown(menuScoresDown);
+    function menuScoresDown() {
+      switchToScores();
+    }
+
+    $(`#menuRules`).mousedown(menuRulesDown);
+    function menuRulesDown() {
+      switchToRules();
+    }
+
+    $(`#menuAbout`).mousedown(menuAboutDown);
+    function menuAboutDown() {
+      switchToAbout();
+    }
   }
+
   show() {
     $('#menuContainer').show('slow');
   }
@@ -64,7 +63,6 @@ class MainMenu {
   hide() {
     $('#menuContainer').hide('slow');
   }
-
 }
 
 let mainMenu = new MainMenu();

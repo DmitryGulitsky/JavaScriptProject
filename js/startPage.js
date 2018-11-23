@@ -98,7 +98,6 @@ class StartPage {
   loginSubmit() {
 
     score.playerName = $(`#loginText`).val();
-    //score.playerName = $(`loginText`).val();
 
     $(`#startPageContainer`).remove();
 

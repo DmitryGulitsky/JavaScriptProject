@@ -13,7 +13,7 @@ function init(){
 
   console.log('start init');
 
-  fightSound.sound.play();
+
 
   $('#canvasContainer').show('slow');
 
@@ -40,7 +40,6 @@ function stopGame() {
   clearInterval(playingIntervalID);
   $(`#canvasContainer`).hide('slow');
   musicSound.stop();
-  excellentSound.sound.play();
 }
 
 function updateGame(dt){

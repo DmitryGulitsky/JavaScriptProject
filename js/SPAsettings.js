@@ -23,6 +23,7 @@ function renderNewState() {
     case 'play':
       init();
       musicSound.play();  // запускаем музыку в игре
+      fightSound.sound.play();  // звук fight
       menuMusicSound.stop(); // звук музыки в меню
       rulesPage.hide();
       scorePage.hide();
@@ -58,6 +59,7 @@ function renderNewState() {
     case 'levelInfo':
       level.renderMessage();
       stopGame();
+      excellentSound.sound.play();    // звук excellent
       aboutPage.hide();
       rulesPage.hide();
       scorePage.hide();

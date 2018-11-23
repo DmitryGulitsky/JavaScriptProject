@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: 'Fjalla One', sans-serif;
-  background: linear-gradient(to bottom, #405166 0%, #a5b4b4 100%);
+  background: linear-gradient(to bottom, #000000 0%, #a5b4b4 100%);
 }
 
 #logo-container {
@@ -103,7 +103,10 @@ h1 {
   font-size: 35px;
   color: white;
   text-shadow: 3px 3px 0 rgba(0,0,0,1);
-  background-color: #3C5ABC;
+  background: linear-gradient(to bottom, #435dd5 0%, #172347 100%);
+  -webkit-box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
+  -moz-box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
+  box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
   border: 2px solid black;
   border-radius: 50px;
 }

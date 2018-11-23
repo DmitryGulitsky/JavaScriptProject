@@ -35,8 +35,10 @@ class Level {
     this.removeMessage();   // удаляем предыдущее сообщение о переходе на новый уровень
 
     let levelContainer = $(`#levelMessageContainer`);
-    let currentLevelMessage = $(`<div id="currentLevelMessage" class="pages" style="width: 40%; top: 45%; left: 30%; padding: 30px;">LEVEL ${this.currentLevel} completed!
-press PLAY to continue</div>`);
+    let currentLevelMessage = $(
+      `<div id="currentLevelMessage" class="pages" style="width: 40%; top: 45%; left: 30%; padding: 30px;">LEVEL ${this.currentLevel} completed!
+press PLAY to continue</div>`
+    );
 
     $(levelContainer).append(currentLevelMessage);
 

@@ -1,18 +1,12 @@
+// здесь происходит подсчет очков и количества жизней в игре и отображение их на экране
 class Score {
   constructor() {
-    this.playerName;
+    this.playerName;    // переменная со значением имени игрока
     this.currentScore = 0;    // стартовое значение игрового счета игрока
     this.maxScore = 0;    // переменная для хранения максимального значения игрового счета
-
-    //this.levelTargetLimit = 10;
-
   }
 
-  finalResult() {
-
-  }
-
-  countPlus(){    // увеличение игрового счета
+  countPlus(){    // увеличение игрового счета после уничтожения цели
     this.currentScore += 100;
 
     if (this.currentScore > this.maxScore) {    // сохранение максимально набранных очков за сессию
@@ -20,16 +14,16 @@ class Score {
     }
   }
 
-  countMinus(){ // уменьшение игрового счета
+  countMinus(){ // уменьшение игрового счета при выстреле
     this.currentScore -= 10;
   }
 
-  countMegaMinus(){ // уменьшение игрового счета
+  countMegaMinus(){ // уменьшение игрового счета при столкновении с целью
     this.currentScore -= 1000;
-    level.livesNumbers--;
+    level.livesNumbers--;   // уменьшение количества жизней на 1
   }
 
-  render(){
+  render(){     // отрисовка текущего счета игры и количества жизней
     let scoreX = width * 0.9;
     let scoreY = height * 0.1;
     let scoreMaxY = height * 0.2;
