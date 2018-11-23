@@ -1,3 +1,7 @@
+'use strict';
+
+// здесь мы задаем логику появления, исчезания, движения и отрисовку целей.
+
 class Targets {
   constructor() {
     this.targetsNumber = 10;
@@ -65,7 +69,6 @@ class Targets {
             score.countMegaMinus();    // увеличивание счета преред исчезанием цели
           }
         }
-
       }
       if(obj.hitAnimClock !== -1){  // исчезание цели с шагом переданного аргумента dt в интервале от 0 до 1
         obj.hitAnimClock += dt;
@@ -122,7 +125,6 @@ class Targets {
       });
     }
   };
-
 }
 
 let targets = new Targets();

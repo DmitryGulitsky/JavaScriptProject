@@ -4,6 +4,15 @@
 }
 
 @import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+
+@font-face{
+  font-family: 'Cabin Sketch', cursive;
+  src: url('/fonts/CabinSketch-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 html {
   height: 100%;
 }

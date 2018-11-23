@@ -1,3 +1,7 @@
+'use strict';
+
+// здесь создаем панель меню вверху экрана
+
 let container = document.getElementById('menuContainer');
 
 class MainMenu {

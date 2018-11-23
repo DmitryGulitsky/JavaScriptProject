@@ -1,3 +1,7 @@
+'use strict';
+
+// здесь создаем  страницу Scores, вызывая функцию получения дынных с сервера
+
 class ScorePage {
   constructor() {
 

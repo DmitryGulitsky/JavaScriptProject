@@ -1,9 +1,13 @@
+'use strict';
+
+// здесь задаем настройски SPA
+
 window.onhashchange = renderNewState;
 function renderNewState() {
   const hash = window.location.hash;
   let state = decodeURIComponent(hash.substr(1));
 
-  if (state === '') {
+  if (state === '') {     // страница по умолчанию
     state = {page: 'start'};
   } else {
     state = JSON.parse(state);
@@ -18,7 +22,6 @@ function renderNewState() {
       aboutPage.hide();
       mainMenu.hide();
       stopGame();
-      //menuMusicSound.play(); // звук музыки в меню
       break;
 
     case 'play':
@@ -49,7 +52,7 @@ function renderNewState() {
       scorePage.hide();
       aboutPage.hide();
       mainMenu.show();
-      menuMusicSound.play(); // звук музыки в меню
+      menuMusicSound.play();
       break;
 
     case 'about':
@@ -57,7 +60,7 @@ function renderNewState() {
       aboutPage.show();
       rulesPage.hide();
       scorePage.hide();
-      menuMusicSound.play(); // звук музыки в меню
+      menuMusicSound.play();
       mainMenu.show();
       break;
 

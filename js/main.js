@@ -1,3 +1,7 @@
+'use strict';
+
+// здесь объеденяется отрисовка Canvas элементов
+
 let canvas,
   ctx,
   width,

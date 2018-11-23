@@ -1,3 +1,6 @@
+
+// здесь задается связь с сервером данных
+
 let scoreStorage = new AJAXStorage();
 
 function createPlayerScore() {    // функция запускается, когда у игрока закончились жизни
@@ -52,6 +55,7 @@ function AJAXStorage() {
       function DataLoadedInsert(data) {
         console.log('Score upload complete');
       }
+
     }
   }
 

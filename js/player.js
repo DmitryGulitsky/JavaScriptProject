@@ -1,3 +1,7 @@
+'use strict';
+
+// здесь задаем логику появления, движения игрока, его отрисовку
+
 let pointerLength = 25;
 
 class Player {

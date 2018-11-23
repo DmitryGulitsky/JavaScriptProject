@@ -1,4 +1,7 @@
+'use strict';
+
 // здесь задаем управление игроком по событиям
+
 class KeyLogger {
 
   constructor() {

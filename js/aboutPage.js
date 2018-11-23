@@ -1,3 +1,5 @@
+'use strict';
+
 // здесь создается содержимое страницы About
 
 class AboutPage {

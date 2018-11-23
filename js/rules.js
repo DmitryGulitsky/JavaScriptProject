@@ -1,3 +1,7 @@
+'use strict';
+
+// здесь создаем  страницу Rules
+
 class RulesPage {
   constructor() {
   }
