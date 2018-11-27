@@ -111,21 +111,6 @@ class Player {
       x1: this.x, y1: this.y,
       x2: this.x + pointerLength * Math.cos(this.angle), y2: this.y + pointerLength * Math.sin(this.angle),
     });
-
-    //ctx.fillStyle="#FF0000";
-    //ctx.beginPath();
-    //ctx.arc(this.x,this.y,this.stats.size,0,Math.PI * 2);
-    //ctx.fill();
-
-    //ctx.strokeStyle="#FF0000";
-    //ctx.beginPath();
-    //ctx.moveTo(this.x,this.y);  // точка в центре игрока
-//
-    //ctx.lineTo(
-    //  this.x + pointerLength * Math.cos(this.angle),  // точка на конце пушки
-    //  this.y + pointerLength * Math.sin(this.angle)
-    //);
-    //ctx.stroke();
   }
 }
 

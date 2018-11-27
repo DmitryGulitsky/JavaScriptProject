@@ -22,7 +22,7 @@ class Score {
   }
 
   countMegaMinus(){ // уменьшение игрового счета при столкновении с целью
-    this.currentScore -= 1000;
+    this.currentScore -= 300;
     level.livesNumbers--;   // уменьшение количества жизней на 1
   }
 

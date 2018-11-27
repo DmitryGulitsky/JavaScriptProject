@@ -35,7 +35,7 @@ function init(){
   player.y = height / 2;
 
   playingIntervalID = setInterval(function(){
-    updateGame(24/1000);
+    updateGame(0.07);
     renderGame();
   },10);
 }
@@ -62,10 +62,10 @@ function renderGame(){
   score.render(ctx);
 
 }
-function renderBackground(){
-  width = window.innerWidth;
-  height = window.innerHeight;
-  $(`#canvas`)
-    .attr(`width`, width)
-    .attr(`height`, height);
-}
+//function renderBackground(){
+//  width = window.innerWidth;
+//  height = window.innerHeight;
+//  $(`#canvas`)
+//    .attr(`width`, width)
+//    .attr(`height`, height);
+//}

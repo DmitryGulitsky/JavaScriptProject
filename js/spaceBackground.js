@@ -1,139 +1,112 @@
-//
-//var innerWidth = window.innerWidth,
-//  innerHeight = window.innerHeight,
-//  radius = 1,
-//  starsIndex = 0,
-//  stars = [],
-//  TWO_PI = Math.PI*2,
-//  centerX = innerWidth/2,
-//  centerY = innerHeight/2,
-//  focalLength = 200,
-//  starRadius = null,
-//  starX = null,
-//  starY = null,
-//  numStars = 100,
-//  mouse = {},
-//  starX_dir = 0,
-//  starY_dir = 0;
-//
-//
-//
-//
-//// Move the stars with mouse pointer
-//
-//window.addEventListener('mousemove', function(e){
-//  mouse.x = e.x;
-//  mouse.y = e.y;
-//
-//  if(mouse.x < centerX){
-//    starX_dir += 5;
-//  }else{
-//    starX_dir += -5;
-//  }
-//
-//  if(mouse.y < centerY){
-//    starY_dir += 5;
-//  }else{
-//    starY_dir += -5;
-//  }
-//
-//});
-//
-//// Zoom in/out into the Space on mouse scroll
-//canvas.addEventListener('mousewheel', function(e){
-//  if(e.deltaY < 0){
-//    focalLength *= 1.1;
-//  }else{
-//    focalLength /= 1.1;
-//  }
-//
-//  if(focalLength >= innerWidth){
-//    focalLength = innerWidth - 20;
-//  }else if(focalLength < 100){
-//    focalLength = 100;
-//  }
-//
-//}, false);
-//
-//
-//// Function for create new start
-//function star(x,y,z){
-//  this.x = x;
-//  this.y = y;
-//  this.z = z;
-//  this.radius = radius;
-//  this.color = "#fff";
-//  starsIndex++;
-//  stars[starsIndex] = this;
-//  this.id = starsIndex;
-//
-//  // Animate Stars
-//  this.update = function(){
-//    starX = (this.x - centerX) * (focalLength / this.z);
-//    starX += centerX;
-//
-//    starY = (this.y - centerY) * (focalLength / this.z);
-//    starY += centerY;
-//
-//    starRadius = radius * (focalLength / this.z);
-//
-//    starX += starX_dir;
-//    starY += starY_dir;
-//
-//    this.z += -10;
-//
-//    if(this.z <= 0){
-//      this.z = parseInt(innerWidth);
-//    }
-//
-//    this.draw();
-//
-//  }
-//
-//  // Function for draw star
-//  this.draw = function(){
-//    ctx.beginPath();
-//    ctx.arc(starX,starY,starRadius, TWO_PI, false);
-//    ctx.fillStyle = this.color;
-//    ctx.fill();
-//    ctx.closePath();
-//  }
-//
-//}
-//
-//// X,Y,Z values
-//var s;
-//for(s = 0; s < numStars; s++){
-//  x = Math.random() * innerWidth;
-//  y = Math.random() * innerHeight;
-//  z = Math.random() * innerWidth;
-//  new star(x,y,z);
-//}
-//
-//// Function for animate canvas objects
-//
-//
-////function animate(){
-////  requestAnimationFrame(animate);
-////  ctx.fillStyle = "#000";
-////  ctx.fillRect(0,0,innerWidth,innerHeight);
-////
-////  for( var i in stars){
-////    stars[i].update();
-////  }
-////}
-//
-//function renderBackground(ctx){
-//
-//
-//
-//  ctx.fillStyle = "#000";
-//  ctx.fillRect(0,0,innerWidth,innerHeight);
-//
-//  for( var i in stars){
-//    stars[i].update();
-//  }
-//}
-//
-//animate();
-//
+'use strict';
+
+let backgroundSpaceParametres = {
+  innerWidth: window.innerWidth,
+  innerHeight: window.innerHeight,
+  radius: 1,
+  starsIndex: 0,
+  stars: [],
+  centerX: (window.innerWidth - 20) / 2,
+  centerY: (window.innerHeight - 20) / 2,
+  focalLength: 500,
+  starRadius: null,
+  starX: null,
+  starY: null,
+  numStars: 100,
+  mouse: {},
+  starX_dir: 0,
+  starY_dir: 0
+};
+
+class Star{
+  constructor(x,y,z){
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    this.radius = backgroundSpaceParametres.radius;
+    this.color = "white";
+    backgroundSpaceParametres.starsIndex++;
+    backgroundSpaceParametres.stars[backgroundSpaceParametres.starsIndex] = this;
+    this.id = backgroundSpaceParametres.starsIndex;
+  }
+
+
+  // Animate Stars
+  updateStar(){
+    backgroundSpaceParametres.starX = (this.x - backgroundSpaceParametres.centerX) * (backgroundSpaceParametres.focalLength / this.z);
+    backgroundSpaceParametres.starX += backgroundSpaceParametres.centerX;
+
+    backgroundSpaceParametres.starY = (this.y - backgroundSpaceParametres.centerY) * (backgroundSpaceParametres.focalLength / this.z);
+    backgroundSpaceParametres.starY += backgroundSpaceParametres.centerY;
+
+    backgroundSpaceParametres.starRadius = backgroundSpaceParametres.radius * (backgroundSpaceParametres.focalLength / this.z);
+
+    backgroundSpaceParametres.starX += backgroundSpaceParametres.starX_dir;
+    backgroundSpaceParametres.starY += backgroundSpaceParametres.starY_dir;
+
+    this.z += -10;
+
+    if(this.z <= 0){
+      this.z = parseInt(backgroundSpaceParametres.innerWidth);
+    }
+    this.render();
+  }
+
+  // Function for draw star
+  render(){
+    $(`#canvas`).drawArc({
+      fillStyle: this.color,
+      x: backgroundSpaceParametres.starX, y:backgroundSpaceParametres.starY,
+      radius: backgroundSpaceParametres.starRadius
+    })
+  }
+}
+
+$(`#canvas`)
+  .attr(`width`, backgroundSpaceParametres.innerWidth)
+  .attr(`height`, backgroundSpaceParametres.innerHeight)
+  .mousemove(spaceMove);
+
+function spaceMove(e) {
+
+  backgroundSpaceParametres.mouse.x = e.pageX;
+  backgroundSpaceParametres.mouse.y = e.pageY;
+
+  if(backgroundSpaceParametres.mouse.x < backgroundSpaceParametres.centerX){
+    backgroundSpaceParametres.starX_dir += 5;
+  }else{
+    backgroundSpaceParametres.starX_dir += -5;
+  }
+
+  if(backgroundSpaceParametres.mouse.y < backgroundSpaceParametres.centerY){
+    backgroundSpaceParametres.starY_dir += 5;
+  }else{
+    backgroundSpaceParametres.starY_dir += -5;
+  }
+}
+
+// X,Y,Z values
+
+for(let s = 0; s < backgroundSpaceParametres.numStars; s++){
+  let x = Math.random() * backgroundSpaceParametres.innerWidth;
+  let y = Math.random() * backgroundSpaceParametres.innerHeight;
+  let z = Math.random() * backgroundSpaceParametres.innerWidth;
+
+  new Star(x,y,z);
+}
+
+// Function for animate canvas objects
+function renderBackground(){
+
+  $(`#canvas`).drawRect({
+    fillStyle: 'black',
+    x: 0, y: 0,
+    fromCenter: false,
+    width: backgroundSpaceParametres.innerWidth,
+    height: backgroundSpaceParametres.innerHeight
+  });
+  for( let i in backgroundSpaceParametres.stars){
+    backgroundSpaceParametres.stars[i].updateStar();
+  }
+}
+

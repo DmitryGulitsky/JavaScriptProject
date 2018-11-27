@@ -126,6 +126,11 @@ class StartPage {
 
     switchToRules();
   }
+
+  hide() {
+    $(`#startPageContainer`).remove();
+  }
+
 }
 
 let startPage = new StartPage();

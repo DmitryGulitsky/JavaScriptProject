@@ -20,8 +20,9 @@ function renderNewState() {
       rulesPage.hide();
       scorePage.hide();
       aboutPage.hide();
-      mainMenu.hide();
-      stopGame();
+      if (mainMenu){
+        mainMenu.hide();
+      }
       break;
 
     case 'play':
@@ -48,6 +49,7 @@ function renderNewState() {
 
     case 'rules':
       stopGame();
+      startPage.hide();
       rulesPage.show();
       scorePage.hide();
       aboutPage.hide();
