@@ -56,6 +56,21 @@ class Player {
     this.x += this.vx * dt;  // изменение коорданаты X положения игрока за еденицу времени
     this.y += this.vy * dt;  // изменение коорданаты Y положения игрока за еденицу времени
 
+    // движение фона под движение игрока
+
+    if (this.x < backgroundSpaceParametres.centerX) {
+      backgroundSpaceParametres.starX_dir += 1;
+
+    } else {
+      backgroundSpaceParametres.starX_dir += -1;
+    }
+
+    if (this.y < backgroundSpaceParametres.centerY) {
+      backgroundSpaceParametres.starY_dir += 1;
+    } else {
+      backgroundSpaceParametres.starY_dir += -1;
+    }
+
     let time = utils.getTime(); // определяется текущий момент времени
     if (keyLogger.keyStatus.fire &&
       time - this.lastShootTime >= this.stats.shootDelayMs) {  // определяется была ли нажата клавиша fire и прошло ли время задержки выстрела

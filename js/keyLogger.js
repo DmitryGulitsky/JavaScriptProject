@@ -34,9 +34,9 @@ class KeyLogger {
 
       default:
         console.log("Key:" + key); // вывод в консоль кода неназначенной клавиши, чтобы упростить расширение функционала управления игры с клавиатуры
-        return !false;
+        return true;
     }
-    return !true;
+    return false;
   };
 
   keyUpListener(e) {  // определение кода отжатой клавиши на клавиатуре или кнопки мыши
@@ -65,9 +65,9 @@ class KeyLogger {
         break;
       default:
         console.log("Key:" + key);// вывод в консоль кода неназначенной клавиши, чтобы упростить расширение функционала управления игры с клавиатуры
-        return !false;
+        return true;
     }
-    return !true;
+    return false;
   };
 }
 

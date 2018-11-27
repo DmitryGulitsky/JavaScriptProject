@@ -64,26 +64,28 @@ class Star {
 
 $(`#canvas`)
   .attr(`width`, backgroundSpaceParametres.innerWidth)
-  .attr(`height`, backgroundSpaceParametres.innerHeight)
-  .mousemove(spaceMove);
+  .attr(`height`, backgroundSpaceParametres.innerHeight);
 
-function spaceMove(e) {
+const spaceMove = (e) => {
 
   backgroundSpaceParametres.mouse.x = e.pageX;
   backgroundSpaceParametres.mouse.y = e.pageY;
 
   if (backgroundSpaceParametres.mouse.x < backgroundSpaceParametres.centerX) {
-    backgroundSpaceParametres.starX_dir += 5;
+    backgroundSpaceParametres.starX_dir += 1;
+
   } else {
-    backgroundSpaceParametres.starX_dir += -5;
+    backgroundSpaceParametres.starX_dir += -1;
   }
 
   if (backgroundSpaceParametres.mouse.y < backgroundSpaceParametres.centerY) {
-    backgroundSpaceParametres.starY_dir += 5;
+    backgroundSpaceParametres.starY_dir += 1;
   } else {
-    backgroundSpaceParametres.starY_dir += -5;
+    backgroundSpaceParametres.starY_dir += -1;
   }
-}
+};
+
+$(`body`).mousemove(spaceMove);
 
 // X,Y,Z values
 
@@ -96,7 +98,7 @@ for (let s = 0; s < backgroundSpaceParametres.numStars; s++) {
 }
 
 // Function for animate canvas objects
-function renderBackground() {
+const renderBackground = () => {
 
   $(`#canvas`).drawRect({
     fillStyle: 'black',
@@ -108,4 +110,4 @@ function renderBackground() {
   for (let i in backgroundSpaceParametres.stars) {
     backgroundSpaceParametres.stars[i].updateStar();
   }
-}
+};

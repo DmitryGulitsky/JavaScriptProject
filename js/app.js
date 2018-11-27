@@ -8,7 +8,7 @@ let canvas,
   height,
   playingIntervalID;
 
-function init(){
+const init = () => {
 
   $(`#canvasContainer`).remove();
 
@@ -42,27 +42,26 @@ function init(){
     updateGame(0.07);
     renderGame();
   },10);
-}
+};
 
-function stopGame() {
+const stopGame = () => {
   clearInterval(playingIntervalID);
   $(`#canvasContainer`).hide('slow');
   musicSound.stop();
-}
+};
 
-function updateGame(dt){
+const updateGame = (dt) => {
 
   level.statControl();  // контроль игры
 
   bullets.update(dt);
   targets.update(dt);
   player.update(dt);
-}
-function renderGame(){
+};
+const renderGame = () => {
   renderBackground();
-  player.render(ctx);
-  bullets.render(ctx);
-  targets.render(ctx);
-  score.render(ctx);
-
-}
+  player.render();
+  bullets.render();
+  targets.render();
+  score.render();
+};

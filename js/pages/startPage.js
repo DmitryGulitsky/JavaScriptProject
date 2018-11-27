@@ -48,7 +48,14 @@ class StartPage {
 
     let logoTextContainer = $(
       `<h1></h1>`);
-    $('#startPageContainer').append(logoTextContainer);
+
+    let startContainer = $(
+      `<form id="slick-login" style="display: none" action="javascript: startPage.loginSubmit();"></form>`
+    );
+
+    $('#startPageContainer')
+      .append(logoTextContainer)
+      .append(startContainer);
 
     let line1 = $(
       `<span class="title jump">crazy</span>`);
@@ -62,11 +69,6 @@ class StartPage {
     $('h1').append(line1)
       .append(line2)
       .append(line3);
-
-    let startContainer = $(
-      `<form id="slick-login" style="display: none" action="javascript: startPage.loginSubmit();"></form>`
-    );
-    $('#startPageContainer').append(startContainer);
 
     $('#slick-login').slideDown(2000).validate({
       rules:
@@ -90,15 +92,6 @@ class StartPage {
     );
     $(startContainer).append(loginText);
 
-    $(`#slick-login`).validate({
-      rules:
-        {
-          loginText: {required: true, maxlength: 10, minlength: 1},
-        },
-      errorElement: 'div',
-      errorClass: 'SErrorText'
-    });
-
     let loginSubmit = $(
       `<input id="loginSubmit" type="submit" value="PRESS to START">`
     );
@@ -117,7 +110,7 @@ class StartPage {
 
   loginSubmit() {
 
-    $(startPageBallImage).animate({'width': `100%`}, 6000);
+    $(`#startPageBallImage`).animate({'width': `100%`}, 6000);
 
     startPageSound.play();
 

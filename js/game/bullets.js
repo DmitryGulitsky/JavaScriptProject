@@ -69,7 +69,7 @@ class Bullets {
     let dist = 99999; //расстояние, предполагаемо большее суммы двух радиусов
     let obj;
     for (let i = 0; i <= this.maxID; i++) {
-      if (this.objects[i] == undefined) continue;
+      if (this.objects[i] === undefined) continue;
       let d = Math.sqrt(
         (o.x - this.objects[i].x) * (o.x - this.objects[i].x) +
         (o.y - this.objects[i].y) * (o.y - this.objects[i].y)

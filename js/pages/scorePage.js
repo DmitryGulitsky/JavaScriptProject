@@ -20,9 +20,6 @@ class ScorePage {
 
     let sortArray = [];   // создаем массив, в котором данные будут отсортированы по количеству набранных очков
 
-    console.log(allScores);
-    console.log(sortArray);
-
     for (let key in allScores) {      // копируем данные с результатами в массив sortArray
       sortArray.push(allScores[key]);
     }
