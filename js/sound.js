@@ -2,18 +2,16 @@
 
 // здесь создаем звуки в игре
 
-function Sound(src) {
-  this.sound = document.createElement('audio');
-  this.sound.src = src;
-  this.sound.setAttribute('preload', 'auto');
-  this.sound.setAttribute('controls', 'none');
-  this.sound.style.display = 'none';
-  container.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
+class Sound{
+  constructor(src){
+   this.sound = $(`<audio src=${src} preload="auto" controls="none" style="display: none"></audio>`);
+  $(`mainMenu`).append(this.sound);
+}
+  play(){
+    this.sound.trigger('play');
   }
-  this.stop = function(){
-    this.sound.pause();
+  stop(){
+    this.sound.trigger('pause');
   }
 }
 
@@ -24,7 +22,7 @@ let excellentSound = new Sound('./sounds/ExcellentSoundEffect.mp3');
 let fightSound = new Sound('./sounds/FightSoundEffect.mp3');
 
 let musicSound = new Sound('./sounds/gameplay-music.mp3');
-musicSound.sound.setAttribute('loop', 'loop');
+$(musicSound).attr('loop', 'loop');
 
 let menuMusicSound = new Sound('./sounds/menu-music.mp3');
-menuMusicSound.sound.setAttribute('loop', 'loop');
+$(menuMusicSound).attr('loop', 'loop');
