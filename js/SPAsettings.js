@@ -17,9 +17,11 @@ function renderNewState() {
 
     case 'start':
       startPage.render();
+      //startPageSound.play();
       rulesPage.hide();
       scorePage.hide();
       aboutPage.hide();
+
       if (mainMenu){
         mainMenu.hide();
       }
@@ -69,7 +71,7 @@ function renderNewState() {
     case 'levelInfo':
       level.renderMessage();
       stopGame();
-      excellentSound.sound.play();    // звук excellent
+      excellentSound.play();    // звук excellent
       aboutPage.hide();
       rulesPage.hide();
       scorePage.hide();

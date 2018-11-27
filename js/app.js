@@ -8,16 +8,18 @@ let canvas,
   height,
   playingIntervalID;
 
-//let canvasContainer = $(
-//`<div id="canvasContainer"><canvas id="canvas" style="background:#000;"></canvas></div>`
-//);
-//$(`#game`).append(canvasContainer);
+
 
 function init(){
 
   console.log('start init');
 
-
+  let canvasContainer = $(
+    `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>
+<div id="levelMessageContainer"></div>
+<div id="menuContainer"></div>`
+  );
+  $(`#game`).append(canvasContainer);
 
   $('#canvasContainer').show('slow');
 
@@ -62,10 +64,3 @@ function renderGame(){
   score.render(ctx);
 
 }
-//function renderBackground(){
-//  width = window.innerWidth;
-//  height = window.innerHeight;
-//  $(`#canvas`)
-//    .attr(`width`, width)
-//    .attr(`height`, height);
-//}

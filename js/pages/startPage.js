@@ -8,6 +8,23 @@ class StartPage {
   }
   render(){
 
+    let canvasContainer = $(
+      `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>
+<div id="levelMessageContainer"></div>
+<div id="menuContainer"></div>`
+    );
+    $(`#game`).append(canvasContainer);
+
+    let startPageIntervalID = setInterval(function(){
+      renderBackground();
+      },10);
+
+    $('#canvasContainer').show('slow');
+
+    $(`#canvas`)
+      .attr(`width`, window.innerWidth)
+      .attr(`height`, window.innerHeight);
+
     $(document).ready(function() {    // подключаем lettering к заголовку к классом
       $(`.title`).lettering();
     });
@@ -96,35 +113,30 @@ class StartPage {
       `<img id="startPageBallImage" src="img/ball/ball.png" alt="Crazy Ball Image">`
     );
     $(startPageBallImageContainer).append(startPageBallImage);
-
-    $(startPageBallImage).animate({'width': `100%`}, 4000)
-      .mouseover(scaleImg)
-      .mouseout(scaleOutImg);
-
-    function scaleImg() {
-      $(startPageBallImage).animate
-      ({'width': `80%`}, 1000)
-    }
-
-    function scaleOutImg() {
-      $(startPageBallImage).animate
-      ({'width': `100%`}, 1000)
-    }
   }
 
   loginSubmit() {
 
-    score.playerName = $(`#loginText`).val();
+    $(startPageBallImage).animate({'width': `100%`}, 6000);
+    startPageSound.play();
 
-    $(`#startPageContainer`).remove();
+    setTimeout(function () {
 
-    mainMenu.render();  // создание меню
+      score.playerName = $(`#loginText`).val();
 
-    scorePage.render(); // создание страниц в фоне
-    rulesPage.render(); // создание страниц в фоне
-    aboutPage.render(); // создание страниц в фоне
+      $(`#canvasContainer`).remove();
 
-    switchToRules();
+      $(`#startPageContainer`).remove();
+
+      mainMenu.render();  // создание меню
+
+      scorePage.render(); // создание страниц в фоне
+      rulesPage.render(); // создание страниц в фоне
+      aboutPage.render(); // создание страниц в фоне
+
+      switchToRules();
+    },6000)
+
   }
 
   hide() {
