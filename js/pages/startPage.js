@@ -4,20 +4,20 @@
 
 class StartPage {
   constructor() {
-
+    this.startPageIntervalID = setInterval(renderBackground, 10);
   }
-  render(){
+
+  render() {
+
+    console.log(this.startPageIntervalID);
 
     let canvasContainer = $(
       `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>
-<div id="levelMessageContainer"></div>
-<div id="menuContainer"></div>`
+       <div id="levelMessageContainer"></div>
+       <div id="menuContainer"></div>`
     );
     $(`#game`).append(canvasContainer);
 
-    let startPageIntervalID = setInterval(function(){
-      renderBackground();
-      },10);
 
     $('#canvasContainer').show('slow');
 
@@ -25,11 +25,11 @@ class StartPage {
       .attr(`width`, window.innerWidth)
       .attr(`height`, window.innerHeight);
 
-    $(document).ready(function() {    // подключаем lettering к заголовку к классом
+    $(document).ready(function () {    // подключаем lettering к заголовку к классом
       $(`.title`).lettering();
     });
 
-    $(document).ready(function() {    // задаем анимацию для букв заголовка
+    $(document).ready(function () {    // задаем анимацию для букв заголовка
       titleAnimation();
     }, 1000);
 
@@ -118,7 +118,10 @@ class StartPage {
   loginSubmit() {
 
     $(startPageBallImage).animate({'width': `100%`}, 6000);
+
     startPageSound.play();
+
+    //this.clearBackground();
 
     setTimeout(function () {
 
@@ -135,14 +138,16 @@ class StartPage {
       aboutPage.render(); // создание страниц в фоне
 
       switchToRules();
-    },6000)
+    }, 6500)
+  }
 
+  clearBackground() {
+    clearInterval(this.startPageIntervalID);
   }
 
   hide() {
     $(`#startPageContainer`).remove();
   }
-
 }
 
 let startPage = new StartPage();

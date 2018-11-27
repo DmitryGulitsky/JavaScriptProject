@@ -36,6 +36,8 @@ function init(){
   player.x = width / 2;   // размещение игрока в центре поля
   player.y = height / 2;
 
+  startPage.clearBackground();
+
   playingIntervalID = setInterval(function(){
     updateGame(0.07);
     renderGame();
