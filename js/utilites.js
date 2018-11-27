@@ -4,18 +4,18 @@
 
 let utils = new Utils();
 
-function Utils(){  // полезные утилиты
+function Utils() {  // полезные утилиты
 
-  this.getTime = function(){  // возвращает текущее время
+  this.getTime = function () {  // возвращает текущее время
     return (new Date()).getTime();
   };
 
-  this.getARGBString = function(a,r,g,b){  // генератор рандомного цвета в rgba
-    return "rgba("+
-      Math.floor(255*r)+","+
-      Math.floor(255*g)+","+
-      Math.floor(255*b)+","+
-      Math.floor(255*a)+")";
+  this.getARGBString = function (a, r, g, b) {  // генератор рандомного цвета в rgba
+    return "rgba(" +
+      Math.floor(255 * r) + "," +
+      Math.floor(255 * g) + "," +
+      Math.floor(255 * b) + "," +
+      Math.floor(255 * a) + ")";
   };
 }
 

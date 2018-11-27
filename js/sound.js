@@ -2,15 +2,17 @@
 
 // здесь создаем звуки в игре
 
-class Sound{
-  constructor(src){
-   this.sound = $(`<audio src=${src} preload="auto" controls="none" style="display: none"></audio>`);
-  $(`mainMenu`).append(this.sound);
-}
-  play(){
+class Sound {
+  constructor(src) {
+    this.sound = $(`<audio src=${src} preload="auto" controls="none" style="display: none"></audio>`);
+    $(`mainMenu`).append(this.sound);
+  }
+
+  play() {
     this.sound.trigger('play');
   }
-  stop(){
+
+  stop() {
     this.sound.trigger('pause');
   }
 }

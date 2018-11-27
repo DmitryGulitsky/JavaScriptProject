@@ -8,9 +8,9 @@ let canvas,
   height,
   playingIntervalID;
 
-
-
 function init(){
+
+  $(`#canvasContainer`).remove();
 
   console.log('start init');
 

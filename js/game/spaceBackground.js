@@ -18,8 +18,8 @@ let backgroundSpaceParametres = {
   starY_dir: 0
 };
 
-class Star{
-  constructor(x,y,z){
+class Star {
+  constructor(x, y, z) {
     this.x = x;
     this.y = y;
     this.z = z;
@@ -32,7 +32,7 @@ class Star{
 
 
   // Animate Stars
-  updateStar(){
+  updateStar() {
     backgroundSpaceParametres.starX = (this.x - backgroundSpaceParametres.centerX) * (backgroundSpaceParametres.focalLength / this.z);
     backgroundSpaceParametres.starX += backgroundSpaceParametres.centerX;
 
@@ -46,17 +46,17 @@ class Star{
 
     this.z += -10;
 
-    if(this.z <= 0){
+    if (this.z <= 0) {
       this.z = parseInt(backgroundSpaceParametres.innerWidth);
     }
     this.render();
   }
 
   // Function for draw star
-  render(){
+  render() {
     $(`#canvas`).drawArc({
       fillStyle: this.color,
-      x: backgroundSpaceParametres.starX, y:backgroundSpaceParametres.starY,
+      x: backgroundSpaceParametres.starX, y: backgroundSpaceParametres.starY,
       radius: backgroundSpaceParametres.starRadius
     })
   }
@@ -72,31 +72,31 @@ function spaceMove(e) {
   backgroundSpaceParametres.mouse.x = e.pageX;
   backgroundSpaceParametres.mouse.y = e.pageY;
 
-  if(backgroundSpaceParametres.mouse.x < backgroundSpaceParametres.centerX){
+  if (backgroundSpaceParametres.mouse.x < backgroundSpaceParametres.centerX) {
     backgroundSpaceParametres.starX_dir += 5;
-  }else{
+  } else {
     backgroundSpaceParametres.starX_dir += -5;
   }
 
-  if(backgroundSpaceParametres.mouse.y < backgroundSpaceParametres.centerY){
+  if (backgroundSpaceParametres.mouse.y < backgroundSpaceParametres.centerY) {
     backgroundSpaceParametres.starY_dir += 5;
-  }else{
+  } else {
     backgroundSpaceParametres.starY_dir += -5;
   }
 }
 
 // X,Y,Z values
 
-for(let s = 0; s < backgroundSpaceParametres.numStars; s++){
+for (let s = 0; s < backgroundSpaceParametres.numStars; s++) {
   let x = Math.random() * backgroundSpaceParametres.innerWidth;
   let y = Math.random() * backgroundSpaceParametres.innerHeight;
   let z = Math.random() * backgroundSpaceParametres.innerWidth;
 
-  new Star(x,y,z);
+  new Star(x, y, z);
 }
 
 // Function for animate canvas objects
-function renderBackground(){
+function renderBackground() {
 
   $(`#canvas`).drawRect({
     fillStyle: 'black',
@@ -105,8 +105,7 @@ function renderBackground(){
     width: backgroundSpaceParametres.innerWidth,
     height: backgroundSpaceParametres.innerHeight
   });
-  for( let i in backgroundSpaceParametres.stars){
+  for (let i in backgroundSpaceParametres.stars) {
     backgroundSpaceParametres.stars[i].updateStar();
   }
 }
-

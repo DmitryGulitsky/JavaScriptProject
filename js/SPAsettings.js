@@ -3,6 +3,7 @@
 // здесь задаем настройски SPA
 
 window.onhashchange = renderNewState;
+
 function renderNewState() {
   const hash = window.location.hash;
   let state = decodeURIComponent(hash.substr(1));
@@ -22,7 +23,7 @@ function renderNewState() {
       scorePage.hide();
       aboutPage.hide();
 
-      if (mainMenu){
+      if (mainMenu) {
         mainMenu.hide();
       }
       break;
@@ -80,9 +81,11 @@ function renderNewState() {
       break;
   }
 }
+
 function switchToState(state) {
   location.hash = encodeURIComponent(JSON.stringify(state));
 }
+
 let switchToStart = function switchToStart() {
   switchToState({page: 'start'});
 }

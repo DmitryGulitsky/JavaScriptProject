@@ -10,6 +10,7 @@ class MainMenu {
     let menuItemsArray = ['Play', 'Scores', 'Rules', 'About']; // массив названий пунктов меню
     let menuItemLength = menuItemsArray.length;
     let counter = 0;
+
     function createMenuItems(i) {
 
       let menuItem = $(`<div id="menu${i}" class="pages" style="display: block; width: ${(100 / menuItemLength)}%; left: ${(100 / menuItemLength * counter)}%; top: 0; padding: 0.5% 0;">${i}</div>`);
@@ -38,24 +39,29 @@ class MainMenu {
     $.map(menuItemsArray, createMenuItems);
 
     $(`#menuPlay`).mousedown(menuPlayDown);
+
     function menuPlayDown() {
       switchToPlay();
     }
 
     $(`#menuScores`).mousedown(menuScoresDown);
+
     function menuScoresDown() {
       switchToScores();
     }
 
     $(`#menuRules`).mousedown(menuRulesDown);
+
     function menuRulesDown() {
       switchToRules();
     }
 
     $(`#menuAbout`).mousedown(menuAboutDown);
+
     function menuAboutDown() {
       switchToAbout();
     }
+
     //this.show();
   }
 

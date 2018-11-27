@@ -6,6 +6,7 @@ class AboutPage {
   constructor() {
 
   }
+
   render() {
 
     let aboutContainer = $(
@@ -17,6 +18,7 @@ class AboutPage {
   show() {
     $('#aboutContainer').show('slow');
   }
+
   hide() {
     $('#aboutContainer').hide('slow');
   }

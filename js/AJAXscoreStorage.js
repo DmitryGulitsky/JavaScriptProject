@@ -1,4 +1,3 @@
-
 // здесь задается связь с сервером данных
 
 let scoreStorage = new AJAXStorage();
@@ -46,7 +45,8 @@ function AJAXStorage() {
           data: {
             f: 'INSERT',
             n: 'GULITSKY_SPACE_BALL_STORAGE',
-            v: JSON.stringify(self.hashStorage)},
+            v: JSON.stringify(self.hashStorage)
+          },
           success: DataLoadedInsert,
           error: ErrorHandler
         }
@@ -59,14 +59,14 @@ function AJAXStorage() {
     }
   }
 
-  self.addValue = function(key, value) {
+  self.addValue = function (key, value) {
     self.hashStorage[key] = value;
 
     addValueOnTheServer(self.hashStorage);
   }
 
   self.getValue = function () {
-      return self.hashStorage;
+    return self.hashStorage;
   }
 
   self.getKeys = function () {
@@ -109,6 +109,7 @@ function AJAXStorage() {
           error: ErrorHandler
         }
       );
+
       function DataLoadedUpdate() {
         console.log('Score upload complete');
       }

@@ -27,7 +27,7 @@ class Level {
     }
   }
 
-  nextLevelDifficulty(){    // задаем параметры сложности для очередного уровня
+  nextLevelDifficulty() {    // задаем параметры сложности для очередного уровня
     this.currentLevel++;   // добавляем значение текущего уровня
 
     targets.targetsNumber += 10;    // добавляем количество челей на игровом поле
@@ -37,7 +37,7 @@ class Level {
     this.livesNumbers++;    // добавляем игроку одну жизнь
   }
 
-  clearPlayground(){
+  clearPlayground() {
     this.livesNumbers = 3;    // количество жизней у игрока в начале новой игры / переменная значения количества жизней в процессе игры
     this.currentLevel = 0;    // переменная для значения последнего пройденного уровня
     this.killedTargets = 0;   // количество уничтоженных целей игроком, как условие для перехода на следующий уровень
@@ -47,7 +47,7 @@ class Level {
     targets.clearTargets();
   }
 
-  renderMessage(){
+  renderMessage() {
 
     this.removeMessage();   // удаляем предыдущее сообщение о переходе на новый уровень
 
@@ -68,8 +68,9 @@ press PLAY to continue</div>`
 
   hideMessage() {
     $('#currentLevelMessage').hide('slow')
-    .queue(this.removeMessage)    // устанавливаем порядок выполнения функция
+      .queue(this.removeMessage)    // устанавливаем порядок выполнения функция
   }
+
   removeMessage() {
     $('#currentLevelMessage').remove();
   }

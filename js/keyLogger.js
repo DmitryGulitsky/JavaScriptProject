@@ -5,11 +5,12 @@
 class KeyLogger {
 
   constructor() {
-    this.keyStatus = {up:false,down:false,left:false,right:false,fire:false};
+    this.keyStatus = {up: false, down: false, left: false, right: false, fire: false};
   }
-  keyDownListener(e){  // определение кода отжатой клавиши на клавиатуре или кнопки мыши
+
+  keyDownListener(e) {  // определение кода отжатой клавиши на клавиатуре или кнопки мыши
     let key = e.keyCode ? e.keyCode : e.which;
-    switch(key){
+    switch (key) {
 
       case 87: // клавиша "w"
       case 38: // клавиша "up"
@@ -38,10 +39,10 @@ class KeyLogger {
     return !true;
   };
 
-  keyUpListener(e){  // определение кода отжатой клавиши на клавиатуре или кнопки мыши
+  keyUpListener(e) {  // определение кода отжатой клавиши на клавиатуре или кнопки мыши
 
     let key = e.keyCode ? e.keyCode : e.which;
-    switch(key){
+    switch (key) {
 
       case 87: // клавиша "w"
       case 38: // клавиша "up"

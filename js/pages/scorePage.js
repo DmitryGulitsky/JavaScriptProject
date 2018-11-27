@@ -7,7 +7,7 @@ class ScorePage {
 
   }
 
-  render(){
+  render() {
     let scoreContainer = $(
       `<div  id="scoreContainer" class="pages"></div>`
     );
@@ -30,6 +30,7 @@ class ScorePage {
     function compareScore(scoreA, scoreB) {   // сортируем объекты по значению .score
       return scoreB.score - scoreA.score;
     }
+
     sortArray.sort(compareScore);
 
     function renderScoreTable(n) {    // функция добавления списка результатов на страницу
@@ -45,10 +46,12 @@ class ScorePage {
     $.map(sortArray, renderScoreTable);   // фунцкция вызывается для каждого элемента отсортированного массива
 
   }
-  show(){
-      $('#scoreContainer').show('slow');
+
+  show() {
+    $('#scoreContainer').show('slow');
   }
-  hide(){
+
+  hide() {
     $('#scoreContainer').hide('slow');
     $(`#scoreContainer`).empty();   // удаляем содержимое scoreContainer
   }
