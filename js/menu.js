@@ -7,11 +7,11 @@ class MainMenu {
   }
 
   render() {
-    let menuItemsArray = ['Play', 'Scores', 'Rules', 'About']; // массив названий пунктов меню
-    let menuItemLength = menuItemsArray.length;
+    const menuItemsArray = ['Play', 'Scores', 'Rules', 'About']; // массив названий пунктов меню
+    const menuItemLength = menuItemsArray.length;
     let counter = 0;
 
-    function createMenuItems(i) {
+    const createMenuItems = (i) => {
 
       let menuItem = $(`<div id="menu${i}" class="pages" style="display: block; width: ${(100 / menuItemLength)}%; left: ${(100 / menuItemLength * counter)}%; top: 0; padding: 0.5% 0;">${i}</div>`);
 
@@ -19,49 +19,48 @@ class MainMenu {
 
       $(`#menuContainer`).append(menuItem);
 
-      $(`#menu${i}`)
-        .mouseover(overButton)
-        .mouseout(outButton)
-
-      function overButton() {
+      const overButton = () => {
         $(`#menu${i}`)
           .animate({'opacity': `0.5`}, 300)
-          .css({'cursor': `pointer`}, 100)
-      }
+          .css({'cursor': `pointer`})
+      };
 
-      function outButton() {
+      const outButton = () => {
         $(`#menu${i}`)
           .animate({'opacity': `0.8`}, 300)
-          .css({'cursor': `default`}, 100)
-      }
-    }
+          .css({'cursor': `default`})
+      };
+
+      $(`#menu${i}`)
+        .mouseover(overButton)
+        .mouseout(outButton);
+    };
 
     $.map(menuItemsArray, createMenuItems);
 
+    const menuPlayDown = () => {
+      switchToPlay();
+    };
+
     $(`#menuPlay`).mousedown(menuPlayDown);
 
-    function menuPlayDown() {
-      switchToPlay();
-    }
+    const menuScoresDown = () => {
+      switchToScores();
+    };
 
     $(`#menuScores`).mousedown(menuScoresDown);
 
-    function menuScoresDown() {
-      switchToScores();
-    }
+    const menuRulesDown = () => {
+      switchToRules();
+    };
 
     $(`#menuRules`).mousedown(menuRulesDown);
 
-    function menuRulesDown() {
-      switchToRules();
-    }
+    const menuAboutDown = () => {
+      switchToAbout();
+    };
 
     $(`#menuAbout`).mousedown(menuAboutDown);
-
-    function menuAboutDown() {
-      switchToAbout();
-    }
-
     //this.show();
   }
 

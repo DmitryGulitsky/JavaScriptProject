@@ -39,28 +39,19 @@ class Score {
 
     $(`#canvas`).drawText({   // рисуем текущий счет
       text: `Score: ${this.currentScore}`,
-      fontFamily: 'cursive',
       fontSize: 27,
       x: scoreX, y: scoreY,
       fillStyle: 'white',
-      strokeStyle: 'blue',
-      strokeWidth: 1
     }).drawText({   // рисуем максимальный счет за сессию
       text: `Max: ${this.maxScore}`,
-      fontFamily: 'cursive',
       fontSize: 27,
       x: scoreX, y: scoreMaxY,
       fillStyle: 'white',
-      strokeStyle: 'blue',
-      strokeWidth: 1
     }).drawText({   // рисуем количество жизней
       text: `Lives: ${level.livesNumbers}`,
-      fontFamily: 'cursive',
       fontSize: 27,
       x: scoreX, y: scoreLivesY,
       fillStyle: 'white',
-      strokeStyle: 'blue',
-      strokeWidth: 1
     });
   }
 }

@@ -88,21 +88,21 @@ function switchToState(state) {
 
 let switchToStart = function switchToStart() {
   switchToState({page: 'start'});
-}
+};
 let switchToPlay = function switchToPlay() {
   switchToState({page: 'play'});
-}
+};
 let switchToScores = function switchToScores() {
   switchToState({page: 'scores'});
-}
+};
 let switchToRules = function switchToRules() {
   switchToState({page: 'rules'});
-}
+};
 let switchToAbout = function switchToAbout() {
   switchToState({page: 'about'});
-}
+};
 let switchToLevelInfo = function switchToLevelInfo() {
   switchToState({page: 'levelInfo'});
-}
+};
 
 renderNewState();

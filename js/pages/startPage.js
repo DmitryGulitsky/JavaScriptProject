@@ -18,7 +18,6 @@ class StartPage {
     );
     $(`#game`).append(canvasContainer);
 
-
     $('#canvasContainer').show('slow');
 
     $(`#canvas`)

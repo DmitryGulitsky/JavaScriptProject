@@ -3,7 +3,6 @@
 // здесь объеденяется отрисовка Canvas элементов
 
 let canvas,
-  ctx,
   width,
   height,
   playingIntervalID;
@@ -16,8 +15,8 @@ const init = () => {
 
   let canvasContainer = $(
     `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>
-<div id="levelMessageContainer"></div>
-<div id="menuContainer"></div>`
+     <div id="levelMessageContainer"></div>
+     <div id="menuContainer"></div>`
   );
   $(`#game`).append(canvasContainer);
 
@@ -42,6 +41,10 @@ const init = () => {
     updateGame(0.07);
     renderGame();
   },10);
+
+  buttonControl.render();
+
+
 };
 
 const stopGame = () => {
