@@ -88,6 +88,10 @@ class SpaceBackground {
 
   renderBackground() {
 
+    $(`#canvas`)
+      .attr(`width`, window.innerWidth)
+      .attr(`height`, window.innerHeight);
+
     $(`#canvas`).drawRect({
       fillStyle: 'black',
       x: 0, y: 0,
