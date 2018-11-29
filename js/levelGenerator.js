@@ -20,7 +20,7 @@ class Level {
     }
 
     if (this.livesNumbers === 0) {    // контроль лимита жизней игрока, как условие окончания игры
-      createPlayerScore(); // отправляем новые данные на сервер
+      scoreStorage.createPlayerScore(); // отправляем новые данные на сервер
       switchToScores();   // переходим на страницу результатов
 
       this.clearPlayground();   // обнуляем прогресс в игре

@@ -9,8 +9,6 @@ class StartPage {
 
   render() {
 
-    console.log(this.startPageIntervalID);
-
     let canvasContainer = $(
       `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>
        <div id="levelMessageContainer"></div>
@@ -27,17 +25,6 @@ class StartPage {
     $(document).ready(function () {    // подключаем lettering к заголовку к классом
       $(`.title`).lettering();
     });
-
-    $(document).ready(function () {    // задаем анимацию для букв заголовка
-      titleAnimation();
-    }, 1000);
-
-    function titleAnimation() {
-      var title1 = new TimelineMax();
-      title1.staggerFromTo(".title span", 0.5,
-        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
-        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
-    }
 
     let startPageContainer = $(
       `<div  id="startPageContainer"></div>`
@@ -112,8 +99,6 @@ class StartPage {
     $(`#startPageBallImage`).animate({'width': `100%`}, 6000);
 
     startPageSound.play();
-
-    //this.clearBackground();
 
     setTimeout(function () {
 

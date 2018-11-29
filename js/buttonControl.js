@@ -5,7 +5,7 @@ class ButtonControl {
 
   }
   render(){
-    const buttonNameArray = ['Left', 'Forward', 'Right', 'Back', 'Shoot'];
+    const buttonNameArray = ['Left', 'Forward', 'Right', 'Back', 'Shoot', 'Menu'];
 
     const createButtonItems = (i) => {
       let button = $(`<div id="${i}" class="control" style="
@@ -76,6 +76,12 @@ class ButtonControl {
       .html('&#10031;')
       .bind( "mouseup touchend", () => {keyLogger.keyStatus.fire = false;})
       .bind( "mousedown touchstart", () => {keyLogger.keyStatus.fire = true;});
+
+    $(`#Menu`)
+      .css({"top":"5%"})
+      .css({"left":"1%"})
+      .css({"width":"100px"})
+      .bind( "mousedown touchstart", () => switchToRules());
   }
 }
 

@@ -8,7 +8,6 @@ class AboutPage {
   }
 
   render() {
-
     let aboutContainer = $(
       `<div  id="aboutContainer" class="pages">This game was created as a final project following the course "Developing Web Applications for JavaScript by Instinctools" by student Dmitry Gulitsky under the guidance of a teacher Alexander Stashkevich in 2018. Grodno</div>`
     );
