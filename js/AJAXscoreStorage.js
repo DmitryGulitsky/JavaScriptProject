@@ -101,4 +101,4 @@ class AJAXStorage {
   }
 }
 
-let scoreStorage = new AJAXStorage();
+const scoreStorage = new AJAXStorage();

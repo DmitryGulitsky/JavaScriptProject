@@ -85,6 +85,4 @@ class ButtonControl {
   }
 }
 
-
-
-let buttonControl = new ButtonControl();
+const buttonControl = new ButtonControl();

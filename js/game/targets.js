@@ -21,9 +21,11 @@ class Targets {
   pushObj(target) {
     this.init(target);
     let i = -1;
-    while (this.objects[++i] !== undefined) ;
+    while (this.objects[++i] !== undefined) continue;
     this.objects[i] = target;
-    if (this.maxID < i) this.maxID = i;
+    if (this.maxID < i) {
+      this.maxID = i;
+    }
   };
 
   getSize() {    // функция для нахождения empty элемента массива
@@ -68,7 +70,6 @@ class Targets {
         if (infoPlayer.dist <= obj.size * obj.scale) {
 
           if (obj.hitAnimClock === -1) {    // изменить значение obj.hitAnimClock для запуска таймера плавного исчезновения цели
-
             obj.hitAnimClock = 0;
             score.countMegaMinus();    // увеличивание счета преред исчезанием цели
           }
@@ -131,4 +132,4 @@ class Targets {
   };
 }
 
-let targets = new Targets();
+const targets = new Targets();

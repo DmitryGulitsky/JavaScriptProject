@@ -22,4 +22,4 @@ class RulesPage {
   }
 }
 
-var rulesPage = new RulesPage();
+const rulesPage = new RulesPage();

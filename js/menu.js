@@ -74,4 +74,4 @@ class MainMenu {
   }
 }
 
-let mainMenu = new MainMenu();
+const mainMenu = new MainMenu();

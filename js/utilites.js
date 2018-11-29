@@ -19,7 +19,7 @@ class Utils{
   };
 }
 
-let utils = new Utils();
+const utils = new Utils();
 
 function enterNameValidation(value, elem, args) {
   // value - что введено в поле, args - что задано аргументом правила валидации, т.е. 20

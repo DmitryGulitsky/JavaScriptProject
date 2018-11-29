@@ -56,4 +56,4 @@ class Score {
   }
 }
 
-let score = new Score();
+const score = new Score();

@@ -4,7 +4,7 @@
 
 class StartPage {
   constructor() {
-    this.startPageIntervalID = setInterval(renderBackground, 10);
+    this.startPageIntervalID = setInterval(spaceBackground.renderBackground, 10);
   }
 
   render() {
@@ -30,7 +30,11 @@ class StartPage {
       `<div  id="startPageContainer"></div>`
     );
 
-    $(`body`).prepend(startPageContainer);
+    $(`body`)
+      .mousemove(spaceBackground.spaceMove)
+      .prepend(startPageContainer);
+
+    spaceBackground.createStar();
 
     let logoTextContainer = $(
       `<h1></h1>`);
@@ -110,7 +114,7 @@ class StartPage {
 
       mainMenu.render();  // создание меню
 
-      scorePage.render(); // создание страниц в фоне
+      ScorePage.render(); // создание страниц в фоне
       rulesPage.render(); // создание страниц в фоне
       aboutPage.render(); // создание страниц в фоне
 
@@ -127,4 +131,4 @@ class StartPage {
   }
 }
 
-let startPage = new StartPage();
+const startPage = new StartPage();

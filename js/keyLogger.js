@@ -71,4 +71,4 @@ class KeyLogger {
   };
 }
 
-let keyLogger = new KeyLogger();
+const keyLogger = new KeyLogger();

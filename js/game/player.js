@@ -130,4 +130,4 @@ class Player {
   }
 }
 
-let player = new Player();
+const player = new Player();

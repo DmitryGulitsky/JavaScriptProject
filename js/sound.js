@@ -17,14 +17,14 @@ class Sound {
   }
 }
 
-let shotSound = new Sound('./sounds/shot.mp3');
-let bangSound = new Sound('./sounds/bang.mp3');
-let startPageSound = new Sound('./sounds/startPageSound.mp3');
-let excellentSound = new Sound('./sounds/ExcellentSoundEffect.mp3');
-let fightSound = new Sound('./sounds/FightSoundEffect.mp3');
+const shotSound = new Sound('./sounds/shot.mp3');
+const bangSound = new Sound('./sounds/bang.mp3');
+const startPageSound = new Sound('./sounds/startPageSound.mp3');
+const excellentSound = new Sound('./sounds/ExcellentSoundEffect.mp3');
+const fightSound = new Sound('./sounds/FightSoundEffect.mp3');
 
-let musicSound = new Sound('./sounds/gameplay-music.mp3');
+const musicSound = new Sound('./sounds/gameplay-music.mp3');
 $(musicSound).attr('loop', 'loop');
 
-let menuMusicSound = new Sound('./sounds/menu-music.mp3');
+const menuMusicSound = new Sound('./sounds/menu-music.mp3');
 $(menuMusicSound).attr('loop', 'loop');

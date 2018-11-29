@@ -20,7 +20,7 @@ function renderNewState() {
       startPage.render();
       //startPageSound.play();
       rulesPage.hide();
-      scorePage.hide();
+      ScorePage.hide();
       aboutPage.hide();
 
       if (mainMenu) {
@@ -34,15 +34,15 @@ function renderNewState() {
       fightSound.play();  // звук fight
       menuMusicSound.stop(); // звук музыки в меню
       rulesPage.hide();
-      scorePage.hide();
+      ScorePage.hide();
       aboutPage.hide();
       mainMenu.hide();
-      level.hideMessage();
+      Level.hideMessage();
       break;
 
     case 'scores':
       stopGame();
-      scorePage.show();
+      ScorePage.show();
       scorePage.showAllScores();  // загружаем AJAX данные с сервера
       rulesPage.hide();
       aboutPage.hide();
@@ -54,7 +54,7 @@ function renderNewState() {
       stopGame();
       startPage.hide();
       rulesPage.show();
-      scorePage.hide();
+      ScorePage.hide();
       aboutPage.hide();
       mainMenu.show();
       menuMusicSound.play();
@@ -64,7 +64,7 @@ function renderNewState() {
       stopGame();
       aboutPage.show();
       rulesPage.hide();
-      scorePage.hide();
+      ScorePage.hide();
       menuMusicSound.play();
       mainMenu.show();
       break;
@@ -75,7 +75,7 @@ function renderNewState() {
       excellentSound.play();    // звук excellent
       aboutPage.hide();
       rulesPage.hide();
-      scorePage.hide();
+      ScorePage.hide();
       mainMenu.show();
       menuMusicSound.play(); // звук музыки в меню
       break;
@@ -86,22 +86,22 @@ function switchToState(state) {
   location.hash = encodeURIComponent(JSON.stringify(state));
 }
 
-let switchToStart = function switchToStart() {
+const switchToStart = function switchToStart() {
   switchToState({page: 'start'});
 };
-let switchToPlay = function switchToPlay() {
+const switchToPlay = function switchToPlay() {
   switchToState({page: 'play'});
 };
-let switchToScores = function switchToScores() {
+const switchToScores = function switchToScores() {
   switchToState({page: 'scores'});
 };
-let switchToRules = function switchToRules() {
+const switchToRules = function switchToRules() {
   switchToState({page: 'rules'});
 };
-let switchToAbout = function switchToAbout() {
+const switchToAbout = function switchToAbout() {
   switchToState({page: 'about'});
 };
-let switchToLevelInfo = function switchToLevelInfo() {
+const switchToLevelInfo = function switchToLevelInfo() {
   switchToState({page: 'levelInfo'});
 };
 

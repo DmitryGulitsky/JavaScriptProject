@@ -23,7 +23,7 @@ class Bullets {
 
     let id = -1; // задается начальное значение -1, чтобы далее через преинкремент обращаться к нулевому элементу массива this.objects[] и не запускать циклы в this.render() и this.update()
 
-    while (this.objects[++id] != undefined) ;
+    while (this.objects[++id] !== undefined) ;
     this.objects[id] = bullet;    //добавляем объект с параметрами пули в empty место массива
     if (id > this.maxID) {   //увеличиваем значение для максимального количество ячеек, чтобы циклы в this.render() и this.update охватывали все элементы
       this.maxID = id;
@@ -34,7 +34,7 @@ class Bullets {
 
   update(dt) {  // обновляем местоположение каждой пули в координатной плосксти
     for (let i = 0; i <= this.maxID; i++) {
-      if (this.objects[i] == undefined) continue;
+      if (this.objects[i] === undefined) continue;
 
       let obj = this.objects[i];
 
@@ -83,4 +83,4 @@ class Bullets {
   }
 }
 
-let bullets = new Bullets();
+const bullets = new Bullets();

@@ -43,8 +43,6 @@ const init = () => {
   },10);
 
   buttonControl.render();
-
-
 };
 
 const stopGame = () => {
@@ -54,15 +52,13 @@ const stopGame = () => {
 };
 
 const updateGame = (dt) => {
-
   level.statControl();  // контроль игры
-
   bullets.update(dt);
   targets.update(dt);
   player.update(dt);
 };
 const renderGame = () => {
-  renderBackground();
+  spaceBackground.renderBackground();
   player.render();
   bullets.render();
   targets.render();

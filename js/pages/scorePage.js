@@ -7,7 +7,7 @@ class ScorePage {
 
   }
 
-  render() {
+  static render() {
     scoreStorage.readStorage();
     let scoreContainer = $(
       `<div  id="scoreContainer" class="pages"></div>`
@@ -45,15 +45,15 @@ class ScorePage {
 
   }
 
-  show() {
+  static show() {
     $('#scoreContainer').show('slow');
     scoreStorage.readStorage();
   }
 
-  hide() {
+  static hide() {
     $('#scoreContainer').hide('slow');
     $(`#scoreContainer`).empty();   // удаляем содержимое scoreContainer
   }
 }
 
-let scorePage = new ScorePage();
+const scorePage = new ScorePage();

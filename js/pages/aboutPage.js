@@ -23,4 +23,4 @@ class AboutPage {
   }
 }
 
-let aboutPage = new AboutPage();
+const aboutPage = new AboutPage();
