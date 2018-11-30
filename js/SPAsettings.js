@@ -30,14 +30,14 @@ function renderNewState() {
 
     case 'play':
       init();
-      musicSound.play();  // запускаем музыку в игре
-      fightSound.play();  // звук fight
       menuMusicSound.stop(); // звук музыки в меню
       rulesPage.hide();
       ScorePage.hide();
       aboutPage.hide();
       mainMenu.hide();
       Level.hideMessage();
+      musicSound.play();  // запускаем музыку в игре
+      fightSound.play();  // звук fight
       break;
 
     case 'scores':

@@ -9,22 +9,7 @@ class ButtonControl {
 
     const createButtonItems = (i) => {
       let button = $(`<div id="${i}" class="control" style="
-      position: absolute; 
-      text-shadow: 3px 3px 0 rgba(0,0,0,1);
-      background: linear-gradient(to bottom, #435dd5 0%, #172347 100%);
-      -webkit-box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
-      -moz-box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
-      box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
-      border: 2px solid black;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      font-size: 25px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 99;
-      width: 40px;
-      height: 40px;
+      
       ">${i}</div>`);
 
       $(`#canvasContainer`).append(button);

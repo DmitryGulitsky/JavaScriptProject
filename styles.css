@@ -5,46 +5,22 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-@font-face{
+@font-face {
   font-family: 'Cabin Sketch', cursive;
   src: url('/fonts/CabinSketch-Bold.ttf');
   font-weight: normal;
   font-style: normal;
 }
-
 body {
   font-family: 'Fjalla One', sans-serif;
   background: linear-gradient(to bottom, #000000 0%, #a5b4b4 100%);
 }
-
-#logo-container {
-  z-index: 997;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 30%;
-  display: block;
-  position: absolute;
-  max-width: 360px;
-}
-
-.button {
-  z-index: 99;
-  position: absolute;
-  left: 50%;
-}
-
-.button img{
-  z-index: 99;
-  width: 0;
-}
-
-h1 {
+body #startPageContainer h1 {
   z-index: 98;
   position: absolute;
   top: 20%;
   left: 20%;
-  width:80%;
+  width: 80%;
   color: #fff;
   text-transform: uppercase;
   font-size: 75px;
@@ -52,15 +28,13 @@ h1 {
   line-height: 200%;
   letter-spacing: 2px;
 }
-
-.title {
+body #startPageContainer h1 .title {
   transform: translateX(-50%) rotate(-10deg);
   display: block;
   float: left;
   position: relative;
 }
-
-.title span {
+body #startPageContainer h1 .title span {
   transform: skew(-10deg);
   display: block;
   float: left;
@@ -69,61 +43,25 @@ h1 {
   min-height: 10px;
   position: relative;
 }
-
-.title:nth-child(1) {
+body #startPageContainer h1 .title:nth-child(1) {
   color: #e55643;
 }
-
-.title:nth-child(2) {
+body #startPageContainer h1 .title:nth-child(2) {
   color: #2b9f5e;
 }
-
-.title:nth-child(3) {
+body #startPageContainer h1 .title:nth-child(3) {
   color: #f1c83c;
 }
-
-.SErrorText {
-  color: red;
-  background-color: black;
-  border: 2px solid #cacaca;
-  border-radius: 10px;
-  text-align: center;
-  padding: 5px;
-  margin: 5px;
-}
-
-.jump span{
+body #startPageContainer h1 .jump span {
   position: relative;
   display: inline-block;
   transition: transform 0.1s;
-  }
-
-.jump span:hover {
+}
+body #startPageContainer h1 .jump span:hover {
   transform: translateY(-20px) scale(2) rotate(10deg);
   z-index: 1;
 }
-
-.pages {
-  display: none;
-  text-align: center;
-  width: 80%;
-  position: absolute;
-  left: 10%;
-  top: 15%;
-  padding: 5%;
-  font-family: Cabin Sketch, cursive;
-  font-size: 35px;
-  color: white;
-  text-shadow: 3px 3px 0 rgba(0,0,0,1);
-  background: linear-gradient(to bottom, #435dd5 0%, #172347 100%);
-  -webkit-box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
-  -moz-box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
-  box-shadow: 10px 10px 20px 1px rgba(0,0,0,0.66);
-  border: 2px solid black;
-  border-radius: 50px;
-}
-
-#slick-login {
+body #startPageContainer #slick-login {
   z-index: 100;
   width: 220px;
   height: 155px;
@@ -138,12 +76,7 @@ h1 {
   -o-animation: login 1s ease-in-out;
   animation: login 1s ease-in-out;
 }
-
-.placeholder {
-  color: #444;
-}
-
-#slick-login input[type="text"] {
+body #startPageContainer #slick-login input[type="text"] {
   width: 100%;
   height: 40px;
   position: relative;
@@ -151,41 +84,42 @@ h1 {
   font-size: 14px;
   color: #444;
   outline: none;
-  border: 1px solid rgba(0, 0, 0, .49);
-
+  border: 1px solid rgba(0, 0, 0, 0.49);
   padding-left: 20px;
-
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
   border-radius: 6px;
-
   background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
   background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
   background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
   background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
   background-image: linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
-
   -webkit-box-shadow: inset 0 2px 0 #d9d9d9;
   box-shadow: inset 0 2px 0 #d9d9d9;
-
-  -webkit-transition: all .1s ease-in-out;
-  -moz-transition: all .1s ease-in-out;
-  -o-transition: all .1s ease-in-out;
-  -ms-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
-
-#slick-login input[type="text"]:focus {
+body #startPageContainer #slick-login input[type="text"]:focus {
   -webkit-box-shadow: inset 0 2px 0 #a7a7a7;
   box-shadow: inset 0 2px 0 #a7a7a7;
 }
-
-#slick-login input:first-child {
+body #startPageContainer #slick-login .SErrorText {
+  color: red;
+  background-color: black;
+  border: 2px solid #cacaca;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+body #startPageContainer #slick-login input:first-child {
   margin-top: 0;
 }
-
-#slick-login input[type="submit"] {
+body #startPageContainer #slick-login input[type="submit"] {
   width: 100%;
   height: 50px;
   margin-top: 7px;
@@ -194,58 +128,75 @@ h1 {
   font-weight: bold;
   text-shadow: 0 -1px 0 #5b6ddc;
   outline: none;
-  border: 1px solid rgba(0, 0, 0, .49);
-
+  border: 1px solid rgba(0, 0, 0, 0.49);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
   border-radius: 6px;
-
   background-color: #5466da;
   background-image: -webkit-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
   background-image: -moz-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
   background-image: -o-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
   background-image: -ms-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
   background-image: linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-
   -webkit-box-shadow: inset 0 1px 0 #9ab1ec;
   box-shadow: inset 0 1px 0 #9ab1ec;
-
   cursor: pointer;
-
-  -webkit-transition: all .1s ease-in-out;
-  -moz-transition: all .1s ease-in-out;
-  -o-transition: all .1s ease-in-out;
-  -ms-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
-
-#slick-login input[type="submit"]:hover {
+body #startPageContainer #slick-login input[type="submit"]:hover {
   background-color: #5f73e9;
   background-image: -webkit-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
   background-image: -moz-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
   background-image: -o-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
   background-image: -ms-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
   background-image: linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
-
   -webkit-box-shadow: inset 0 1px 0 #aab9f4;
   box-shadow: inset 0 1px 0 #aab9f4;
   margin-top: 10px;
 }
-
-#slick-login input[type="submit"]:active {
+body #startPageContainer #slick-login input[type="submit"]:active {
   background-color: #7588e1;
   background-image: -webkit-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
   background-image: -moz-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
   background-image: -o-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
   background-image: -ms-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
   background-image: linear-gradient(bottom, #7588e1 0%, #7184df 100%);
-
   -webkit-box-shadow: inset 0 1px 0 #93a9e9;
   box-shadow: inset 0 1px 0 #93a9e9;
 }
-
-@media all and (max-width:992px) {
+body #startPageContainer .button {
+  z-index: 99;
+  position: absolute;
+  left: 50%;
+}
+body #startPageContainer .button img {
+  width: 0;
+}
+.pages {
+  display: none;
+  text-align: center;
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  padding: 5%;
+  font-family: Cabin Sketch, cursive;
+  font-size: 35px;
+  color: white;
+  text-shadow: 3px 3px 0 #000000;
+  background: linear-gradient(to bottom, #435dd5 0%, #172347 100%);
+  -webkit-box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.66);
+  box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.66);
+  border: 2px solid black;
+  border-radius: 50px;
+}
+@media all and (max-width: 992px) {
   h1 {
     width: 70%;
     left: 30%;
@@ -253,8 +204,7 @@ h1 {
     font-size: 50px;
   }
 }
-
-@media all and (max-width:576px) {
+@media all and (max-width: 576px) {
   h1 {
     top: 0;
     font-size: 50px;
