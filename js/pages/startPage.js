@@ -10,13 +10,26 @@ class StartPage {
   render() {
 
     let canvasContainer = $(
-      `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>
-       <div id="levelMessageContainer"></div>
-       <div id="menuContainer"></div>`
+      `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>`
     );
-    $(`#game`).append(canvasContainer);
 
-    $('#canvasContainer').show('slow');
+    let levelMessageContainer = $(`<div id="levelMessageContainer"></div>`);
+
+    let menuContainer = $(`<div id="menuContainer"></div>`);
+
+    let startPageContainer = $(
+      `<div  id="startPageContainer">
+         <h1></h1>
+         <form id="slick-login" action="javascript: startPage.loginSubmit()"></form>
+       </div>`
+    );
+
+    $(`body`)
+      .mousemove(spaceBackground.spaceMove)
+      .append(startPageContainer)
+      .append(canvasContainer)
+      .append(levelMessageContainer)
+      .append(menuContainer);
 
     $(`#canvas`)
       .attr(`width`, window.innerWidth)
@@ -26,41 +39,30 @@ class StartPage {
       $(`.title`).lettering();
     });
 
-    let startPageContainer = $(
-      `<div  id="startPageContainer"></div>`
-    );
-
-    $(`body`)
-      .mousemove(spaceBackground.spaceMove)
-      .prepend(startPageContainer);
-
     spaceBackground.createStar();
 
-    let logoTextContainer = $(
-      `<h1></h1>`);
+    let titleArray = ['crazy','balls','in space'];
 
-    let startContainer = $(
-      `<form id="slick-login" style="display: none" action="javascript: startPage.loginSubmit();"></form>`
+    const createTitle = (i) => {
+      const line = $(`<span class="title jump">${i}</span>`);
+      $('h1').append(line);
+    };
+
+    $.map(titleArray, createTitle);
+    
+    let loginText = $(
+      `<input id="loginText" type="text" name="username" autocomplete="on" placeholder="ENTER YOUR NAME HERE">`
     );
 
-    $('#startPageContainer')
-      .append(logoTextContainer)
-      .append(startContainer);
+    let loginSubmit = $(
+      `<input id="loginSubmit" type="submit" value="PRESS to START">`
+    );
 
-    let line1 = $(
-      `<span class="title jump">crazy</span>`);
-
-    let line2 = $(
-      `<span class="title jump">balls</span>`);
-
-    let line3 = $(
-      `<span class="title jump">in space</span>`);
-
-    $('h1').append(line1)
-      .append(line2)
-      .append(line3);
-
-    $('#slick-login').slideDown(2000).validate({
+    $('#slick-login')
+      .append(loginText)
+      .append(loginSubmit)
+      .slideDown(2000)
+      .validate({
       rules:
         {
           username: {required: true, enter_name: 20},
@@ -77,20 +79,10 @@ class StartPage {
       errorElement: 'p',
     });
 
-    let loginText = $(
-      `<input id="loginText" type="text" name="username" autocomplete="on" placeholder="ENTER YOUR NAME HERE">`
-    );
-    $(startContainer).append(loginText);
-
-    let loginSubmit = $(
-      `<input id="loginSubmit" type="submit" value="PRESS to START">`
-    );
-    $(startContainer).append(loginSubmit);
-
     let startPageBallImageContainer = $(
       `<div id="startPageBallImageContainer" class="button"></div>`
     );
-    $(startPageContainer).append(startPageBallImageContainer);
+    $(`#startPageContainer`).append(startPageBallImageContainer);
 
     let startPageBallImage = $(
       `<img id="startPageBallImage" src="img/ball/ball.png" alt="Crazy Ball Image">`
