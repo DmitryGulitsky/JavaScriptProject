@@ -6,17 +6,11 @@
   box-sizing: border-box;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
-
 @font-face{
   font-family: 'Cabin Sketch', cursive;
   src: url('/fonts/CabinSketch-Bold.ttf');
   font-weight: normal;
   font-style: normal;
-}
-
-html {
-  height: 100%;
 }
 
 body {
@@ -152,7 +146,7 @@ h1 {
 #slick-login input[type="text"] {
   width: 100%;
   height: 40px;
-  positon: relative;
+  position: relative;
   margin-top: 7px;
   font-size: 14px;
   color: #444;
@@ -172,8 +166,8 @@ h1 {
   background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
   background-image: linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
 
-  -webkit-box-shadow: inset 0px 2px 0px #d9d9d9;
-  box-shadow: inset 0px 2px 0px #d9d9d9;
+  -webkit-box-shadow: inset 0 2px 0 #d9d9d9;
+  box-shadow: inset 0 2px 0 #d9d9d9;
 
   -webkit-transition: all .1s ease-in-out;
   -moz-transition: all .1s ease-in-out;
@@ -183,12 +177,12 @@ h1 {
 }
 
 #slick-login input[type="text"]:focus {
-  -webkit-box-shadow: inset 0px 2px 0px #a7a7a7;
-  box-shadow: inset 0px 2px 0px #a7a7a7;
+  -webkit-box-shadow: inset 0 2px 0 #a7a7a7;
+  box-shadow: inset 0 2px 0 #a7a7a7;
 }
 
 #slick-login input:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 #slick-login input[type="submit"] {
@@ -198,7 +192,7 @@ h1 {
   color: #fff;
   font-size: 18px;
   font-weight: bold;
-  text-shadow: 0px -1px 0px #5b6ddc;
+  text-shadow: 0 -1px 0 #5b6ddc;
   outline: none;
   border: 1px solid rgba(0, 0, 0, .49);
 
@@ -214,8 +208,8 @@ h1 {
   background-image: -ms-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
   background-image: linear-gradient(bottom, #5466da 0%, #768ee4 100%);
 
-  -webkit-box-shadow: inset 0px 1px 0px #9ab1ec;
-  box-shadow: inset 0px 1px 0px #9ab1ec;
+  -webkit-box-shadow: inset 0 1px 0 #9ab1ec;
+  box-shadow: inset 0 1px 0 #9ab1ec;
 
   cursor: pointer;
 
@@ -234,8 +228,8 @@ h1 {
   background-image: -ms-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
   background-image: linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
 
-  -webkit-box-shadow: inset 0px 1px 0px #aab9f4;
-  box-shadow: inset 0px 1px 0px #aab9f4;
+  -webkit-box-shadow: inset 0 1px 0 #aab9f4;
+  box-shadow: inset 0 1px 0 #aab9f4;
   margin-top: 10px;
 }
 
@@ -247,6 +241,22 @@ h1 {
   background-image: -ms-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
   background-image: linear-gradient(bottom, #7588e1 0%, #7184df 100%);
 
-  -webkit-box-shadow: inset 0px 1px 0px #93a9e9;
-  box-shadow: inset 0px 1px 0px #93a9e9;
+  -webkit-box-shadow: inset 0 1px 0 #93a9e9;
+  box-shadow: inset 0 1px 0 #93a9e9;
+}
+
+@media all and (max-width:992px) {
+  h1 {
+    width: 70%;
+    left: 30%;
+    top: 20%;
+    font-size: 50px;
+  }
+}
+
+@media all and (max-width:576px) {
+  h1 {
+    top: 0;
+    font-size: 50px;
+  }
 }

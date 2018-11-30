@@ -27,7 +27,7 @@ class MainMenu {
 
       const outButton = () => {
         $(`#menu${i}`)
-          .animate({'opacity': `0.8`}, 300)
+          .animate({'opacity': `1`}, 300)
           .css({'cursor': `default`})
       };
 
