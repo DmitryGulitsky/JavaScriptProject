@@ -8,14 +8,23 @@ class AboutPage {
   }
 
   render() {
-    let aboutContainer = $(
+    this.aboutContainer = $(
       `<div  id="aboutContainer" class="pages">This game was created as a final project following the course "Developing Web Applications for JavaScript by Instinctools" by student Dmitry Gulitsky under the guidance of a teacher Alexander Stashkevich in 2018. Grodno</div>`
     );
-    $(`#menuContainer`).append(aboutContainer);
+    $(`#menuContainer`).append(this.aboutContainer);
   }
 
   show() {
-    $('#aboutContainer').show('slow');
+    if (!$("div").is("#aboutContainer")){
+      mainMenu.render();
+      mainMenu.show();
+      this.render();
+      rulesPage.render();
+      scorePage.render();
+      $(`#aboutContainer`).css(`display`,`block`);
+    } else {
+      $('#aboutContainer').show('slow');
+    }
   }
 
   hide() {

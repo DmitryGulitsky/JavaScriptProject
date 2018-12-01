@@ -49,7 +49,7 @@ class Level {
 
   renderMessage() {
 
-    Level.removeMessage();   // удаляем предыдущее сообщение о переходе на новый уровень
+    level.removeMessage();   // удаляем предыдущее сообщение о переходе на новый уровень
 
     let levelContainer = $(`#levelMessageContainer`);
     let currentLevelMessage = $(
@@ -59,19 +59,19 @@ press PLAY to continue</div>`
 
     $(levelContainer).append(currentLevelMessage);
 
-    Level.showMessage();   // задаем плавное появление сообщения о переходе на новый уровень
+    level.showMessage();   // задаем плавное появление сообщения о переходе на новый уровень
   }
 
-  static showMessage() {
+  showMessage() {
     $('#currentLevelMessage').show('slow');
   }
 
-  static hideMessage() {
+  hideMessage() {
     $('#currentLevelMessage').hide('slow')
       .queue(Level.removeMessage)    // устанавливаем порядок выполнения функция
   }
 
-  static removeMessage() {
+  removeMessage() {
     $('#currentLevelMessage').remove();
   }
 }

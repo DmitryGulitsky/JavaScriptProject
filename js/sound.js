@@ -6,9 +6,12 @@ class Sound {
   constructor(src, id) {
     this.sound = $(`<audio id="${id}" src=${src} preload="auto" controls="none" style="display: none"></audio>`);
     $(`body`).append(this.sound);
-  }
+    }
 
   play() {
+    $(window).on('load', function(){
+      $(this.sound).trigger('click');
+    });
     this.sound.trigger('play');
   }
 

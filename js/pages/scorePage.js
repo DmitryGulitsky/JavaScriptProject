@@ -7,12 +7,15 @@ class ScorePage {
 
   }
 
-  static render() {
-    scoreStorage.readStorage();
-    let scoreContainer = $(
+  render() {
+    if (scoreStorage){
+      scoreStorage.readStorage();
+    }
+
+    this.scoreContainer = $(
       `<div  id="scoreContainer" class="pages"></div>`
     );
-    $(`#menuContainer`).append(scoreContainer);
+    $(`#menuContainer`).append(this.scoreContainer);
   }
 
   showAllScores() {    // функция для вывода таблицы на страницу
@@ -45,12 +48,20 @@ class ScorePage {
 
   }
 
-  static show() {
-    $('#scoreContainer').show('slow');
-    scoreStorage.readStorage();
+  show() {
+    if (!$(`div`).is(`#scoreContainer`)){
+      mainMenu.render();
+      mainMenu.show();
+      this.render();
+      aboutPage.render();
+      rulesPage.render();
+      $(`#scoreContainer`).css(`display`,`block`);
+    } else {
+      $('#scoreContainer').show('slow');
+    }
   }
 
-  static hide() {
+  hide() {
     $('#scoreContainer').hide('slow');
     $(`#scoreContainer`).empty();   // удаляем содержимое scoreContainer
   }

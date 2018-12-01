@@ -8,9 +8,7 @@ class ButtonControl {
     const buttonNameArray = ['Left', 'Forward', 'Right', 'Back', 'Shoot', 'Menu'];
 
     const createButtonItems = (i) => {
-      let button = $(`<div id="${i}" class="control" style="
-      
-      ">${i}</div>`);
+      let button = $(`<div id="${i}" class="control">${i}</div>`);
 
       $(`#canvasContainer`).append(button);
 

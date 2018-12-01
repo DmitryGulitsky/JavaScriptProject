@@ -1,9 +1,6 @@
 'use strict';
 
-// здесь объеденяется отрисовка Canvas элементов
-
-let canvas,
-  width,
+let width,
   height,
   playingIntervalID;
 
@@ -11,12 +8,9 @@ const init = () => {
 
   $(`#canvasContainer`).remove();
 
-  console.log('start init');
-
   let canvasContainer = $(
     `<div id="canvasContainer" style="position: absolute;"><canvas id="canvas" style="background:#000;"></canvas></div>
-     <div id="levelMessageContainer"></div>
-     <div id="menuContainer"></div>`
+     <div id="levelMessageContainer"></div>`
   );
   $(`#game`).append(canvasContainer);
 
@@ -57,10 +51,17 @@ const updateGame = (dt) => {
   targets.update(dt);
   player.update(dt);
 };
+
 const renderGame = () => {
   spaceBackground.renderBackground();
   player.render();
   bullets.render();
   targets.render();
   score.render();
+};
+
+const addEventListeners = () => {
+  $(window).on("beforeunload", function() {
+    return confirm("Do you really want to close?");
+  });
 };

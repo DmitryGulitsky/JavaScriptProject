@@ -45,7 +45,6 @@ class Player {
         this.angle -= 2 * Math.PI;
     }
 
-
     if (!(keyLogger.keyStatus.up || keyLogger.keyStatus.down)) {  // плавное торможение, при ненажатии кнопок 'up' 'down'
       this.v *= 0.99;
     }

@@ -11,6 +11,9 @@ class MainMenu {
     const menuItemLength = menuItemsArray.length;
     let counter = 0;
 
+    let menuContainer = `<div id="menuContainer"></div>`;
+    $(`body`).append(menuContainer);
+
     const createMenuItems = (i) => {
 
       let menuItem = $(`<div id="menu${i}" class="pages" style="display: block; width: ${(100 / menuItemLength)}%; left: ${(100 / menuItemLength * counter)}%; top: 0; padding: 0.5% 0;">${i}</div>`);

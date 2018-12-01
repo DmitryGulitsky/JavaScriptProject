@@ -30,14 +30,13 @@ class Star {
     this.id = backgroundSpaceParametres.starsIndex;
   }
 
-
   // анимирование звезд
   updateStar() {
-    backgroundSpaceParametres.starX = (this.x - backgroundSpaceParametres.centerX) * (backgroundSpaceParametres.focalLength / this.z);
-    backgroundSpaceParametres.starX += backgroundSpaceParametres.centerX;
+    backgroundSpaceParametres.starX = (this.x - window.innerWidth / 2) * (backgroundSpaceParametres.focalLength / this.z);
+    backgroundSpaceParametres.starX += window.innerWidth / 2;
 
-    backgroundSpaceParametres.starY = (this.y - backgroundSpaceParametres.centerY) * (backgroundSpaceParametres.focalLength / this.z);
-    backgroundSpaceParametres.starY += backgroundSpaceParametres.centerY;
+    backgroundSpaceParametres.starY = (this.y - window.innerHeight / 2) * (backgroundSpaceParametres.focalLength / this.z);
+    backgroundSpaceParametres.starY += window.innerHeight / 2;
 
     backgroundSpaceParametres.starRadius = backgroundSpaceParametres.radius * (backgroundSpaceParametres.focalLength / this.z);
 
@@ -47,7 +46,7 @@ class Star {
     this.z += -10;
 
     if (this.z <= 0) {
-      this.z = parseInt(backgroundSpaceParametres.innerWidth);
+      this.z = parseInt(window.innerWidth);
     }
     this.render();
   }
@@ -72,14 +71,14 @@ class SpaceBackground {
     backgroundSpaceParametres.mouse.x = e.pageX;
     backgroundSpaceParametres.mouse.y = e.pageY;
 
-    if (backgroundSpaceParametres.mouse.x < backgroundSpaceParametres.centerX) {
+    if (backgroundSpaceParametres.mouse.x < window.innerWidth / 2) {
       backgroundSpaceParametres.starX_dir += 1;
 
     } else {
       backgroundSpaceParametres.starX_dir += -1;
     }
 
-    if (backgroundSpaceParametres.mouse.y < backgroundSpaceParametres.centerY) {
+    if (backgroundSpaceParametres.mouse.y < window.innerHeight / 2) {
       backgroundSpaceParametres.starY_dir += 1;
     } else {
       backgroundSpaceParametres.starY_dir += -1;
@@ -88,11 +87,10 @@ class SpaceBackground {
 
   renderBackground() {
 
-    $(`#canvas`)
+       $(`#canvas`)
       .attr(`width`, window.innerWidth)
-      .attr(`height`, window.innerHeight);
-
-    $(`#canvas`).drawRect({
+      .attr(`height`, window.innerHeight)
+      .drawRect({
       fillStyle: 'black',
       x: 0, y: 0,
       fromCenter: false,

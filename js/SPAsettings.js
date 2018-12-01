@@ -18,31 +18,27 @@ function renderNewState() {
 
     case 'start':
       startPage.render();
-      //startPageSound.play();
+      addEventListeners();
       rulesPage.hide();
-      ScorePage.hide();
+      scorePage.hide();
       aboutPage.hide();
-
-      if (mainMenu) {
-        mainMenu.hide();
-      }
       break;
 
     case 'play':
       init();
       menuMusicSound.stop(); // звук музыки в меню
       rulesPage.hide();
-      ScorePage.hide();
+      scorePage.hide();
       aboutPage.hide();
       mainMenu.hide();
-      Level.hideMessage();
+      level.hideMessage();
       musicSound.play();  // запускаем музыку в игре
       fightSound.play();  // звук fight
       break;
 
     case 'scores':
       stopGame();
-      ScorePage.show();
+      scorePage.show();
       scorePage.showAllScores();  // загружаем AJAX данные с сервера
       rulesPage.hide();
       aboutPage.hide();
@@ -54,7 +50,7 @@ function renderNewState() {
       stopGame();
       startPage.hide();
       rulesPage.show();
-      ScorePage.hide();
+      scorePage.hide();
       aboutPage.hide();
       mainMenu.show();
       menuMusicSound.play();
@@ -64,7 +60,7 @@ function renderNewState() {
       stopGame();
       aboutPage.show();
       rulesPage.hide();
-      ScorePage.hide();
+      scorePage.hide();
       menuMusicSound.play();
       mainMenu.show();
       break;
@@ -75,7 +71,7 @@ function renderNewState() {
       excellentSound.play();    // звук excellent
       aboutPage.hide();
       rulesPage.hide();
-      ScorePage.hide();
+      scorePage.hide();
       mainMenu.show();
       menuMusicSound.play(); // звук музыки в меню
       break;

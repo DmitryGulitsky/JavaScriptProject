@@ -49,7 +49,7 @@ class StartPage {
     };
 
     $.map(titleArray, createTitle);
-    
+
     let loginText = $(
       `<input id="loginText" type="text" name="username" autocomplete="on" placeholder="ENTER YOUR NAME HERE">`
     );
@@ -58,7 +58,7 @@ class StartPage {
       `<input id="loginSubmit" type="submit" value="PRESS to START">`
     );
 
-    $('#slick-login')
+    $(`#slick-login`)
       .append(loginText)
       .append(loginSubmit)
       .slideDown(2000)
@@ -106,7 +106,7 @@ class StartPage {
 
       mainMenu.render();  // создание меню
 
-      ScorePage.render(); // создание страниц в фоне
+      scorePage.render(); // создание страниц в фоне
       rulesPage.render(); // создание страниц в фоне
       aboutPage.render(); // создание страниц в фоне
 

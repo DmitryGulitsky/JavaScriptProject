@@ -37,3 +37,7 @@ $.validator.addMethod('enter_name', enterNameValidation,
 const sparanWrap = (word) => {
   return [...word].map(letter => `<span>${letter}</span>`).join('');
 }
+
+$(window).on('load', function () {
+  $('#wrap_preloader').delay(1000).fadeToggle(1000);
+});
