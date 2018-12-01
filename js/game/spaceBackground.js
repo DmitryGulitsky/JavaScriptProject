@@ -32,11 +32,11 @@ class Star {
 
   // анимирование звезд
   updateStar() {
-    backgroundSpaceParametres.starX = (this.x - window.innerWidth / 2) * (backgroundSpaceParametres.focalLength / this.z);
-    backgroundSpaceParametres.starX += window.innerWidth / 2;
+    backgroundSpaceParametres.starX = (this.x - width / 2) * (backgroundSpaceParametres.focalLength / this.z);
+    backgroundSpaceParametres.starX += width / 2;
 
-    backgroundSpaceParametres.starY = (this.y - window.innerHeight / 2) * (backgroundSpaceParametres.focalLength / this.z);
-    backgroundSpaceParametres.starY += window.innerHeight / 2;
+    backgroundSpaceParametres.starY = (this.y - height / 2) * (backgroundSpaceParametres.focalLength / this.z);
+    backgroundSpaceParametres.starY += height / 2;
 
     backgroundSpaceParametres.starRadius = backgroundSpaceParametres.radius * (backgroundSpaceParametres.focalLength / this.z);
 
@@ -46,7 +46,7 @@ class Star {
     this.z += -10;
 
     if (this.z <= 0) {
-      this.z = parseInt(window.innerWidth);
+      this.z = parseInt(width);
     }
     this.render();
   }
@@ -71,14 +71,14 @@ class SpaceBackground {
     backgroundSpaceParametres.mouse.x = e.pageX;
     backgroundSpaceParametres.mouse.y = e.pageY;
 
-    if (backgroundSpaceParametres.mouse.x < window.innerWidth / 2) {
+    if (backgroundSpaceParametres.mouse.x < width / 2) {
       backgroundSpaceParametres.starX_dir += 1;
 
     } else {
       backgroundSpaceParametres.starX_dir += -1;
     }
 
-    if (backgroundSpaceParametres.mouse.y < window.innerHeight / 2) {
+    if (backgroundSpaceParametres.mouse.y < height / 2) {
       backgroundSpaceParametres.starY_dir += 1;
     } else {
       backgroundSpaceParametres.starY_dir += -1;
@@ -87,6 +87,9 @@ class SpaceBackground {
 
   renderBackground() {
 
+    width = window.innerWidth;
+    height = window.innerHeight;
+
        $(`#canvas`)
       .attr(`width`, window.innerWidth)
       .attr(`height`, window.innerHeight)
@@ -94,8 +97,8 @@ class SpaceBackground {
       fillStyle: 'black',
       x: 0, y: 0,
       fromCenter: false,
-      width: window.innerWidth,
-      height: window.innerHeight
+      width: width,
+      height: height
     });
     for (let i in backgroundSpaceParametres.stars) {
       backgroundSpaceParametres.stars[i].updateStar();
