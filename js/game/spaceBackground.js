@@ -1,3 +1,5 @@
+// здесь создаем космический фон на canvas
+
 'use strict';
 
 let backgroundSpaceParametres = {
@@ -65,7 +67,7 @@ class SpaceBackground {
   constructor() {
 
   }
-
+    // эффект перемещения в пространстве при перемещении мыши
   spaceMove(e) {
 
     backgroundSpaceParametres.mouse.x = e.pageX;
@@ -85,6 +87,7 @@ class SpaceBackground {
     }
   };
 
+  // черный фон
   renderBackground() {
 
     width = window.innerWidth;
@@ -105,6 +108,7 @@ class SpaceBackground {
     }
   };
 
+  // создание установленного количества звезд
   createStar() {
     for (let s = 0; s < backgroundSpaceParametres.numStars; s++) {
       let x = Math.random() * window.innerWidth;

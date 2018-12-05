@@ -1,3 +1,5 @@
+// здесь создаем кнопки для управления игроком при помощи mouse и touch событий
+
 'use strict';
 
 class ButtonControl {
